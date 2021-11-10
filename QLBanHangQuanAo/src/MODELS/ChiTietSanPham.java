@@ -3,6 +3,7 @@ package MODELS;
 public class ChiTietSanPham {
 
     private int idChiTietSP;
+    private String maSP;
     private int idSanPham;
     private int idKichCo;
     private int idMauSac;
@@ -18,8 +19,9 @@ public class ChiTietSanPham {
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(int idChiTietSP, int idSanPham, int idKichCo, int idMauSac, int idDonViTinh, int idChatLieu, int idGioiTinh, String moTa, double giaTien, String tenCT, int trangThai, int soLuong) {
+    public ChiTietSanPham(int idChiTietSP, String maSP, int idSanPham, int idKichCo, int idMauSac, int idDonViTinh, int idChatLieu, int idGioiTinh, String moTa, double giaTien, String tenCT, int trangThai, int soLuong) {
         this.idChiTietSP = idChiTietSP;
+        this.maSP = maSP;
         this.idSanPham = idSanPham;
         this.idKichCo = idKichCo;
         this.idMauSac = idMauSac;
@@ -31,6 +33,14 @@ public class ChiTietSanPham {
         this.tenCT = tenCT;
         this.trangThai = trangThai;
         this.soLuong = soLuong;
+    }
+
+    public void setMaSP(String maSP) {
+        this.maSP = maSP;
+    }
+
+    public String getMaSP() {
+        return maSP;
     }
 
     public void setIdSanPham(int idSanPham) {
