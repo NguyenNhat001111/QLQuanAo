@@ -65,6 +65,7 @@ GO
 create table ChiTietSanPham
 (
    IDCTSP int identity(1,1) not null primary key,
+   MaSanPham varchar(20) not null,
    IDSanPham int not null foreign key references SanPham(IDSanPham),
    IDKichCo int not null foreign key references KichCoSP(IDKichCo),
    IDMauSac int not null foreign key references MauSac(IDMauSac),
@@ -90,10 +91,10 @@ create table NguoiDung
 (
    IDNguoiDung int identity(1,1) not null primary key,
    IDVaiTro int not null foreign key references VaiTro(IDVaiTro),
-   HoTen nvarchar(50) not null,
-   SDT int not null,
+   HoTenNhanVien nvarchar(50) not null,
+   SDT varchar(10) not null,
    DiaChi nvarchar(50) not null,
-   CCCD int not null,
+   CCCD varchar(12) not null,
    TrangThai int not null
 )
 GO
@@ -102,9 +103,9 @@ create table KhachHang
 (
    IDKhachHang int identity(1,1) not null primary key,
    HoTenKH nvarchar(50) not null,
-   SDT int not null,
+   SDT varchar(10) not null,
    DiaChi nvarchar(50) not null,
-   CCCD int not null,
+   CCCD varchar(12) not null,
 )
 GO
 
@@ -178,20 +179,20 @@ insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
 values(1, 0, N'Áo Hoodie Channel', 1)
 
 --ChiTietSanPham
-insert into ChiTietSanPham(IDSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(1, 1, 0, 1, 1, 1, N'Demo mô tả', 250000, N'Demo tên chi tiết', 9, 1)
-insert into ChiTietSanPham(IDSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 0, 1, 1, 1, 0, N'Demo mô tả', 200000, N'Demo tên chi tiết', 11, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(1, 'SP01', 1, 0, 1, 1, 1, N'Demo mô tả', 250000, N'Demo tên chi tiết', 9, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(2, 'SP02', 0, 1, 1, 1, 0, N'Demo mô tả', 200000, N'Demo tên chi tiết', 11, 1)
 
 --Vaitro
 insert into VaiTro values(0, N'ADMIN')
 insert into VaiTro values(1, N'Nhân Viên')
 
 --NguoiDung
-insert into NguoiDung(IDVaiTro, HoTen, SDT, DiaChi, CCCD, TrangThai)
-values(0, N'Lê Quân', 0392402083, N'Cầu Giấy - Hà Nội', 001202003794, 1)
-insert into NguoiDung(IDVaiTro, HoTen, SDT, DiaChi, CCCD, TrangThai)
-values(1, N'Nguyễn Văn Nam', 0396662083, N'Ba Đình - Hà Nội', 001201000794, 1)
+insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(0, N'Lê Quân', '0392402083', N'Cầu Giấy - Hà Nội', '001202003794', 1)
+insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(1, N'Nguyễn Văn Nam', '0396662083', N'Ba Đình - Hà Nội', '001201000794', 1)
 
 --TaiKhoan
 insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
@@ -201,9 +202,9 @@ values('vannamnguyen@gmail.com', 2, 'nhanvien1', 1)
 
 --KhachHang
 insert into KhachHang(HoTenKH, SDT, DiaChi, CCCD)
-values(N'Nguyễn Minh Nhật', 0493676789, N'Hoàn Kiếm - Hà Nội', 001101000345)
+values(N'Nguyễn Minh Nhật', '0493676789', N'Hoàn Kiếm - Hà Nội', '001101000345')
 insert into KhachHang(HoTenKH, SDT, DiaChi, CCCD)
-values(N'Phí Công Lợi', 0493458389, N'Hoài Đức - Hà Nội', 001104573455)
+values(N'Phí Công Lợi', '0493458389', N'Hoài Đức - Hà Nội', '001104573455')
 
 --HoaDon
 insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, TrangThaiHoaDon)
@@ -236,9 +237,23 @@ select * from HoaDon
 select * from HoaDonChiTiet
 delete from ChiTietSanPham
 
-select HoaDon.IDHoaDon ,HoTenKH, HoTen,KhachHang.DiaChi, KhachHang.SDT, NgayLapHoaDon, SanPham.TenSanPham, HoaDonChiTiet.SoLuong, HoaDonChiTiet.DonGia, HoaDonChiTiet.ThanhTien, TongGiaTien from KhachHang 
+--ThongKe
+select HoaDon.IDHoaDon ,HoTenKH, HoTenNhanVien, KhachHang.DiaChi, KhachHang.SDT, NgayLapHoaDon, ChiTietSanPham.MaSanPham, SanPham.TenSanPham, HoaDonChiTiet.SoLuong, HoaDonChiTiet.DonGia, HoaDonChiTiet.ThanhTien, TongGiaTien from KhachHang 
 inner join HoaDon on KhachHang.IDKhachHang=HoaDon.IDKhachHang
 inner join NguoiDung on NguoiDung.IDNguoiDung=HoaDon.IDNguoiDung
 inner join HoaDonChiTiet on HoaDon.IDHoaDon=HoaDonChiTiet.IDHoaDon
 inner join ChiTietSanPham on HoaDonChiTiet.IDCTSP=ChiTietSanPham.IDCTSP
 inner join SanPham on SanPham.IDSanPham=ChiTietSanPham.IDSanPham
+
+--SanPham
+select TenSanPham, TenDanhMuc, ChatLieuSP, MauSac, KichCo, TenNhaSX, GiaTien,  ChiTietSanPham.TrangThai from ChiTietSanPham 
+inner join MauSac on MauSac.IDMauSac=ChiTietSanPham.IDMauSac
+inner join DonViTinh on DonViTinh.IDDonViTinh = ChiTietSanPham.IDDonViTinh
+inner join ChatLieu on ChatLieu.IDChatLieu=ChiTietSanPham.IDChatLieu
+inner join GioiTinh on GioiTinh.IDGioiTinh=ChiTietSanPham.IDgioiTinh
+inner join KichCoSP on KichCoSP.IDKichCo=ChiTietSanPham.IDKichCo
+inner join SanPham on ChiTietSanPham.IDSanPham=SanPham.IDSanPham
+inner join DanhMucSP on DanhMucSP.IDDanhMuc=SanPham.IDDanhMuc
+inner join NhaSanXuat on NhaSanXuat.IDNhaSanXuat=SanPham.IDNhaSanXuat
+
+
