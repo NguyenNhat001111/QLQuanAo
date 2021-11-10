@@ -246,7 +246,7 @@ inner join ChiTietSanPham on HoaDonChiTiet.IDCTSP=ChiTietSanPham.IDCTSP
 inner join SanPham on SanPham.IDSanPham=ChiTietSanPham.IDSanPham
 
 --SanPham
-select TenSanPham, TenDanhMuc, ChatLieuSP, MauSac, KichCo, TenNhaSX, GiaTien,  ChiTietSanPham.TrangThai from ChiTietSanPham 
+select TenSanPham, TenDanhMuc, ChatLieuSP, MauSac, KichCo, TenNhaSX, GiaTien,Soluong,  ChiTietSanPham.TrangThai from ChiTietSanPham 
 inner join MauSac on MauSac.IDMauSac=ChiTietSanPham.IDMauSac
 inner join DonViTinh on DonViTinh.IDDonViTinh = ChiTietSanPham.IDDonViTinh
 inner join ChatLieu on ChatLieu.IDChatLieu=ChiTietSanPham.IDChatLieu
@@ -255,5 +255,7 @@ inner join KichCoSP on KichCoSP.IDKichCo=ChiTietSanPham.IDKichCo
 inner join SanPham on ChiTietSanPham.IDSanPham=SanPham.IDSanPham
 inner join DanhMucSP on DanhMucSP.IDDanhMuc=SanPham.IDDanhMuc
 inner join NhaSanXuat on NhaSanXuat.IDNhaSanXuat=SanPham.IDNhaSanXuat
+
+select IDHoaDon,NgayLapHoaDon,TongGiaTien,TrangThaiHoaDon from HoaDon
 
 
