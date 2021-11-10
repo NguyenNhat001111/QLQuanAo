@@ -2,18 +2,38 @@ package MODELS;
 
 public class HoaDonChiTiet {
     private int idHoaDon;
+    private int idChiTietSP;
     private double donGia;
     private int soLuong;
+    private double thanhTien;
     private int trangThai;
 
     public HoaDonChiTiet() {
     }
 
-    public HoaDonChiTiet(int idHoaDon, double donGia, int soLuong, int trangThai) {
+    public HoaDonChiTiet(int idHoaDon, int idChiTietSP, double donGia, int soLuong, double thanhTien, int trangThai) {
         this.idHoaDon = idHoaDon;
+        this.idChiTietSP = idChiTietSP;
         this.donGia = donGia;
         this.soLuong = soLuong;
+        this.thanhTien = thanhTien;
         this.trangThai = trangThai;
+    }
+
+    public void setThanhTien(double thanhTien) {
+        this.thanhTien = thanhTien;
+    }
+
+    public void setIdChiTietSP(int idChiTietSP) {
+        this.idChiTietSP = idChiTietSP;
+    }
+
+    public double getThanhTien() {
+        return thanhTien;
+    }
+
+    public int getIdChiTietSP() {
+        return idChiTietSP;
     }
 
     public double getDonGia() {

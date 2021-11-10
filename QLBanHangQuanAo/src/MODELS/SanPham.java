@@ -2,21 +2,45 @@ package MODELS;
 
 public class SanPham {
     
-    private String idSanPham;
+    private int idSanPham;
+    private int idDanhMuc;
+    private int idNhaSanXuat;
     private String tenSanPham;
     private int trangThaiSP;
 
     public SanPham() {
     }
 
-    public SanPham(String idSanPham, String tenSanPham, int trangThaiSP) {
+    public SanPham(int idSanPham, int idDanhMuc, int idNhaSanXuat, String tenSanPham, int trangThaiSP) {
         this.idSanPham = idSanPham;
+        this.idDanhMuc = idDanhMuc;
+        this.idNhaSanXuat = idNhaSanXuat;
         this.tenSanPham = tenSanPham;
         this.trangThaiSP = trangThaiSP;
     }
 
-    public String getIdSanPham() {
+    public void setIdSanPham(int idSanPham) {
+        this.idSanPham = idSanPham;
+    }
+
+    public void setIdDanhMuc(int idDanhMuc) {
+        this.idDanhMuc = idDanhMuc;
+    }
+
+    public void setIdNhaSanXuat(int idNhaSanXuat) {
+        this.idNhaSanXuat = idNhaSanXuat;
+    }
+ 
+    public int getIdSanPham() {
         return idSanPham;
+    }
+
+    public int getIdDanhMuc() {
+        return idDanhMuc;
+    }
+
+    public int getIdNhaSanXuat() {
+        return idNhaSanXuat;
     }
 
     public String getTenSanPham() {
@@ -25,10 +49,6 @@ public class SanPham {
 
     public int getTrangThaiSP() {
         return trangThaiSP;
-    }
-
-    public void setIdSanPham(String idSanPham) {
-        this.idSanPham = idSanPham;
     }
 
     public void setTenSanPham(String tenSanPham) {

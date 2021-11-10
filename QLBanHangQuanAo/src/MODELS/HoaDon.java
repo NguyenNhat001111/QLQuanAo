@@ -2,6 +2,8 @@ package MODELS;
 
 public class HoaDon {
     private int idHoaDon;
+    private int idNguoiDung;
+    private int idKhachHang;
     private String ngayLap;
     private double tongTien;
     private String hinhThucThanhToan;
@@ -10,12 +12,30 @@ public class HoaDon {
     public HoaDon() {
     }
 
-    public HoaDon(int idHoaDon, String ngayLap, double tongTien, String hinhThucThanhToan, int trangThai) {
+    public HoaDon(int idHoaDon, int idNguoiDung, int idKhachHang, String ngayLap, double tongTien, String hinhThucThanhToan, int trangThai) {
         this.idHoaDon = idHoaDon;
+        this.idNguoiDung = idNguoiDung;
+        this.idKhachHang = idKhachHang;
         this.ngayLap = ngayLap;
         this.tongTien = tongTien;
         this.hinhThucThanhToan = hinhThucThanhToan;
         this.trangThai = trangThai;
+    }
+
+    public void setIdNguoiDung(int idNguoiDung) {
+        this.idNguoiDung = idNguoiDung;
+    }
+
+    public void setIdKhachHang(int idKhachHang) {
+        this.idKhachHang = idKhachHang;
+    }
+
+    public int getIdNguoiDung() {
+        return idNguoiDung;
+    }
+
+    public int getIdKhachHang() {
+        return idKhachHang;
     }
 
     public int getIdHoaDon() {
