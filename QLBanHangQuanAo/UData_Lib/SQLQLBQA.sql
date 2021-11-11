@@ -27,7 +27,7 @@ GO
 create table GioiTinh
 (
    IDGioiTinh int not null primary key,
-   GioiTinh int not null
+   GioiTinh nvarchar(10) not null
 )
 GO
 
@@ -165,8 +165,9 @@ insert into ChatLieu values(4, N'Nỉ')
 insert into ChatLieu values(5, N'Thô')
 
 --GioiTinh
-insert into GioiTinh values(0, 0)
-insert into GioiTinh values(1, 1)
+insert into GioiTinh values(0, N'Nam')
+insert into GioiTinh values(1, N'Nữ')
+insert into GioiTinh values(2, N'Unisex')
 
 --KichCoSanPham
 insert into KichCoSP values(0, N'S')
@@ -178,6 +179,11 @@ insert into KichCoSP values(4, N'XXL')
 --NhaSanXuat
 insert into NhaSanXuat values(0, N'Gucci')
 insert into NhaSanXuat values(1, N'Channel')
+insert into NhaSanXuat values(2, N'Yody')
+insert into NhaSanXuat values(3, N'Puma')
+insert into NhaSanXuat values(4, N'Adidas')
+insert into NhaSanXuat values(5, N'Nike')
+insert into NhaSanXuat values(6, N'Dior')
 
 --DanhMucSanPham
 insert into DanhMucSP values(0, N'Áo Phông')
@@ -264,7 +270,7 @@ select * from TaiKhoan
 select * from KhachHang
 select * from HoaDon
 select * from HoaDonChiTiet
-delete from ChiTietSanPham
+
 
 --ThongKe
 select HoaDon.IDHoaDon ,HoTenKH, HoTenNhanVien, KhachHang.DiaChi, KhachHang.SDT, NgayLapHoaDon, ChiTietSanPham.MaSanPham, SanPham.TenSanPham, HoaDonChiTiet.SoLuong, HoaDonChiTiet.DonGia, HoaDonChiTiet.ThanhTien, TongGiaTien from KhachHang 
