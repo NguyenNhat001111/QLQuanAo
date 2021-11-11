@@ -248,11 +248,11 @@ insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThu
 values(2, 2, '8/11/2021', 2500000, N'Chuyển Khoản Ngân Hàng', 1)
 
 --HoaDonChiTiet
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, ThanhTien,TrangThai)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
 values(1, 2, 200000, 5, 1000000, 1)
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, ThanhTien,TrangThai)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
 values(2, 1, 250000, 6, 1500000, 1)
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, ThanhTien,TrangThai)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
 values(2, 2, 200000, 5, 1000000, 1)
 
 select * from MauSac
@@ -273,7 +273,7 @@ select * from HoaDonChiTiet
 
 
 --ThongKe
-select HoaDon.IDHoaDon ,HoTenKH, HoTenNhanVien, KhachHang.DiaChi, KhachHang.SDT, NgayLapHoaDon, ChiTietSanPham.MaSanPham, SanPham.TenSanPham, HoaDonChiTiet.SoLuong, HoaDonChiTiet.DonGia, HoaDonChiTiet.ThanhTien, TongGiaTien from KhachHang 
+select HoaDon.IDHoaDon ,HoTenKH, HoTenNhanVien, KhachHang.DiaChi, KhachHang.SDT, NgayLapHoaDon, ChiTietSanPham.MaSanPham, SanPham.TenSanPham, HoaDonChiTiet.SoLuong, HoaDonChiTiet.DonGia, TongGiaTien from KhachHang 
 inner join HoaDon on KhachHang.IDKhachHang=HoaDon.IDKhachHang
 inner join NguoiDung on NguoiDung.IDNguoiDung=HoaDon.IDNguoiDung
 inner join HoaDonChiTiet on HoaDon.IDHoaDon=HoaDonChiTiet.IDHoaDon
