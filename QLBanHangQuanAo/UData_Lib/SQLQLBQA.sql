@@ -138,7 +138,6 @@ create table HoaDonChiTiet
    IDCTSP int not null foreign key references ChiTietSanPham(IDCTSP),
    DonGia float not null,
    SoLuong int not null,
-   ThanhTien float not null,
    TrangThai int not null,
    Primary key(IDHoaDon, IDCTSP)
 )
