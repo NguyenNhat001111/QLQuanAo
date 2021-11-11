@@ -248,11 +248,11 @@ values(2, 2, '8/11/2021', 2500000, N'Chuyển Khoản Ngân Hàng', 1)
 
 --HoaDonChiTiet
 insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
-values(1, 2, 200000, 5, 1000000, 1)
+values(1, 2, 200000, 5, 1)
 insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
-values(2, 1, 250000, 6, 1500000, 1)
+values(2, 1, 250000, 6, 1)
 insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
-values(2, 2, 200000, 5, 1000000, 1)
+values(2, 2, 200000, 5, 1)
 
 select * from MauSac
 select * from DonViTinh
