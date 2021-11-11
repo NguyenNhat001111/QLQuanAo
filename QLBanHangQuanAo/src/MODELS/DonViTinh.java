@@ -27,5 +27,10 @@ public class DonViTinh {
     public void setDonViTinh(String donViTinh) {
         this.donViTinh = donViTinh;
     }
+
+    @Override
+    public String toString() {
+        return donViTinh;
+    }
     
 }

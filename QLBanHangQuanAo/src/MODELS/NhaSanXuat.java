@@ -27,5 +27,10 @@ public class NhaSanXuat {
     public void setNhaSanXuat(String nhaSanXuat) {
         this.nhaSanXuat = nhaSanXuat;
     }
+
+    @Override
+    public String toString() {
+        return nhaSanXuat;
+    }
     
 }

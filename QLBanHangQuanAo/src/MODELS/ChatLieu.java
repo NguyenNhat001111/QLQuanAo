@@ -27,5 +27,10 @@ public class ChatLieu {
     public void setIdChatLieu(int idChatLieu) {
         this.idChatLieu = idChatLieu;
     }
+
+    @Override
+    public String toString() {
+        return chatLieu;
+    }
     
 }

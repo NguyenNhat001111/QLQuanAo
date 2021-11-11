@@ -27,5 +27,10 @@ public class MauSac {
     public void setMauSac(String mauSac) {
         this.mauSac = mauSac;
     }
+
+    @Override
+    public String toString() {
+        return mauSac;
+    }
     
 }

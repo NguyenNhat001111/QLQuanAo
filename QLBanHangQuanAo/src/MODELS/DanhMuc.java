@@ -27,5 +27,10 @@ public class DanhMuc {
     public void setIdDanhMuc(int idDanhMuc) {
         this.idDanhMuc = idDanhMuc;
     }
+
+    @Override
+    public String toString() {
+        return danhMuc;
+    }
     
 }

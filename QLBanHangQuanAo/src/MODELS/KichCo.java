@@ -28,4 +28,9 @@ public class KichCo {
         return idKichCo;
     }
 
+    @Override
+    public String toString() {
+        return kichCo;
+    }
+
 }
