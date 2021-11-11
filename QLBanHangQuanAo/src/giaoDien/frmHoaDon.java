@@ -156,7 +156,7 @@ public class frmHoaDon extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "MaHĐ", "NgayLap", "DonGia", "ThanhTIen"
+                "MaHD", "Ngày Lập", "Đơn Giá", "Thành Tiền"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
