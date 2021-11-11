@@ -147,6 +147,10 @@ GO
 --MauSac
 insert into MauSac values(0, N'Trắng')
 insert into MauSac values(1, N'Đen')
+insert into MauSac values(2, N'Nâu')
+insert into MauSac values(3, N'Nâu Sữa')
+insert into MauSac values(4, N'Xanh Rêu')
+insert into MauSac values(5, N'Xanh Biển')
 
 --DonViTinh
 insert into DonViTinh values(0, N'Bộ')
@@ -154,7 +158,11 @@ insert into DonViTinh values(1, N'Chiếc')
 
 --ChatLieu
 insert into ChatLieu values(0, N'Cotton')
-insert into ChatLieu values(1, N'Nỉ')
+insert into ChatLieu values(1, N'Jeans')
+insert into ChatLieu values(2, N'KaKi')
+insert into ChatLieu values(3, N'Len')
+insert into ChatLieu values(4, N'Nỉ')
+insert into ChatLieu values(5, N'Thô')
 
 --GioiTinh
 insert into GioiTinh values(0, 0)
@@ -163,6 +171,9 @@ insert into GioiTinh values(1, 1)
 --KichCoSanPham
 insert into KichCoSP values(0, N'S')
 insert into KichCoSP values(1, N'M')
+insert into KichCoSP values(2, N'L')
+insert into KichCoSP values(3, N'XL')
+insert into KichCoSP values(4, N'XXL')
 
 --NhaSanXuat
 insert into NhaSanXuat values(0, N'Gucci')
@@ -171,6 +182,14 @@ insert into NhaSanXuat values(1, N'Channel')
 --DanhMucSanPham
 insert into DanhMucSP values(0, N'Áo Phông')
 insert into DanhMucSP values(1, N'Áo Hoodie')
+insert into DanhMucSP values(2, N'Áo Phông')
+insert into DanhMucSP values(3, N'Áo Dài')
+insert into DanhMucSP values(4, N'Áo Len')
+insert into DanhMucSP values(5, N'Áo Khoác')
+insert into DanhMucSP values(6, N'Áo Sơ Mi')
+insert into DanhMucSP values(7, N'Quần Đùi')
+insert into DanhMucSP values(8, N'Quần Dài')
+
 
 --SanPham
 insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
@@ -183,6 +202,8 @@ insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh
 values(1, 'SP01', 1, 0, 1, 1, 1, N'Demo mô tả', 250000, N'Demo tên chi tiết', 9, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
 values(2, 'SP02', 0, 1, 1, 1, 0, N'Demo mô tả', 200000, N'Demo tên chi tiết', 11, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(2, 'SP03', 1, 0, 0, 0, 0, N'Demo mô tả', 200000, N'Demo tên chi tiết', 20, 1)
 
 --Vaitro
 insert into VaiTro values(0, N'ADMIN')
@@ -192,13 +213,21 @@ insert into VaiTro values(1, N'Nhân Viên')
 insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
 values(0, N'Lê Quân', '0392402083', N'Cầu Giấy - Hà Nội', '001202003794', 1)
 insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(0, N'Nguyễn Văn Tèo', '0392458083', N'Láng Hạ - Hà Nội', '001202003794', 1)
+insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
 values(1, N'Nguyễn Văn Nam', '0396662083', N'Ba Đình - Hà Nội', '001201000794', 1)
+insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(1, N'Nguyễn Minh Nhật', '0396668888', N'Cầu Giấy - Hà Nội', '001201002548', 1)
 
 --TaiKhoan
 insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
 values('lequan@gmail.com', 1, 'admin', 1)
 insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
 values('vannamnguyen@gmail.com', 2, 'nhanvien1', 1)
+insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
+values('teovan@gmail.com', 3, 'admin123', 1)
+insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
+values('nguyenminhnhat@gmail.com', 4, 'nhanvien123', 1)
 
 --KhachHang
 insert into KhachHang(HoTenKH, SDT, DiaChi, CCCD)
