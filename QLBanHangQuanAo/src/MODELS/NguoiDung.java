@@ -13,13 +13,13 @@ public class NguoiDung {
     public NguoiDung() {
     }
 
-    public NguoiDung(int idNguoiDung, String hoTen, String sdt, String diaChi, String cccd, int vaiTro, int trangThai) {
+    public NguoiDung(int idNguoiDung, int vaiTro, String hoTen, String sdt, String diaChi, String cccd,  int trangThai) {
         this.idNguoiDung = idNguoiDung;
+          this.vaiTro = vaiTro;
         this.hoTen = hoTen;
         this.sdt = sdt;
         this.diaChi = diaChi;
         this.cccd = cccd;
-        this.vaiTro = vaiTro;
         this.trangThai = trangThai;
     }
  
