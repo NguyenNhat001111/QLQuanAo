@@ -6,15 +6,17 @@ public class TaiKhoan {
     private String email;
     private String matKhau;
     private int trangThai;
+    private int idNguoiDung;
 
     public TaiKhoan() {
     }
 
-    public TaiKhoan(int idTaiKhoan, String email, String matKhau, int trangThai) {
+    public TaiKhoan(int idTaiKhoan, String email, int idNguoiDung, String matKhau, int trangThai) {
         this.idTaiKhoan = idTaiKhoan;
         this.email = email;
         this.matKhau = matKhau;
         this.trangThai = trangThai;
+        this.idNguoiDung = idNguoiDung;
     }
 
     public void setIdTaiKhoan(int idTaiKhoan) {
@@ -27,6 +29,14 @@ public class TaiKhoan {
 
     public String getEmail() {
         return email;
+    }
+
+    public int getIdNguoiDung() {
+        return idNguoiDung;
+    }
+
+    public void setIdNguoiDung(int idNguoiDung) {
+        this.idNguoiDung = idNguoiDung;
     }
 
     public String getMatKhau() {
