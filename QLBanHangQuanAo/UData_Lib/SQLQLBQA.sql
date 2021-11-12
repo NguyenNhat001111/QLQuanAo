@@ -5,49 +5,49 @@ GO
 
 create table MauSac
 (
-   IDMauSac int not null primary key,
+   IDMauSac int identity(1,1) not null primary key,
    MauSac nvarchar(20) not null
 )
 GO
 
 create table DonViTinh
 (
-   IDDonViTinh int not null primary key,
+   IDDonViTinh int identity(1,1) not null primary key,
    DonViTinh nvarchar(20) not null
 )
 GO
 
 create table ChatLieu
 (
-   IDChatLieu int not null primary key,
+   IDChatLieu int identity(1,1) not null primary key,
    ChatLieuSP nvarchar(20) not null
 )
 GO
 
 create table GioiTinh
 (
-   IDGioiTinh int not null primary key,
+   IDGioiTinh int identity(1,1) not null primary key,
    GioiTinh nvarchar(10) not null
 )
 GO
 
 create table KichCoSP
 (
-   IDKichCo int not null primary key,
+   IDKichCo int identity(1,1) not null primary key,
    KichCo varchar(10) not null
 )
 GO
 
 create table NhaSanXuat
 (
-   IDNhaSanXuat int not null primary key,
+   IDNhaSanXuat int identity(1,1) not null primary key,
    TenNhaSX nvarchar(50) not null
 )
 GO
 
 create table DanhMucSP
 (
-   IDDanhMuc int not null primary key,
+   IDDanhMuc int identity(1,1) not null primary key,
    TenDanhMuc nvarchar(50) not null
 )
 GO
@@ -144,71 +144,71 @@ create table HoaDonChiTiet
 GO
 
 --MauSac
-insert into MauSac values(0, N'Trắng')
-insert into MauSac values(1, N'Đen')
-insert into MauSac values(2, N'Nâu')
-insert into MauSac values(3, N'Nâu Sữa')
-insert into MauSac values(4, N'Xanh Rêu')
-insert into MauSac values(5, N'Xanh Biển')
+insert into MauSac(MauSac) values(N'Trắng')
+insert into MauSac(MauSac) values(N'Đen')
+insert into MauSac(MauSac) values(N'Nâu')
+insert into MauSac(MauSac) values(N'Nâu Sữa')
+insert into MauSac(MauSac) values(N'Xanh Rêu')
+insert into MauSac(MauSac) values(N'Xanh Biển')
 
 --DonViTinh
-insert into DonViTinh values(0, N'Bộ')
-insert into DonViTinh values(1, N'Chiếc')
+insert into DonViTinh(DonViTinh) values(N'Bộ')
+insert into DonViTinh(DonViTinh) values(N'Chiếc')
 
 --ChatLieu
-insert into ChatLieu values(0, N'Cotton')
-insert into ChatLieu values(1, N'Jeans')
-insert into ChatLieu values(2, N'KaKi')
-insert into ChatLieu values(3, N'Len')
-insert into ChatLieu values(4, N'Nỉ')
-insert into ChatLieu values(5, N'Thô')
+insert into ChatLieu(ChatLieuSP) values(N'Cotton')
+insert into ChatLieu(ChatLieuSP) values(N'Jeans')
+insert into ChatLieu(ChatLieuSP) values(N'KaKi')
+insert into ChatLieu(ChatLieuSP) values(N'Len')
+insert into ChatLieu(ChatLieuSP) values(N'Nỉ')
+insert into ChatLieu(ChatLieuSP) values(N'Thô')
 
 --GioiTinh
-insert into GioiTinh values(0, N'Nam')
-insert into GioiTinh values(1, N'Nữ')
-insert into GioiTinh values(2, N'Unisex')
+insert into GioiTinh(GioiTinh) values(N'Nam')
+insert into GioiTinh(GioiTinh) values(N'Nữ')
+insert into GioiTinh(GioiTinh) values(N'Unisex')
 
 --KichCoSanPham
-insert into KichCoSP values(0, N'S')
-insert into KichCoSP values(1, N'M')
-insert into KichCoSP values(2, N'L')
-insert into KichCoSP values(3, N'XL')
-insert into KichCoSP values(4, N'XXL')
+insert into KichCoSP(KichCo) values(N'S')
+insert into KichCoSP(KichCo) values(N'M')
+insert into KichCoSP(KichCo) values(N'L')
+insert into KichCoSP(KichCo) values(N'XL')
+insert into KichCoSP(KichCo) values(N'XXL')
 
 --NhaSanXuat
-insert into NhaSanXuat values(0, N'Gucci')
-insert into NhaSanXuat values(1, N'Channel')
-insert into NhaSanXuat values(2, N'Yody')
-insert into NhaSanXuat values(3, N'Puma')
-insert into NhaSanXuat values(4, N'Adidas')
-insert into NhaSanXuat values(5, N'Nike')
-insert into NhaSanXuat values(6, N'Dior')
+insert into NhaSanXuat(TenNhaSX) values(N'Gucci')
+insert into NhaSanXuat(TenNhaSX) values(N'Channel')
+insert into NhaSanXuat(TenNhaSX) values(N'Yody')
+insert into NhaSanXuat(TenNhaSX) values(N'Puma')
+insert into NhaSanXuat(TenNhaSX) values(N'Adidas')
+insert into NhaSanXuat(TenNhaSX) values(N'Nike')
+insert into NhaSanXuat(TenNhaSX) values(N'Dior')
 
 --DanhMucSanPham
-insert into DanhMucSP values(0, N'Áo Phông')
-insert into DanhMucSP values(1, N'Áo Hoodie')
-insert into DanhMucSP values(2, N'Áo Phông')
-insert into DanhMucSP values(3, N'Áo Dài')
-insert into DanhMucSP values(4, N'Áo Len')
-insert into DanhMucSP values(5, N'Áo Khoác')
-insert into DanhMucSP values(6, N'Áo Sơ Mi')
-insert into DanhMucSP values(7, N'Quần Đùi')
-insert into DanhMucSP values(8, N'Quần Dài')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Phông')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Hoodie')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Phông')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Dài')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Len')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Khoác')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Sơ Mi')
+insert into DanhMucSP(TenDanhMuc) values(N'Quần Đùi')
+insert into DanhMucSP(TenDanhMuc) values(N'Quần Dài')
 
 
 --SanPham
 insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
-values(0, 1, N'Áo Phông Thời Trang Channel', 1)
+values(1, 1, N'Áo Phông Thời Trang Channel', 1)
 insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
-values(1, 0, N'Áo Hoodie Channel', 1)
+values(2, 2, N'Áo Hoodie Channel', 1)
 
 --ChiTietSanPham
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(1, 'SP01', 1, 0, 1, 1, 1, N'Demo mô tả', 250000, N'Demo tên chi tiết', 9, 1)
+values(1, 'SP01', 2, 1, 2, 5, 2, N'Demo mô tả', 250000, N'Demo tên chi tiết', 9, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP02', 0, 1, 1, 1, 0, N'Demo mô tả', 200000, N'Demo tên chi tiết', 11, 1)
+values(2, 'SP02', 1, 2, 2, 5, 1, N'Demo mô tả', 200000, N'Demo tên chi tiết', 11, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP03', 1, 0, 0, 0, 0, N'Demo mô tả', 200000, N'Demo tên chi tiết', 20, 1)
+values(2, 'SP03', 2, 1, 1, 1, 1, N'Demo mô tả', 200000, N'Demo tên chi tiết', 20, 1)
 
 --Vaitro
 insert into VaiTro values(0, N'ADMIN')
