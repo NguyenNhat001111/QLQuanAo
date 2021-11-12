@@ -15,10 +15,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class frmQLSanPham extends javax.swing.JFrame {
 
@@ -84,6 +85,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
         btnThemCT = new javax.swing.JButton();
         txtTenCT = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        btnThemCboTT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +135,8 @@ public class frmQLSanPham extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel3.setText("Danh Mục:");
 
+        cboDanhMuc.setEditable(true);
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel4.setText("Nhà Sản Xuất:");
 
@@ -163,6 +167,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
             }
         });
 
+        cboNhaSX.setEditable(true);
         cboNhaSX.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -176,7 +181,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTenSp, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(btnLamMoi)
@@ -251,13 +256,16 @@ public class frmQLSanPham extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel7.setText("Kích Cỡ:");
 
+        cboKichCo.setEditable(true);
         cboKichCo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel8.setText("Màu Sắc:");
 
+        cboMauSac.setEditable(true);
         cboMauSac.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        cboChatLieu.setEditable(true);
         cboChatLieu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -270,8 +278,10 @@ public class frmQLSanPham extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
+        cboDonViTinh.setEditable(true);
         cboDonViTinh.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        cboTrangThai.setEditable(true);
         cboTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn hàng", "Hết hàng" }));
         cboTrangThai.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -311,10 +321,25 @@ public class frmQLSanPham extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel13.setText("Tên chi tiết:");
 
+        btnThemCboTT.setText("+");
+        btnThemCboTT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemCboTTActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(btnLamMoiCT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(btnSuaCT)
+                .addGap(98, 98, 98)
+                .addComponent(btnThemCT)
+                .addGap(99, 99, 99))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -340,33 +365,24 @@ public class frmQLSanPham extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cboTrangThai, 0, 237, Short.MAX_VALUE)
+                    .addComponent(cboTrangThai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtTenCT)
                     .addComponent(cboDonViTinh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addGap(45, 45, 45))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(btnLamMoiCT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                .addComponent(btnSuaCT)
-                .addGap(98, 98, 98)
-                .addComponent(btnThemCT)
-                .addGap(99, 99, 99))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnThemCboTT)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMaSp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtTenCT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel13)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMaSp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cboKichCo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
@@ -381,27 +397,30 @@ public class frmQLSanPham extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGiaTien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSuaCT)
-                            .addComponent(btnThemCT)
-                            .addComponent(btnLamMoiCT)))
+                            .addComponent(txtGiaTien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTenCT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(btnThemCboTT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cboDonViTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(49, 49, 49))
+                            .addComponent(jLabel11)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSuaCT)
+                    .addComponent(btnThemCT)
+                    .addComponent(btnLamMoiCT))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -468,6 +487,10 @@ public class frmQLSanPham extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnThemCTActionPerformed
 
+    private void btnThemCboTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboTTActionPerformed
+        checkTrungVaThemCombo(cboTrangThai);
+    }//GEN-LAST:event_btnThemCboTTActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -483,6 +506,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
     private javax.swing.JButton btnSuaCT;
     private javax.swing.JButton btnSuaSP;
     private javax.swing.JButton btnThemCT;
+    private javax.swing.JButton btnThemCboTT;
     private javax.swing.JButton btnThemSP;
     private javax.swing.JComboBox<String> cboChatLieu;
     private javax.swing.JComboBox<String> cboDanhMuc;
@@ -577,6 +601,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
     }
 
     private void fillComboDanhMuc() {
+        AutoCompleteDecorator.decorate(cboDanhMuc);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboDanhMuc.getModel();
         modelCombo.removeAllElements();
         try {
@@ -591,6 +616,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
     }
 
     private void fillComboNSX() {
+        AutoCompleteDecorator.decorate(cboNhaSX);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboNhaSX.getModel();
         modelCombo.removeAllElements();
         try {
@@ -605,6 +631,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
     }
 
     private void fillComboKichCo() {
+        AutoCompleteDecorator.decorate(cboKichCo);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboKichCo.getModel();
         modelCombo.removeAllElements();
         try {
@@ -619,6 +646,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
     }
 
     private void fillComboMauSac() {
+        AutoCompleteDecorator.decorate(cboMauSac);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboMauSac.getModel();
         modelCombo.removeAllElements();
         try {
@@ -633,6 +661,8 @@ public class frmQLSanPham extends javax.swing.JFrame {
     }
 
     private void fillComboChatLieu() {
+        AutoCompleteDecorator.decorate(cboTrangThai);
+        AutoCompleteDecorator.decorate(cboChatLieu);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboChatLieu.getModel();
         modelCombo.removeAllElements();
         try {
@@ -647,6 +677,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
     }
 
     private void fillComboDonVi() {
+        AutoCompleteDecorator.decorate(cboDonViTinh);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboDonViTinh.getModel();
         modelCombo.removeAllElements();
         try {
@@ -658,5 +689,21 @@ public class frmQLSanPham extends javax.swing.JFrame {
         } catch (Exception e) {
             helper.MsgBox.alert(null, "Lỗi combo");
         }
+    }
+
+    private void checkTrungVaThemCombo(JComboBox cbo) {
+        String temp = cbo.getSelectedItem().toString();
+        int size = cbo.getItemCount();
+        for (int j = 0; j < size; j++) {
+            if (temp.equalsIgnoreCase(cbo.getItemAt(j).toString())) {
+                helper.MsgBox.alert(null, temp + " là giá trị đã có sẵn, không được thêm trùng!");
+                return;
+            }
+        }
+        if (temp.equals("")) {
+            helper.MsgBox.alert(null, "Giá trị thêm mới không được trống!");
+            return;
+        }
+        cbo.addItem(cbo.getSelectedItem().toString());
     }
 }
