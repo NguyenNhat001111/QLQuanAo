@@ -27,5 +27,10 @@ public class GioiTinh {
     public void setIdGioiTinh(int idGioiTinh) {
         this.idGioiTinh = idGioiTinh;
     }
+
+    @Override
+    public String toString() {
+        return gioiTinh;
+    }
     
 }

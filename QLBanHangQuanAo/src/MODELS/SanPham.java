@@ -58,5 +58,10 @@ public class SanPham {
     public void setTrangThaiSP(int trangThaiSP) {
         this.trangThaiSP = trangThaiSP;
     }
+
+    @Override
+    public String toString() {
+        return tenSanPham;
+    }
     
 }

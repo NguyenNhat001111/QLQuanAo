@@ -13,7 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ThuocTinhDAO {
-
+    
+    public void insertDanhMuc(DanhMuc entity) {
+        XJdbc.update("insert into DanhMucSP values(?)", entity.getDanhMuc());
+    }
+    
     public List<DanhMuc> selectDanhMuc() {
         String sql = "select * from DanhMucSP";
         List<DanhMuc> list = new ArrayList<>();
