@@ -22,7 +22,7 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
-public class frmQLSanPham extends javax.swing.JFrame {
+public class FrmQLSanPham extends javax.swing.JFrame {
 
     Connection cn;
 
@@ -33,7 +33,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
     DefaultTableModel model;
     ThuocTinhDAO ttDAO;
 
-    public frmQLSanPham() {
+    public FrmQLSanPham() {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -491,7 +491,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(btnThemCboChatLieu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel15))))))
-                        .addContainerGap(93, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -685,7 +685,7 @@ public class frmQLSanPham extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmQLSanPham().setVisible(true);
+                new FrmQLSanPham().setVisible(true);
             }
         });
     }
