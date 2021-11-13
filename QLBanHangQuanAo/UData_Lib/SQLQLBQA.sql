@@ -6,49 +6,49 @@ GO
 create table MauSac
 (
    IDMauSac int identity(1,1) not null primary key,
-   MauSac nvarchar(20) not null
+   MauSac nvarchar(20)
 )
 GO
 
 create table DonViTinh
 (
    IDDonViTinh int identity(1,1) not null primary key,
-   DonViTinh nvarchar(20) not null
+   DonViTinh nvarchar(20) 
 )
 GO
 
 create table ChatLieu
 (
    IDChatLieu int identity(1,1) not null primary key,
-   ChatLieuSP nvarchar(20) not null
+   ChatLieuSP nvarchar(20)
 )
 GO
 
 create table GioiTinh
 (
    IDGioiTinh int identity(1,1) not null primary key,
-   GioiTinh nvarchar(10) not null
+   GioiTinh nvarchar(10)
 )
 GO
 
 create table KichCoSP
 (
    IDKichCo int identity(1,1) not null primary key,
-   KichCo varchar(10) not null
+   KichCo varchar(10)
 )
 GO
 
 create table NhaSanXuat
 (
    IDNhaSanXuat int identity(1,1) not null primary key,
-   TenNhaSX nvarchar(50) not null
+   TenNhaSX nvarchar(50) 
 )
 GO
 
 create table DanhMucSP
 (
    IDDanhMuc int identity(1,1) not null primary key,
-   TenDanhMuc nvarchar(50) not null
+   TenDanhMuc nvarchar(50)
 )
 GO
 
@@ -57,33 +57,33 @@ create table SanPham
    IDSanPham int identity(1,1) not null primary key,
    IDDanhMuc int not null foreign key references DanhMucSP(IDDanhMuc),
    IDNhaSanXuat int not null foreign key references NhaSanXuat(IDNhaSanXuat),
-   TenSanPham nvarchar(50) not null,
-   TrangThai int not null
+   TenSanPham nvarchar(50) ,
+   TrangThai int 
 )
 GO
 
 create table ChiTietSanPham
 (
    IDCTSP int identity(1,1) not null primary key,
-   MaSanPham varchar(20) not null,
+   MaSanPham varchar(20),
    IDSanPham int not null foreign key references SanPham(IDSanPham),
    IDKichCo int not null foreign key references KichCoSP(IDKichCo),
    IDMauSac int not null foreign key references MauSac(IDMauSac),
    IDDonViTinh int not null foreign key references DonViTinh(IDDonViTinh),
    IDChatLieu int not null foreign key references ChatLieu(IDChatLieu),
    IDGioiTinh int not null foreign key references GioiTinh(IDGioiTinh),
-   MoTa nvarchar(200) not null,
-   GiaTien float not null,
-   TenChiTiet nvarchar(50) not null,
-   Soluong int not null,
-   TrangThai int not null
+   MoTa nvarchar(200) ,
+   GiaTien float ,
+   TenChiTiet nvarchar(50),
+   Soluong int,
+   TrangThai int 
 )
 GO
 
 create table VaiTro
 (
    IDVaiTro int not null primary key,
-   TenVaiTro nvarchar(20) not null
+   TenVaiTro nvarchar(20)
 )
 GO
 
@@ -91,31 +91,31 @@ create table NguoiDung
 (
    IDNguoiDung int identity(1,1) not null primary key,
    IDVaiTro int not null foreign key references VaiTro(IDVaiTro),
-   HoTenNhanVien nvarchar(50) not null,
-   SDT varchar(10) not null,
-   DiaChi nvarchar(50) not null,
-   CCCD varchar(12) not null,
-   TrangThai int not null
+   HoTenNhanVien nvarchar(50),
+   SDT varchar(10) ,
+   DiaChi nvarchar(50) ,
+   CCCD varchar(12),
+   TrangThai int 
 )
 GO
 
 create table KhachHang
 (
    IDKhachHang int identity(1,1) not null primary key,
-   HoTenKH nvarchar(50) not null,
-   SDT varchar(10) not null,
-   DiaChi nvarchar(50) not null,
-   CCCD varchar(12) not null,
+   HoTenKH nvarchar(50) ,
+   SDT varchar(10) ,
+   DiaChi nvarchar(50) ,
+   CCCD varchar(12),
 )
 GO
 
 create table TaiKhoan
 (
    IDTaiKhoan int identity(1,1) not null,
-   Email varchar(50) not null ,
+   Email varchar(50) ,
    IDNguoiDung int not null foreign key references NguoiDung(IDNguoiDung),
-   MatKhau varchar(20) not null,
-   TrangThai int not null
+   MatKhau varchar(20) ,
+   TrangThai int 
    Primary key(IDTaiKhoan, Email)
 )
 GO
@@ -125,10 +125,10 @@ create table HoaDon
    IDHoaDon int identity(1,1) not null primary key,
    IDNguoiDung int not null foreign key references NguoiDung(IDNguoiDung),
    IDKhachHang int not null foreign key references KhachHang(IDKhachHang),
-   NgayLapHoaDon date not null,
-   TongGiaTien float not null,
-   HinhThucThanhToan nvarchar(50) not null,
-   TrangThaiHoaDon int not null
+   NgayLapHoaDon date ,
+   TongGiaTien float ,
+   HinhThucThanhToan nvarchar(50),
+   TrangThaiHoaDon int
 )
 GO
 
@@ -136,9 +136,9 @@ create table HoaDonChiTiet
 (
    IDHoaDon int not null foreign key references HoaDon(IDHoaDon),
    IDCTSP int not null foreign key references ChiTietSanPham(IDCTSP),
-   DonGia float not null,
-   SoLuong int not null,
-   TrangThai int not null,
+   DonGia float ,
+   SoLuong int ,
+   TrangThai int ,
    Primary key(IDHoaDon, IDCTSP)
 )
 GO
