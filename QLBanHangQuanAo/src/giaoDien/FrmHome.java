@@ -35,13 +35,13 @@ public class FrmHome extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
                     panelBody.removeAll();
-                    panelBody.add(new FrmQLSanPham());
+                    panelBody.add(new PFrmQLSanPham());
                     panelBody.repaint();
                     panelBody.revalidate();
                 } else {
                     index = 1;
                     panelBody.removeAll();
-                    panelBody.add(new FrmQLSanPham());
+                    panelBody.add(new PFrmQLSanPham());
                     panelBody.repaint();
                     panelBody.revalidate();
                 }
@@ -65,13 +65,13 @@ public class FrmHome extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
                     panelBody.removeAll();
-                    panelBody.add(new FrmHoaDon());
+                    panelBody.add(new PFrmHoaDon());
                     panelBody.repaint();
                     panelBody.revalidate();
                 } else {
                     index = 1;
                     panelBody.removeAll();
-                    panelBody.add(new FrmHoaDon());
+                    panelBody.add(new PFrmHoaDon());
                     panelBody.repaint();
                     panelBody.revalidate();
                 }
@@ -82,13 +82,13 @@ public class FrmHome extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
                     panelBody.removeAll();
-                    panelBody.add(new FrmThongKe());
+                    panelBody.add(new PFrmThongKe());
                     panelBody.repaint();
                     panelBody.revalidate();
                 } else {
                     index = 1;
                     panelBody.removeAll();
-                    panelBody.add(new FrmThongKe());
+                    panelBody.add(new PFrmThongKe());
                     panelBody.repaint();
                     panelBody.revalidate();
                 }

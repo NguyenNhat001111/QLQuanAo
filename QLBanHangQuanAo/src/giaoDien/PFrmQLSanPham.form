@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
-  </Properties>
-  <SyntheticProperties>
-    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
-  </SyntheticProperties>
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -23,11 +16,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane3" min="-2" pref="844" max="-2" attributes="0"/>
+              <Component id="jScrollPane3" min="-2" pref="808" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
@@ -44,10 +37,10 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel3" max="32767" attributes="0"/>
-                  <Component id="jScrollPane3" pref="494" max="32767" attributes="0"/>
+                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" pref="539" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,7 +73,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtTimKiemMaSp" alignment="3" pref="29" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -165,20 +158,20 @@
                   <Component id="btnThem" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -188,22 +181,22 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cboKichCo" linkSize="3" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
+                              <Component id="cboKichCo" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtGiaTien" linkSize="3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cboChatLieu" linkSize="3" pref="193" max="32767" attributes="0"/>
-                                  <Component id="cboMauSac" linkSize="3" max="32767" attributes="0"/>
+                                  <Component id="txtGiaTien" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cboChatLieu" alignment="1" pref="193" max="32767" attributes="0"/>
+                                  <Component id="cboMauSac" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="cboTenSP" linkSize="3" pref="212" max="32767" attributes="0"/>
-                                  <Component id="cboNhaSX" linkSize="3" max="32767" attributes="0"/>
+                                  <Component id="cboTenSP" alignment="1" pref="212" max="32767" attributes="0"/>
+                                  <Component id="cboNhaSX" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtMaSp" linkSize="3" min="-2" pref="229" max="-2" attributes="0"/>
+                          <Component id="txtMaSp" min="-2" pref="229" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -233,22 +226,22 @@
                   <EmptySpace pref="43" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="cboDanhMuc" linkSize="4" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="txtTenCT" linkSize="4" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="cboDanhMuc" linkSize="1" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="txtTenCT" linkSize="1" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="cboDonViTinh" linkSize="4" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="cboTrangThai" linkSize="4" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                          <Component id="cboGioiTinh" linkSize="4" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="cboDonViTinh" linkSize="1" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="cboTrangThai" linkSize="1" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="cboGioiTinh" linkSize="1" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane2" linkSize="4" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" linkSize="1" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnThemCboTT" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnThemCboDanhMuc" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnThemCboDonVi" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnThemCboGioiTinh" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThemCboTT" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThemCboDanhMuc" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThemCboDonVi" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThemCboGioiTinh" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
@@ -265,17 +258,17 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtTenCT" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtMaSp" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="txtMaSp" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="cboDanhMuc" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                       <Component id="jLabel3" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
@@ -302,16 +295,16 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jScrollPane2" min="-2" pref="84" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cboTenSP" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="cboTenSP" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="cboNhaSX" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="cboNhaSX" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -325,23 +318,23 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="cboKichCo" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="cboKichCo" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cboMauSac" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="cboMauSac" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="cboChatLieu" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="cboChatLieu" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel12" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
-                                              <Component id="txtGiaTien" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="txtGiaTien" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -360,7 +353,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="433" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnLamMoi" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnSua" alignment="3" min="-2" max="-2" attributes="0"/>
