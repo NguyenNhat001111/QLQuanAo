@@ -1,10 +1,10 @@
 package helper;
 
-import MODELS.NguoiDung;
+import MODELS.TaiKhoan;
 
 public class Auth {
 
-    public static NguoiDung user = null;
+    public static TaiKhoan user = null;
 
     public static void clear() {
         Auth.user = null;

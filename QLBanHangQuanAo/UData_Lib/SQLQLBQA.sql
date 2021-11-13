@@ -90,7 +90,6 @@ GO
 create table NguoiDung
 (
    IDNguoiDung int identity(1,1) not null primary key,
-   IDVaiTro int not null foreign key references VaiTro(IDVaiTro),
    HoTenNhanVien nvarchar(50),
    SDT varchar(10) ,
    DiaChi nvarchar(50) ,
@@ -115,6 +114,7 @@ create table TaiKhoan
    Email varchar(50) ,
    IDNguoiDung int not null foreign key references NguoiDung(IDNguoiDung),
    MatKhau varchar(20) ,
+   IDVaiTro int not null foreign key references VaiTro(IDVaiTro),
    TrangThai int 
    Primary key(IDTaiKhoan, Email)
 )
@@ -215,24 +215,24 @@ insert into VaiTro values(0, N'ADMIN')
 insert into VaiTro values(1, N'Nhân Viên')
 
 --NguoiDung
-insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
-values(0, N'Lê Quân', '0392402083', N'Cầu Giấy - Hà Nội', '001202003794', 1)
-insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
-values(0, N'Nguyễn Văn Tèo', '0392458083', N'Láng Hạ - Hà Nội', '001202003794', 1)
-insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
-values(1, N'Nguyễn Văn Nam', '0396662083', N'Ba Đình - Hà Nội', '001201000794', 1)
-insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
-values(1, N'Nguyễn Minh Nhật', '0396668888', N'Cầu Giấy - Hà Nội', '001201002548', 1)
+insert into NguoiDung(HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(N'Lê Quân', '0392402083', N'Cầu Giấy - Hà Nội', '001202003794', 1)
+insert into NguoiDung(HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(N'Nguyễn Văn Tèo', '0392458083', N'Láng Hạ - Hà Nội', '001202003794', 1)
+insert into NguoiDung(HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(N'Nguyễn Văn Nam', '0396662083', N'Ba Đình - Hà Nội', '001201000794', 1)
+insert into NguoiDung(HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(N'Nguyễn Minh Nhật', '0396668888', N'Cầu Giấy - Hà Nội', '001201002548', 1)
 
 --TaiKhoan
-insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
-values('lequan@gmail.com', 1, 'admin', 1)
-insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
-values('vannamnguyen@gmail.com', 2, 'nhanvien1', 1)
-insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
-values('teovan@gmail.com', 3, 'admin123', 1)
-insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai)
-values('nguyenminhnhat@gmail.com', 4, 'nhanvien123', 1)
+insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
+values('lequan@gmail.com', 1, 'admin', 0, 1)
+insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
+values('vannamnguyen@gmail.com', 2, 'nhanvien1', 1, 1)
+insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
+values('teovan@gmail.com', 3, 'admin123', 0, 1)
+insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
+values('nguyenminhnhat@gmail.com', 4, 'nhanvien123', 1, 1)
 
 --KhachHang
 insert into KhachHang(HoTenKH, SDT, DiaChi, CCCD)

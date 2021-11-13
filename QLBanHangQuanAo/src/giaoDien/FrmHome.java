@@ -18,7 +18,7 @@ public class FrmHome extends javax.swing.JFrame {
     public FrmHome() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.init();
         execute();
     }
 
@@ -296,5 +296,8 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelBody;
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
+    private void init() {
+        new JFrmLogin(this, true).setVisible(true);    
+    }
 
 }

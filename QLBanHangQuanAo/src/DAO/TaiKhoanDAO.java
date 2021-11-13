@@ -11,7 +11,7 @@ import java.util.List;
 public class TaiKhoanDAO implements IDAOService<TaiKhoan, Integer> {
     final String INSERT_SQL = "insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai) values(?, ?, ?, ?)";
     final String UPDATE_SQL = "update TaiKhoan set MatKhau=?, TrangThai=? where IDTaiKhoan=?";
-    final String SELECT_BY_ID_SQL = "select * from TaiKhoan where IDTaiKhoan=?";
+    final String SELECT_BY_EMAIL_SQL = "select * from TaiKhoan where Email=?";
     final String SELECT_ALL_SQL = "select * from TaiKhoan";
     @Override
     public void insert(TaiKhoan entity) {
@@ -33,9 +33,8 @@ public class TaiKhoanDAO implements IDAOService<TaiKhoan, Integer> {
         return selectBySql(SELECT_ALL_SQL);
     }
 
-    @Override
-    public TaiKhoan selectById(Integer id) {
-       List<TaiKhoan> list = selectBySql(SELECT_BY_ID_SQL, id);
+    public TaiKhoan selectById(String email) {
+       List<TaiKhoan> list = selectBySql(SELECT_BY_EMAIL_SQL, email);
         if (list.isEmpty()) {
             return null;
         }
@@ -60,5 +59,10 @@ public class TaiKhoanDAO implements IDAOService<TaiKhoan, Integer> {
             throw new RuntimeException();
         }
         return list;
+    }
+
+    @Override
+    public TaiKhoan selectById(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

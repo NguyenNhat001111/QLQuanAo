@@ -7,15 +7,13 @@ public class NguoiDung {
     private String sdt;
     private String diaChi;
     private String cccd;
-    private int vaiTro;
     private int trangThai;
 
     public NguoiDung() {
     }
 
-    public NguoiDung(int idNguoiDung, int vaiTro, String hoTen, String sdt, String diaChi, String cccd,  int trangThai) {
+    public NguoiDung(int idNguoiDung, String hoTen, String sdt, String diaChi, String cccd,  int trangThai) {
         this.idNguoiDung = idNguoiDung;
-          this.vaiTro = vaiTro;
         this.hoTen = hoTen;
         this.sdt = sdt;
         this.diaChi = diaChi;
@@ -70,13 +68,4 @@ public class NguoiDung {
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
-
-    public int getVaiTro() {
-        return vaiTro;
-    }
-
-    public void setVaiTro(int vaiTro) {
-        this.vaiTro = vaiTro;
-    }
-
 }
