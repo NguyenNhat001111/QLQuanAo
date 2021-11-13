@@ -191,7 +191,7 @@ public class JFrmLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-         System.exit(0);
+         //System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
     private void btnshowpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnshowpassMouseClicked

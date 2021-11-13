@@ -1,5 +1,6 @@
 package giaoDien;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class MenuItem extends javax.swing.JPanel {
     private final ArrayList<MenuItem> subMenu = new ArrayList<>();
     private ActionListener act;
 
-    public MenuItem(Icon icon, String menuName, ActionListener act, MenuItem... subMenu) {
+    public MenuItem(Color color, Icon icon, String menuName, ActionListener act, MenuItem... subMenu) {
         initComponents();
         lbIcon.setIcon(icon);
         lbName.setText(menuName);
@@ -35,6 +36,7 @@ public class MenuItem extends javax.swing.JPanel {
             this.subMenu.add(subMenu[i]);
             subMenu[i].setVisible(false);
         }
+        this.setBackground(color);
     }
 
     @SuppressWarnings("unchecked")
@@ -52,6 +54,8 @@ public class MenuItem extends javax.swing.JPanel {
             }
         });
 
+        lbName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbName.setForeground(new java.awt.Color(255, 255, 255));
         lbName.setText("Menu Name Here ...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
