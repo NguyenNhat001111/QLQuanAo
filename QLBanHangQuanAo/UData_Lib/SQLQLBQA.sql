@@ -242,9 +242,9 @@ values(N'Phí Công Lợi', '0493458389', N'Hoài Đức - Hà Nội', '00110457
 
 --HoaDon
 insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, TrangThaiHoaDon)
-values(2, 1, '9/11/2021', 1000000, N'Tiền Mặt', 1)
+values(2, 1, '9/11/2021', 1000000, 1, 1)
 insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, TrangThaiHoaDon)
-values(2, 2, '8/11/2021', 2500000, N'Chuyển Khoản Ngân Hàng', 1)
+values(2, 2, '8/11/2021', 2500000, 2, 1)
 
 --HoaDonChiTiet
 insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
