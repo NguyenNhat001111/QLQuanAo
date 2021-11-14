@@ -25,12 +25,13 @@ public class FrmHome extends javax.swing.JFrame {
     }
 
     private void execute() {
-       ImageIcon iconStaff = new ImageIcon(getClass().getResource("/Hinhanh/user.png"));
-        ImageIcon iconSetting = new ImageIcon(getClass().getResource("/Hinhanh/setting.png"));
-        ImageIcon iconDatabase = new ImageIcon(getClass().getResource("/Hinhanh/database.png"));
-        ImageIcon iconMessage = new ImageIcon(getClass().getResource("/Hinhanh/setting.png"));
+       ImageIcon iconStaff = new ImageIcon(getClass().getResource("/Hinhanh/menu.png"));
+        ImageIcon iconQLTaiKhoan = new ImageIcon(getClass().getResource("/Hinhanh/protect.png"));
+        ImageIcon iconTTTaiKhoan = new ImageIcon(getClass().getResource("/Hinhanh/acc.png"));
+        ImageIcon iconThanhToan = new ImageIcon(getClass().getResource("/Hinhanh/thanhtoan.png"));
         ImageIcon iconSubMenu = new ImageIcon(getClass().getResource("/Hinhanh/subMenu.png"));
-        ImageIcon iconNext = new ImageIcon(getClass().getResource("/Hinhanh/next.png"));
+        ImageIcon iconLogout = new ImageIcon(getClass().getResource("/Hinhanh/logout.png"));
+        ImageIcon iconSanPham = new ImageIcon(getClass().getResource("/Hinhanh/sanpham.png"));
         //Tạo Menu Quản Lý quan ao
         MenuItem menuQuan = new MenuItem(mauMeNuPhu, iconSubMenu, "\tQuản lý sản phẩm", new ActionListener() {
             @Override
@@ -68,7 +69,7 @@ public class FrmHome extends javax.swing.JFrame {
         });
 
         //Tạo Menu Thanh toan
-        MenuItem menuhoadon = new MenuItem(mauMeNuPhu, iconNext, "\tHóa Đơn", new ActionListener() {
+        MenuItem menuhoadon = new MenuItem(mauMeNuPhu, iconSubMenu, "\tHóa Đơn", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -85,7 +86,7 @@ public class FrmHome extends javax.swing.JFrame {
                 }
             }
         });
-        MenuItem menuThongke = new MenuItem(mauMeNuPhu, iconNext, "\tThống Kê", new ActionListener() {
+        MenuItem menuThongke = new MenuItem(mauMeNuPhu, iconSubMenu, "\tThống Kê", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -104,7 +105,7 @@ public class FrmHome extends javax.swing.JFrame {
         });
         
         //Tạo Menu taikhoan
-        MenuItem menuThongtin = new MenuItem(mauMeNuPhu, iconNext, "\tThông tin", new ActionListener() {
+        MenuItem menuThongtin = new MenuItem(mauMeNuPhu, iconSubMenu, "\tThông tin", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -121,7 +122,7 @@ public class FrmHome extends javax.swing.JFrame {
                 }
             }
         });
-        MenuItem menuĐoimk = new MenuItem(mauMeNuPhu, iconNext, "\tĐổi mật khẩu", new ActionListener() {
+        MenuItem menuĐoimk = new MenuItem(mauMeNuPhu, iconSubMenu, "\tĐổi mật khẩu", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -141,10 +142,10 @@ public class FrmHome extends javax.swing.JFrame {
 
         //Tạo Menu quẩn lý tài khoản cho Admin 
         MenuItem menuHome = new MenuItem(mauMeNuChinh, iconStaff, "Trang Chủ", null);
-        MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSetting, "Sản Phẩm", null, menuQuan, menuAo);
-        MenuItem menuThanhtoan = new MenuItem(mauMeNuChinh, iconDatabase, "Thanh Toán", null, menuhoadon, menuThongke);
-        MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconDatabase, "Tài Khoản", null, menuThongtin, menuĐoimk);
-        MenuItem menuDangxuat = new MenuItem(mauMeNuChinh, iconNext, "Đăng Xuất", new ActionListener() {
+        MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSanPham, "Sản Phẩm", null, menuQuan, menuAo);
+        MenuItem menuThanhtoan = new MenuItem(mauMeNuChinh, iconThanhToan, "Thanh Toán", null, menuhoadon, menuThongke);
+        MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconTTTaiKhoan, "Tài Khoản", null, menuThongtin, menuĐoimk);
+        MenuItem menuDangxuat = new MenuItem(mauMeNuChinh, iconLogout, "Đăng Xuất", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (!helper.MsgBox.confirm(null, "Bạn có muốn đăng xuất?")) {
@@ -156,7 +157,7 @@ public class FrmHome extends javax.swing.JFrame {
             }
         });
         //Tạo Menu quẩn lý tài khoản cho Admin 
-        MenuItem menuQuanLyTaiKhoan = new MenuItem(mauMeNuChinh, iconDatabase, "Quản Lý Tài Khoản", new ActionListener() {
+        MenuItem menuQuanLyTaiKhoan = new MenuItem(mauMeNuChinh, iconQLTaiKhoan, "Quản Lý Tài Khoản", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -228,8 +229,7 @@ public class FrmHome extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelMenu, java.awt.BorderLayout.LINE_START);
