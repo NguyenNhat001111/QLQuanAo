@@ -61,7 +61,7 @@ public class Doimk extends javax.swing.JPanel {
                     .addGroup(paldoimkLayout.createSequentialGroup()
                         .addGap(207, 207, 207)
                         .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101)
+                        .addGap(100, 100, 100)
                         .addComponent(btnThoat)))
                 .addContainerGap(728, Short.MAX_VALUE))
         );
@@ -82,11 +82,11 @@ public class Doimk extends javax.swing.JPanel {
                 .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNLMKM)
                     .addComponent(txtNLMKM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLuu)
                     .addComponent(btnThoat))
-                .addGap(52, 52, 52))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
