@@ -9,6 +9,7 @@ import DAO.TaiKhoanDAO;
 import MODELS.TaiKhoan;
 import helper.MsgBox;
 import helper.Auth;
+
 /**
  *
  * @author Administrator
@@ -20,6 +21,7 @@ public class JFrmLogin extends javax.swing.JDialog {
      */
     TaiKhoanDAO tkdao;
     int count = -1;
+
     public JFrmLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -175,30 +177,35 @@ public class JFrmLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-           String User = txtuser.getText();
-           String Pass = new String(txtpass.getPassword());
-           TaiKhoan tk = tkdao.selectById(User);
-           if(tk == null){
-               MsgBox.alert(this, "Sai Tên Đăng Nhập");
-           }
-           else if(!Pass.equals(tk.getMatKhau())){
-               MsgBox.alert(this, "Sai Mật Khẩu");
-           }
-           else{
-               Auth.user= tk;
-               this.dispose();
-           }
+        String User = txtuser.getText();
+        String Pass = new String(txtpass.getPassword());
+        TaiKhoan tk = tkdao.selectById(User);
+        if (User.length() == 0
+                || Pass.length() == 0) {
+            MsgBox.alert(this, "Không được để trống");
+        } else if (tk == null) {
+            MsgBox.alert(this, "Sai Tên Đăng Nhập");
+        } else if (!Pass.equals(tk.getMatKhau())) {
+            MsgBox.alert(this, "Sai Mật Khẩu");
+        } else {
+            Auth.user = tk;
+            this.dispose();
+        }
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+//<<<<<<< HEAD
          System.exit(0);
+//=======
+//        System.exit(0);
+//>>>>>>> 4e17a1df8d63abe0f2f44d57f095d0636e492583
     }//GEN-LAST:event_formWindowClosing
 
     private void btnshowpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnshowpassMouseClicked
         count++;
         if (count % 2 == 0) {
             txtpass.setEchoChar('\u0000');
-           // lblshowpass.setIcon(new ImageIcon("src\\Icons\\hidden.png"));
+            // lblshowpass.setIcon(new ImageIcon("src\\Icons\\hidden.png"));
         } else {
             txtpass.setEchoChar('\u2022');
             //lblshowpass.setIcon(new ImageIcon("src\\Icons\\show.png"));
