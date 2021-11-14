@@ -509,6 +509,9 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        if (validateSP()) {
+            return;
+        }
         suaSP();
     }//GEN-LAST:event_btnSuaActionPerformed
 
@@ -939,11 +942,33 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         return false;
     }
 
+    public ChiTietSanPham getForm() {
+        int trangThai = cboTrangThai.getSelectedIndex() == 0 ? 1 : 2;
+        for (int j = 0; j < cboTrangThai.getMaximumRowCount(); j++) {
+            
+        }
+
+        ChiTietSanPham ct = new ChiTietSanPham();
+        ct.setMaSP("SP" + tblDanhSach.getRowCount());
+        ct.setIdChatLieu(cboChatLieu.getSelectedIndex() + 1);
+        ct.setIdDonViTinh(WIDTH);
+        ct.setIdGioiTinh(WIDTH);
+        ct.setIdKichCo(WIDTH);
+        ct.setIdMauSac(WIDTH);
+        ct.setIdSanPham(WIDTH);
+        ct.setMoTa(TOOL_TIP_TEXT_KEY);
+        ct.setSoLuong(SOMEBITS);
+        ct.setTenCT(TOOL_TIP_TEXT_KEY);
+        ct.setTrangThai(trangThai);
+        return ct;
+    }
+
     private void themSP() {
 
     }
 
     private void suaSP() {
-        
+        String sql = "";
+        XJdbc.update(TOOL_TIP_TEXT_KEY, 1);
     }
 }
