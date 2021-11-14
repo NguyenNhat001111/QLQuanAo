@@ -123,11 +123,11 @@ GO
 create table HoaDon
 (
    IDHoaDon int identity(1,1) not null primary key,
-   IDNguoiDung int not null foreign key references NguoiDung(IDNguoiDung),
+   IDNguoiDung int foreign key references NguoiDung(IDNguoiDung),
    IDKhachHang int not null foreign key references KhachHang(IDKhachHang),
    NgayLapHoaDon date ,
    TongGiaTien float ,
-   HinhThucThanhToan nvarchar(50),
+   HinhThucThanhToan int,
    TrangThaiHoaDon int
 )
 GO
