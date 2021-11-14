@@ -2,16 +2,21 @@ package giaoDien;
 
 import DAO.TaiKhoanDAO;
 import helper.MsgBox;
+import MODELS.TaiKhoan;
+import helper.Auth;
+import helper.XJdbc;
+import javax.swing.ImageIcon;
+
 public class Doimk extends javax.swing.JPanel {
-    
+
     TaiKhoanDAO tkdao;
+    int count = -1;
+    int i = -1 , j = -1;
     
     public Doimk() {
         initComponents();
     }
-    
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,10 +30,12 @@ public class Doimk extends javax.swing.JPanel {
         txtPassMoi = new javax.swing.JPasswordField();
         txtrePassMoi = new javax.swing.JPasswordField();
         btnLuu = new javax.swing.JButton();
-        btnHuy = new javax.swing.JButton();
         txtPassCu = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        btnshowpassnew = new javax.swing.JButton();
+        btnshowpassnew1 = new javax.swing.JButton();
+        btnshowpassold = new javax.swing.JButton();
 
         paldoimk.setBackground(new java.awt.Color(153, 255, 255));
 
@@ -46,9 +53,9 @@ public class Doimk extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nhập Lại Mật Khẩu Mới");
 
-        txtPassMoi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPassMoi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        txtrePassMoi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtrePassMoi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnLuu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLuu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/Accept.png"))); // NOI18N
@@ -60,29 +67,41 @@ public class Doimk extends javax.swing.JPanel {
             }
         });
 
-        btnHuy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnHuy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/No.png"))); // NOI18N
-        btnHuy.setText("HỦY");
-        btnHuy.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtPassCu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Email");
+
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        btnshowpassnew.setBackground(new java.awt.Color(255, 255, 255));
+        btnshowpassnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpassnew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnshowpassnewActionPerformed(evt);
+            }
+        });
+
+        btnshowpassnew1.setBackground(new java.awt.Color(255, 255, 255));
+        btnshowpassnew1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpassnew1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnshowpassnew1ActionPerformed(evt);
+            }
+        });
+
+        btnshowpassold.setBackground(new java.awt.Color(255, 255, 255));
+        btnshowpassold.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpassold.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnshowpassoldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(293, 293, 293))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(146, 146, 146)
-                        .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(169, 169, 169))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -96,34 +115,51 @@ public class Doimk extends javax.swing.JPanel {
                     .addComponent(txtrePassMoi, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
                     .addComponent(txtPassCu)
                     .addComponent(txtEmail))
-                .addGap(0, 185, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnshowpassnew, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnshowpassold, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnshowpassnew1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(334, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(291, 291, 291))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(280, 280, 280))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(txtPassCu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPassCu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnshowpassold, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtPassMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPassMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnshowpassnew, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtrePassMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61))
+                    .addComponent(txtrePassMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnshowpassnew1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEmail, txtPassCu, txtPassMoi, txtrePassMoi});
@@ -158,28 +194,76 @@ public class Doimk extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-
+        String User = txtEmail.getText();
         String matKhauCu = new String(txtPassCu.getPassword());
         String matKhauMoi = new String(txtPassMoi.getPassword());
         String matKhauMoi1 = new String(txtrePassMoi.getPassword());
-        TaiKhoanDAO tk = this.tkdao.selectById(tk.getEmail());
-        if(!matKhauCu.equals(tk.getMatKhau())){
+
+        //TaiKhoan tk = tkdao.selectById(User);
+        if (User.length() == 0
+                || matKhauCu.length() == 0
+                || matKhauMoi.length() == 0
+                || matKhauMoi1.length() == 0) {
+            MsgBox.alert(this, "Không được để trống thông tin");
+            return;
+        } else if (!User.equals(Auth.user.getEmail())) {
+            MsgBox.alert(this, "Nhập sai tài khoản");
+            return;
+        } else if (!matKhauCu.equals(Auth.user.getMatKhau())) {
             MsgBox.alert(this, "Nhập sai mật khẩu cũ");
-        }
-        else if(!matKhauMoi.equals(matKhauMoi1)){
+            return;
+
+        } else if (!matKhauMoi.equals(matKhauMoi1)) {
             MsgBox.alert(this, "Xác nhận mật khẩu mới sai");
-        }
-        else{
-            this.tkdao.updatemk(matKhauCu, tk.getEmail());
+            return;
+        } else {
+            String sql = "update TaiKhoan set MatKhau=? where Email=?";
+            XJdbc.update(sql, matKhauMoi, User);
             MsgBox.alert(this, "Đổi mật khẩu thành công");
-            this.setNew();
+            //this.setNew();
         }
+
     }//GEN-LAST:event_btnLuuActionPerformed
+
+    private void btnshowpassoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassoldActionPerformed
+        count++;
+        if (count % 2 == 0) {
+            txtPassCu.setEchoChar('\u0000');
+            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        } else {
+            txtPassCu.setEchoChar('\u2022');
+            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        }
+    }//GEN-LAST:event_btnshowpassoldActionPerformed
+
+    private void btnshowpassnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassnewActionPerformed
+        i++;
+        if (i % 2 == 0) {
+            txtPassMoi.setEchoChar('\u0000');
+            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        } else {
+            txtPassMoi.setEchoChar('\u2022');
+            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        }
+    }//GEN-LAST:event_btnshowpassnewActionPerformed
+
+    private void btnshowpassnew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassnew1ActionPerformed
+        j++;
+        if (j % 2 == 0) {
+            txtrePassMoi.setEchoChar('\u0000');
+            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        } else {
+            txtrePassMoi.setEchoChar('\u2022');
+            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        }
+    }//GEN-LAST:event_btnshowpassnew1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnLuu;
+    private javax.swing.JButton btnshowpassnew;
+    private javax.swing.JButton btnshowpassnew1;
+    private javax.swing.JButton btnshowpassold;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -193,10 +277,10 @@ public class Doimk extends javax.swing.JPanel {
     private javax.swing.JPasswordField txtrePassMoi;
     // End of variables declaration//GEN-END:variables
 
-    private void setNew(){
-       txtEmail.setText("");
-       txtPassCu.setText("");
-       txtPassMoi.setText("");
-       txtrePassMoi.setText("");
+    private void setNew() {
+        txtEmail.setText("");
+        txtPassCu.setText("");
+        txtPassMoi.setText("");
+        txtrePassMoi.setText("");
     }
 }

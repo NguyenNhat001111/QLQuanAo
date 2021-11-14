@@ -11,6 +11,7 @@ import java.util.List;
 public class TaiKhoanDAO implements IDAOService<TaiKhoan, Integer> {
     final String INSERT_SQL = "insert into TaiKhoan(Email, IDNguoiDung, MatKhau, TrangThai) values(?, ?, ?, ?)";
     final String UPDATE_SQL = "update TaiKhoan set MatKhau=?, TrangThai=? where IDTaiKhoan=?";
+    final String UPDATEMK_SQL = "update TaiKhoan set MatKhau=? where Email=?";
     final String SELECT_BY_EMAIL_SQL = "select * from TaiKhoan where Email=?";
     final String SELECT_ALL_SQL = "select * from TaiKhoan";
     @Override
@@ -22,7 +23,11 @@ public class TaiKhoanDAO implements IDAOService<TaiKhoan, Integer> {
     public void update(TaiKhoan entity) {
         XJdbc.update(UPDATE_SQL, entity.getMatKhau(), entity.getTrangThai(), entity.getIdTaiKhoan());
     }
-
+    
+    public void updatemk(String mk, String user){
+        XJdbc.update(UPDATEMK_SQL, mk, user);
+    }
+    
     @Override
     public void delete(Integer id) {
        
@@ -53,6 +58,7 @@ public class TaiKhoanDAO implements IDAOService<TaiKhoan, Integer> {
                 entity.setIdNguoiDung(rs.getInt("IDNguoiDung"));
                 entity.setMatKhau(rs.getString("MatKhau"));
                 entity.setTrangThai(rs.getInt("TrangThai"));
+                entity.setVaiTro(rs.getInt("IDVaiTro"));
                 list.add(entity);
             }
         } catch (Exception e) {

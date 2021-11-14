@@ -111,7 +111,7 @@ GO
 create table TaiKhoan
 (
    IDTaiKhoan int identity(1,1) not null,
-   Email varchar(50) ,
+   Email varchar(50) not null,
    IDNguoiDung int not null foreign key references NguoiDung(IDNguoiDung),
    MatKhau varchar(20) ,
    IDVaiTro int not null foreign key references VaiTro(IDVaiTro),

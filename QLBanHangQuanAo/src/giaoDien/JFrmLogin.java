@@ -9,6 +9,8 @@ import DAO.TaiKhoanDAO;
 import MODELS.TaiKhoan;
 import helper.MsgBox;
 import helper.Auth;
+import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -43,11 +45,12 @@ public class JFrmLogin extends javax.swing.JDialog {
         lbluser = new javax.swing.JLabel();
         lblanhuser = new javax.swing.JLabel();
         lblpass = new javax.swing.JLabel();
+        btnshowpass = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtuser = new javax.swing.JTextField();
         btnlogin = new javax.swing.JButton();
         txtpass = new javax.swing.JPasswordField();
-        btnshowpass = new javax.swing.JButton();
+        btnthoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("QLBQA - ĐĂNG NHẬP");
@@ -70,6 +73,14 @@ public class JFrmLogin extends javax.swing.JDialog {
 
         lblpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/pass.jpg"))); // NOI18N
 
+        btnshowpass.setBackground(new java.awt.Color(255, 255, 255));
+        btnshowpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnshowpassMouseClicked(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("ĐĂNG NHẬP");
 
@@ -87,11 +98,13 @@ public class JFrmLogin extends javax.swing.JDialog {
 
         txtpass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        btnshowpass.setBackground(new java.awt.Color(255, 255, 255));
-        btnshowpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/hienpass.jpg"))); // NOI18N
-        btnshowpass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnshowpassMouseClicked(evt);
+        btnthoat.setBackground(new java.awt.Color(255, 51, 51));
+        btnthoat.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnthoat.setForeground(new java.awt.Color(255, 255, 255));
+        btnthoat.setText("Thoát");
+        btnthoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnthoatActionPerformed(evt);
             }
         });
 
@@ -110,17 +123,23 @@ public class JFrmLogin extends javax.swing.JDialog {
                             .addComponent(lblpass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnlogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtuser, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                            .addComponent(txtpass, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtuser)
+                            .addComponent(txtpass)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(btnthoat, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnshowpass, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
+                        .addGap(20, 20, 20))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addComponent(jLabel1)
-                        .addContainerGap(190, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnlogin, btnthoat});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -135,13 +154,14 @@ public class JFrmLogin extends javax.swing.JDialog {
                     .addComponent(lbluser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtuser))
                 .addGap(39, 39, 39)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblpass))
-                    .addComponent(btnshowpass))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblpass)
+                    .addComponent(btnshowpass, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnlogin, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(btnthoat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34))
         );
 
@@ -194,24 +214,32 @@ public class JFrmLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-//<<<<<<< HEAD
-         System.exit(0);
-//=======
-//        System.exit(0);
-//>>>>>>> 4e17a1df8d63abe0f2f44d57f095d0636e492583
+
+        System.exit(0);
+
     }//GEN-LAST:event_formWindowClosing
 
     private void btnshowpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnshowpassMouseClicked
         count++;
         if (count % 2 == 0) {
             txtpass.setEchoChar('\u0000');
-            // lblshowpass.setIcon(new ImageIcon("src\\Icons\\hidden.png"));
+            btnshowpass.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
         } else {
             txtpass.setEchoChar('\u2022');
-            //lblshowpass.setIcon(new ImageIcon("src\\Icons\\show.png"));
+            btnshowpass.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
         }
     }//GEN-LAST:event_btnshowpassMouseClicked
 
+    private void btnthoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthoatActionPerformed
+        if (MsgBox.confirm(this, "Bạn có muốn thoát?")) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnthoatActionPerformed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            this.btnlogin.requestFocus();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -257,6 +285,7 @@ public class JFrmLogin extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnlogin;
     private javax.swing.JButton btnshowpass;
+    private javax.swing.JButton btnthoat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -266,4 +295,5 @@ public class JFrmLogin extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
+    
 }
