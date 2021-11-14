@@ -25,12 +25,12 @@ public class FrmHome extends javax.swing.JFrame {
     }
 
     private void execute() {
-        ImageIcon iconStaff = new ImageIcon("D:\\DAM1\\src\\menu\\user.png");
-        ImageIcon iconSetting = new ImageIcon("D:\\DAM1\\src\\menu\\setting.png");
-        ImageIcon iconDatabase = new ImageIcon("D:\\DAM1\\src\\menu\\database.png");
-        ImageIcon iconMessage = new ImageIcon("D:\\DAM1\\src\\menu\\message.png");
-        ImageIcon iconSubMenu = new ImageIcon("D:\\DAM1\\src\\menu\\subMenu.png");
-        ImageIcon iconNext = new ImageIcon("D:\\DAM1\\src\\menu\\next.png");
+       ImageIcon iconStaff = new ImageIcon(getClass().getResource("/Hinhanh/user.png"));
+        ImageIcon iconSetting = new ImageIcon(getClass().getResource("/Hinhanh/setting.png"));
+        ImageIcon iconDatabase = new ImageIcon(getClass().getResource("/Hinhanh/database.png"));
+        ImageIcon iconMessage = new ImageIcon(getClass().getResource("/Hinhanh/setting.png"));
+        ImageIcon iconSubMenu = new ImageIcon(getClass().getResource("/Hinhanh/subMenu.png"));
+        ImageIcon iconNext = new ImageIcon(getClass().getResource("/Hinhanh/next.png"));
         //Tạo Menu Quản Lý quan ao
         MenuItem menuQuan = new MenuItem(mauMeNuPhu, iconSubMenu, "\tQuản lý sản phẩm", new ActionListener() {
             @Override
