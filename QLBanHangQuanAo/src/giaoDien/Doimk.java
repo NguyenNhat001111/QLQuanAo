@@ -193,6 +193,39 @@ public class Doimk extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnshowpassoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassoldActionPerformed
+        count++;
+        if (count % 2 == 0) {
+            txtPassCu.setEchoChar('\u0000');
+            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        } else {
+            txtPassCu.setEchoChar('\u2022');
+            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        }
+    }//GEN-LAST:event_btnshowpassoldActionPerformed
+
+    private void btnshowpassnew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassnew1ActionPerformed
+        j++;
+        if (j % 2 == 0) {
+            txtrePassMoi.setEchoChar('\u0000');
+            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        } else {
+            txtrePassMoi.setEchoChar('\u2022');
+            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        }
+    }//GEN-LAST:event_btnshowpassnew1ActionPerformed
+
+    private void btnshowpassnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassnewActionPerformed
+        i++;
+        if (i % 2 == 0) {
+            txtPassMoi.setEchoChar('\u0000');
+            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        } else {
+            txtPassMoi.setEchoChar('\u2022');
+            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        }
+    }//GEN-LAST:event_btnshowpassnewActionPerformed
+
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         String User = txtEmail.getText();
         String matKhauCu = new String(txtPassCu.getPassword());
@@ -201,9 +234,9 @@ public class Doimk extends javax.swing.JPanel {
 
         //TaiKhoan tk = tkdao.selectById(User);
         if (User.length() == 0
-                || matKhauCu.length() == 0
-                || matKhauMoi.length() == 0
-                || matKhauMoi1.length() == 0) {
+            || matKhauCu.length() == 0
+            || matKhauMoi.length() == 0
+            || matKhauMoi1.length() == 0) {
             MsgBox.alert(this, "Không được để trống thông tin");
             return;
         } else if (!User.equals(Auth.user.getEmail())) {
@@ -224,9 +257,9 @@ public class Doimk extends javax.swing.JPanel {
             MsgBox.alert(this, "Đổi mật khẩu thành công");
             //this.setNew();
         }
-
     }//GEN-LAST:event_btnLuuActionPerformed
 
+<<<<<<< HEAD
     private void btnshowpassoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassoldActionPerformed
         count++;
         if (count % 2 == 0) {
@@ -260,6 +293,8 @@ public class Doimk extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnshowpassnew1ActionPerformed
 
+=======
+>>>>>>> 7aafbd0f1219ecfe3f8119ca921dfbbeae679d02
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLuu;
