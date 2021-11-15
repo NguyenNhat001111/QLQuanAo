@@ -212,7 +212,9 @@ public class Doimk extends javax.swing.JPanel {
         } else if (!matKhauCu.equals(Auth.user.getMatKhau())) {
             MsgBox.alert(this, "Nhập sai mật khẩu cũ");
             return;
-
+        } else if(matKhauMoi.length() < 6 || matKhauMoi.length() > 10){
+            MsgBox.alert(this, "Mật khẩu phải trên 6 kí tự và dưới 10 kí tự");
+            return;
         } else if (!matKhauMoi.equals(matKhauMoi1)) {
             MsgBox.alert(this, "Xác nhận mật khẩu mới sai");
             return;
@@ -229,10 +231,10 @@ public class Doimk extends javax.swing.JPanel {
         count++;
         if (count % 2 == 0) {
             txtPassCu.setEchoChar('\u0000');
-            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
         } else {
             txtPassCu.setEchoChar('\u2022');
-            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
         }
     }//GEN-LAST:event_btnshowpassoldActionPerformed
 
@@ -240,10 +242,10 @@ public class Doimk extends javax.swing.JPanel {
         i++;
         if (i % 2 == 0) {
             txtPassMoi.setEchoChar('\u0000');
-            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
         } else {
             txtPassMoi.setEchoChar('\u2022');
-            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
         }
     }//GEN-LAST:event_btnshowpassnewActionPerformed
 
@@ -251,10 +253,10 @@ public class Doimk extends javax.swing.JPanel {
         j++;
         if (j % 2 == 0) {
             txtrePassMoi.setEchoChar('\u0000');
-            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
         } else {
             txtrePassMoi.setEchoChar('\u2022');
-            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
         }
     }//GEN-LAST:event_btnshowpassnew1ActionPerformed
 

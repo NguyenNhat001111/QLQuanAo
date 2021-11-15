@@ -223,10 +223,10 @@ public class JFrmLogin extends javax.swing.JDialog {
         count++;
         if (count % 2 == 0) {
             txtpass.setEchoChar('\u0000');
-            btnshowpass.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+            btnshowpass.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
         } else {
             txtpass.setEchoChar('\u2022');
-            btnshowpass.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+            btnshowpass.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
         }
     }//GEN-LAST:event_btnshowpassMouseClicked
 

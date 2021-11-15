@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class NguoiDungDAO implements IDAOService<NguoiDung, Integer>{
     final String INSERT_SQL = "insert into NguoiDung(IDVaiTro, HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai) values(?, ?, ?, ?, ?, ?)";
-    final String UPDATE_SQL = "update NguoiDung set HoTenNhanVien=?, SDT=?, DiaChi=?, TrangThai=? where IDNguoiDung=?";
+    final String UPDATE_SQL = "update NguoiDung set HoTenNhanVien=?, SDT=?, CCCD=?, DiaChi=? where IDNguoiDung=?";
     final String SELECT_BY_ID_SQL= "select * from NguoiDung where IDNguoiDung=?";
     final String SELECT_ALL_SQL = "select * from NguoiDung";
     @Override
@@ -27,7 +27,7 @@ public class NguoiDungDAO implements IDAOService<NguoiDung, Integer>{
 
     @Override
     public void update(NguoiDung entity) {
-        XJdbc.update(UPDATE_SQL, entity.getHoTen(), entity.getSdt(), entity.getDiaChi(), entity.getTrangThai(), entity.getIdNguoiDung());
+        XJdbc.update(UPDATE_SQL, entity.getHoTen(), entity.getSdt(), entity.getCccd(), entity.getDiaChi(), entity.getIdNguoiDung());
     }
 
     @Override
