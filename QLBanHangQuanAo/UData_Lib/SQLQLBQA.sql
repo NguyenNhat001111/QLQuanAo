@@ -124,10 +124,10 @@ create table HoaDon
 (
    IDHoaDon int identity(1,1) not null primary key,
    IDNguoiDung int not null foreign key references NguoiDung(IDNguoiDung),
-   IDKhachHang int not null foreign key references KhachHang(IDKhachHang),
+   IDKhachHang int foreign key references KhachHang(IDKhachHang),
    NgayLapHoaDon date ,
    TongGiaTien float ,
-   HinhThucThanhToan nvarchar(50),
+   HinhThucThanhToan int,
    TrangThaiHoaDon int
 )
 GO
@@ -204,11 +204,11 @@ values(2, 2, N'Áo Hoodie Channel', 1)
 
 --ChiTietSanPham
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(1, 'SP01', 2, 1, 2, 5, 2, N'Demo mô tả', 250000, N'Demo tên chi tiết', 9, 1)
+values(1, 'SP1', 2, 1, 2, 5, 2, N'Demo mô tả', 250000, N'Áo Phông Channel Nữ Trắng', 9, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP02', 1, 2, 2, 5, 1, N'Demo mô tả', 200000, N'Demo tên chi tiết', 11, 1)
+values(2, 'SP2', 1, 2, 2, 5, 1, N'Demo mô tả', 200000, N'Áo Hoodie Channel Nam Đen', 11, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP03', 2, 1, 1, 1, 1, N'Demo mô tả', 200000, N'Demo tên chi tiết', 20, 1)
+values(2, 'SP3', 2, 1, 1, 1, 1, N'Demo mô tả', 200000, N'Áo Hoodie Channel Nam Trắng', 20, 1)
 
 --Vaitro
 insert into VaiTro values(0, N'ADMIN')
@@ -242,9 +242,9 @@ values(N'Phí Công Lợi', '0493458389', N'Hoài Đức - Hà Nội', '00110457
 
 --HoaDon
 insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, TrangThaiHoaDon)
-values(2, 1, '9/11/2021', 1000000, N'Tiền Mặt', 1)
+values(2, 1, '9/11/2021', 1000000, 1, 1)
 insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, TrangThaiHoaDon)
-values(2, 2, '8/11/2021', 2500000, N'Chuyển Khoản Ngân Hàng', 1)
+values(2, 2, '8/11/2021', 2500000, 2, 1)
 
 --HoaDonChiTiet
 insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
@@ -292,4 +292,13 @@ inner join NhaSanXuat on NhaSanXuat.IDNhaSanXuat=SanPham.IDNhaSanXuat
 
 select IDHoaDon,NgayLapHoaDon,TongGiaTien,TrangThaiHoaDon from HoaDon
 
+select MaSanPham, TenChiTiet, TenDanhMuc, ChatLieuSP, MauSac, KichCo, GioiTinh, TenNhaSX, GiaTien, Soluong from ChiTietSanPham
+	inner join MauSac on MauSac.IDMauSac=ChiTietSanPham.IDMauSac
+	inner join DonViTinh on DonViTinh.IDDonViTinh = ChiTietSanPham.IDDonViTinh
+	inner join ChatLieu on ChatLieu.IDChatLieu=ChiTietSanPham.IDChatLieu
+	inner join GioiTinh on GioiTinh.IDGioiTinh=ChiTietSanPham.IDgioiTinh
+	inner join KichCoSP on KichCoSP.IDKichCo=ChiTietSanPham.IDKichCo
+	inner join SanPham on ChiTietSanPham.IDSanPham=SanPham.IDSanPham
+	inner join DanhMucSP on DanhMucSP.IDDanhMuc=SanPham.IDDanhMuc
+	inner join NhaSanXuat on NhaSanXuat.IDNhaSanXuat=SanPham.IDNhaSanXuat
 
