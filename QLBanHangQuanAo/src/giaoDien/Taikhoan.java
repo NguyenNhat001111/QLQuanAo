@@ -172,6 +172,14 @@ public class Taikhoan extends javax.swing.JPanel {
             txtSDT.requestFocus();
             return;
         }
+        Pattern p = Pattern.compile("^[0-9\\-\\+]{12}$");
+         if(p.matcher(CCCD).find()){
+               
+        } else {
+            MsgBox.alert(this, "Định dạng CCCD sai(Phải là số và có 12 số)");
+            txtCCCD.requestFocus();
+            return;
+        }
         String sql = "update NguoiDung set HoTenNhanVien=?, SDT=?, CCCD=?, DiaChi=? where IDNguoiDung=?";
         XJdbc.update(sql, hoTen, SDT, CCCD, diaChi, Auth.user.getIdNguoiDung());
         MsgBox.alert(this, "Cập nhật thông tin tài khoản thành công");

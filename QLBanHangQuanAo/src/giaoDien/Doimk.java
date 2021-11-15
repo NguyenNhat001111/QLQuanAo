@@ -11,8 +11,8 @@ public class Doimk extends javax.swing.JPanel {
 
     TaiKhoanDAO tkdao;
     int count = -1;
-    int i = -1 , j = -1;
-    
+    int i = -1, j = -1;
+
     public Doimk() {
         initComponents();
     }
@@ -31,8 +31,6 @@ public class Doimk extends javax.swing.JPanel {
         txtrePassMoi = new javax.swing.JPasswordField();
         btnLuu = new javax.swing.JButton();
         txtPassCu = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
         btnshowpassnew = new javax.swing.JButton();
         btnshowpassnew1 = new javax.swing.JButton();
         btnshowpassold = new javax.swing.JButton();
@@ -69,11 +67,6 @@ public class Doimk extends javax.swing.JPanel {
 
         txtPassCu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Email");
-
-        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
         btnshowpassnew.setBackground(new java.awt.Color(255, 255, 255));
         btnshowpassnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/nshow.png"))); // NOI18N
         btnshowpassnew.addActionListener(new java.awt.event.ActionListener() {
@@ -102,45 +95,40 @@ public class Doimk extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPassMoi)
-                    .addComponent(txtrePassMoi, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                    .addComponent(txtPassCu)
-                    .addComponent(txtEmail))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnshowpassnew, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnshowpassold, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnshowpassnew1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(334, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(280, 280, 280))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPassMoi)
+                            .addComponent(txtrePassMoi)
+                            .addComponent(txtPassCu, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnshowpassnew, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnshowpassold, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnshowpassnew1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(291, 291, 291))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(280, 280, 280))))
+                        .addGap(164, 164, 164)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(77, 77, 77)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -159,10 +147,10 @@ public class Doimk extends javax.swing.JPanel {
                     .addComponent(btnshowpassnew1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEmail, txtPassCu, txtPassMoi, txtrePassMoi});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtPassCu, txtPassMoi, txtrePassMoi});
 
         javax.swing.GroupLayout paldoimkLayout = new javax.swing.GroupLayout(paldoimk);
         paldoimk.setLayout(paldoimkLayout);
@@ -192,27 +180,22 @@ public class Doimk extends javax.swing.JPanel {
             .addComponent(paldoimk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-                                       
+
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        String User = txtEmail.getText();
+
         String matKhauCu = new String(txtPassCu.getPassword());
         String matKhauMoi = new String(txtPassMoi.getPassword());
         String matKhauMoi1 = new String(txtrePassMoi.getPassword());
 
-        //TaiKhoan tk = tkdao.selectById(User);
-        if (User.length() == 0
-            || matKhauCu.length() == 0
-            || matKhauMoi.length() == 0
-            || matKhauMoi1.length() == 0) {
+        if (matKhauCu.length() == 0
+                || matKhauMoi.length() == 0
+                || matKhauMoi1.length() == 0) {
             MsgBox.alert(this, "Không được để trống thông tin");
-            return;
-        } else if (!User.equals(Auth.user.getEmail())) {
-            MsgBox.alert(this, "Nhập sai tài khoản");
             return;
         } else if (!matKhauCu.equals(Auth.user.getMatKhau())) {
             MsgBox.alert(this, "Nhập sai mật khẩu cũ");
             return;
-        } else if(matKhauMoi.length() < 6 || matKhauMoi.length() > 10){
+        } else if (matKhauMoi.length() < 6 || matKhauMoi.length() > 10) {
             MsgBox.alert(this, "Mật khẩu phải trên 6 kí tự và dưới 10 kí tự");
             return;
         } else if (!matKhauMoi.equals(matKhauMoi1)) {
@@ -220,7 +203,7 @@ public class Doimk extends javax.swing.JPanel {
             return;
         } else {
             String sql = "update TaiKhoan set MatKhau=? where Email=?";
-            XJdbc.update(sql, matKhauMoi, User);
+            XJdbc.update(sql, matKhauMoi, Auth.user.getEmail());
             MsgBox.alert(this, "Đổi mật khẩu thành công");
             this.setNew();
         }
@@ -270,17 +253,15 @@ public class Doimk extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel paldoimk;
-    private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassCu;
     private javax.swing.JPasswordField txtPassMoi;
     private javax.swing.JPasswordField txtrePassMoi;
     // End of variables declaration//GEN-END:variables
 
     private void setNew() {
-        txtEmail.setText("");
+
         txtPassCu.setText("");
         txtPassMoi.setText("");
         txtrePassMoi.setText("");

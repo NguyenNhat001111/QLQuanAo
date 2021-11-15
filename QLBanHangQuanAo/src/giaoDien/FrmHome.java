@@ -1,5 +1,6 @@
 package giaoDien;
 
+import helper.Auth;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -225,11 +226,14 @@ public class FrmHome extends javax.swing.JFrame {
         panelBody = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         panelMenu.setBackground(new java.awt.Color(255, 204, 204));
         panelMenu.setPreferredSize(new java.awt.Dimension(250, 486));
-
-        jScrollPane1.setBorder(null);
 
         menus.setBackground(new java.awt.Color(255, 255, 204));
         menus.setLayout(new javax.swing.BoxLayout(menus, javax.swing.BoxLayout.Y_AXIS));
@@ -266,6 +270,13 @@ public class FrmHome extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1188, 797));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if(helper.MsgBox.confirm(null, "Bạn có muốn thoát")){
+        helper.Auth.clear();
+        System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
