@@ -112,13 +112,13 @@ public class FrmHome extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
                     panelBody.removeAll();
-                    panelBody.add(new FrmHome());
+                    panelBody.add(new Doimk());
                     panelBody.repaint();
                     panelBody.revalidate();
                 } else {
                     index = 1;
                     panelBody.removeAll();
-                    panelBody.add(new FrmHome());
+                    panelBody.add(new Doimk());
                     panelBody.repaint();
                     panelBody.revalidate();
                 }
@@ -126,7 +126,6 @@ public class FrmHome extends javax.swing.JFrame {
         });
 
         //Tạo Menu quẩn lý tài khoản cho Admin 
-<<<<<<< HEAD
         MenuItem menuHome = new MenuItem(mauMeNuChinh, iconStaff, "Trang Chủ", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -146,14 +145,14 @@ public class FrmHome extends javax.swing.JFrame {
             }
         });
         MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSanPham, " Quản Lý Sản Phẩm", null, menuQuan, menuAo);
-        MenuItem menuThanhtoan = new MenuItem(mauMeNuChinh, iconThanhToan, "Thanh Toán", null, menuhoadon, menuThongke);
-        MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconTTTaiKhoan, "Tài Khoản", null, menuThongtin, menuĐoimk);
-=======
-        MenuItem menuHome = new MenuItem(mauMeNuChinh, iconStaff, "Trang Chủ", null);
-        MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSanPham, "Sản Phẩm", null, menuQuan, menuAo);
         MenuItem menuThanhtoan = new MenuItem(mauMeNuChinh, iconThanhToan, "Thanh Toán", null, menuhoadon);
         MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconTTTaiKhoan, "Tài Khoản", null, menuThongtin, menuDoimk);
->>>>>>> 34ba227c45362ec364b85b8c79cf9a57918627f2
+
+        
+     
+     
+        
+
         MenuItem menuDangxuat = new MenuItem(mauMeNuChinh, iconLogout, "Đăng Xuất", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -323,6 +322,6 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
     private void init() {
-    //    new JFrmLogin(this, true).setVisible(true);    
+        new JFrmLogin(this, true).setVisible(true);    
     }
 }
