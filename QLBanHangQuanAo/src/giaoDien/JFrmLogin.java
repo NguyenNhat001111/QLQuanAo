@@ -74,7 +74,7 @@ public class JFrmLogin extends javax.swing.JDialog {
         lblpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/pass.jpg"))); // NOI18N
 
         btnshowpass.setBackground(new java.awt.Color(255, 255, 255));
-        btnshowpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/nshow.png"))); // NOI18N
         btnshowpass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnshowpassMouseClicked(evt);

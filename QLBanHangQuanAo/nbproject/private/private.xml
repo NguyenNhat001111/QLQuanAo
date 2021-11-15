@@ -2,20 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/DAO/thongkeDAO.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/giaoDien/PFrmThuocTinhSP.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/giaoDien/PFrmThongKe.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/giaoDien/MenuItem.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/helper/XJdbc.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/giaoDien/FrmHome.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/DAO/HoaDonChiTietDAO.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/giaoDien/PFrmHoaDon.java</file>
-            <file>file:/D:/Duan/QLQuanAo/QLBanHangQuanAo/src/giaoDien/JFrmLogin.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/giaoDien/PFrmThuocTinhSP.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/DAO/NguoiDungDAO.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/giaoDien/Taikhoan.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/giaoDien/PFrmHoaDon.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/giaoDien/Doimk.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/giaoDien/JFrmLogin.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/giaoDien/QuanLyTK.java</file>
+            <file>file:/E:/Duan1/QLQuanAo/QLBanHangQuanAo/src/giaoDien/FrmHome.java</file>
         </group>
-=======
-        <group/>
->>>>>>> 34ba227c45362ec364b85b8c79cf9a57918627f2
     </open-files>
 </project-private>

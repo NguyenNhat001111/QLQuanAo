@@ -75,7 +75,7 @@ public class Doimk extends javax.swing.JPanel {
         txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnshowpassnew.setBackground(new java.awt.Color(255, 255, 255));
-        btnshowpassnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpassnew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/nshow.png"))); // NOI18N
         btnshowpassnew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnshowpassnewActionPerformed(evt);
@@ -83,7 +83,7 @@ public class Doimk extends javax.swing.JPanel {
         });
 
         btnshowpassnew1.setBackground(new java.awt.Color(255, 255, 255));
-        btnshowpassnew1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpassnew1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/nshow.png"))); // NOI18N
         btnshowpassnew1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnshowpassnew1ActionPerformed(evt);
@@ -91,7 +91,7 @@ public class Doimk extends javax.swing.JPanel {
         });
 
         btnshowpassold.setBackground(new java.awt.Color(255, 255, 255));
-        btnshowpassold.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/showp.png"))); // NOI18N
+        btnshowpassold.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/nshow.png"))); // NOI18N
         btnshowpassold.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnshowpassoldActionPerformed(evt);
@@ -192,40 +192,7 @@ public class Doimk extends javax.swing.JPanel {
             .addComponent(paldoimk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnshowpassoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassoldActionPerformed
-        count++;
-        if (count % 2 == 0) {
-            txtPassCu.setEchoChar('\u0000');
-            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
-        } else {
-            txtPassCu.setEchoChar('\u2022');
-            btnshowpassold.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
-        }
-    }//GEN-LAST:event_btnshowpassoldActionPerformed
-
-    private void btnshowpassnew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassnew1ActionPerformed
-        j++;
-        if (j % 2 == 0) {
-            txtrePassMoi.setEchoChar('\u0000');
-            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
-        } else {
-            txtrePassMoi.setEchoChar('\u2022');
-            btnshowpassnew1.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
-        }
-    }//GEN-LAST:event_btnshowpassnew1ActionPerformed
-
-    private void btnshowpassnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassnewActionPerformed
-        i++;
-        if (i % 2 == 0) {
-            txtPassMoi.setEchoChar('\u0000');
-            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
-        } else {
-            txtPassMoi.setEchoChar('\u2022');
-            btnshowpassnew.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
-        }
-    }//GEN-LAST:event_btnshowpassnewActionPerformed
-
+                                       
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         String User = txtEmail.getText();
         String matKhauCu = new String(txtPassCu.getPassword());
@@ -255,11 +222,11 @@ public class Doimk extends javax.swing.JPanel {
             String sql = "update TaiKhoan set MatKhau=? where Email=?";
             XJdbc.update(sql, matKhauMoi, User);
             MsgBox.alert(this, "Đổi mật khẩu thành công");
-            //this.setNew();
+            this.setNew();
         }
     }//GEN-LAST:event_btnLuuActionPerformed
 
-<<<<<<< HEAD
+
     private void btnshowpassoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowpassoldActionPerformed
         count++;
         if (count % 2 == 0) {
@@ -293,8 +260,6 @@ public class Doimk extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnshowpassnew1ActionPerformed
 
-=======
->>>>>>> 7aafbd0f1219ecfe3f8119ca921dfbbeae679d02
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLuu;
