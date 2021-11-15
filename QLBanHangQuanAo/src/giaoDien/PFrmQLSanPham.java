@@ -70,7 +70,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         btnThem = new javax.swing.JButton();
         txtTenCT = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        btnThemCboTT = new javax.swing.JButton();
         cboDanhMuc = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -141,6 +140,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
         tblDanhSach.setRowHeight(22);
+        tblDanhSach.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblDanhSach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDanhSachMouseClicked(evt);
@@ -196,7 +196,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         cboDonViTinh.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboDonViTinh.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        cboTrangThai.setEditable(true);
         cboTrangThai.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn hàng", "Hết hàng" }));
         cboTrangThai.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -243,13 +242,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Giới Tính:");
-
-        btnThemCboTT.setText("+");
-        btnThemCboTT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemCboTTActionPerformed(evt);
-            }
-        });
 
         cboDanhMuc.setEditable(true);
         cboDanhMuc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -322,11 +314,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         cboTenSP.setEditable(true);
         cboTenSP.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboTenSP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        cboTenSP.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cboTenSPItemStateChanged(evt);
-            }
-        });
 
         cboGioiTinh.setEditable(true);
         cboGioiTinh.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -401,7 +388,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnThemCboTT)
                     .addComponent(btnThemCboDanhMuc)
                     .addComponent(btnThemCboDonVi)
                     .addComponent(btnThemCboGioiTinh))
@@ -451,8 +437,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
                         .addGap(16, 16, 16)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(btnThemCboTT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cboDonViTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -561,13 +546,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         themSP();
     }//GEN-LAST:event_btnThemActionPerformed
-
-    private void btnThemCboTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboTTActionPerformed
-        if (checkValidateCombo(cboTrangThai)) {
-            return;
-        }
-        cboTrangThai.addItem(cboTrangThai.getSelectedItem().toString());
-    }//GEN-LAST:event_btnThemCboTTActionPerformed
 
     private void btnThemCboDonViActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboDonViActionPerformed
         String donVi = cboDonViTinh.getSelectedItem().toString();
@@ -704,13 +682,11 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     private void tblDanhSachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachMousePressed
         if (evt.getClickCount() == 2) {
             txtTimKiem.setText("");
+            String tk = txtTimKiem.getText();
+            filterTable(tk);
             setForm();
         }
     }//GEN-LAST:event_tblDanhSachMousePressed
-
-    private void cboTenSPItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboTenSPItemStateChanged
-
-    }//GEN-LAST:event_cboTenSPItemStateChanged
 
     private void txtTenCTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTenCTMousePressed
         if (evt.getClickCount() == 2) {
@@ -735,7 +711,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     private javax.swing.JButton btnThemCboKichCo;
     private javax.swing.JButton btnThemCboMauSac;
     private javax.swing.JButton btnThemCboNSX;
-    private javax.swing.JButton btnThemCboTT;
     private javax.swing.JButton btnThemCboTenSP;
     private javax.swing.JComboBox<String> cboChatLieu;
     private javax.swing.JComboBox<String> cboDanhMuc;
@@ -985,6 +960,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         txtMaSp.setText("Mã sản phẩm tự sinh");
         txtMoTa.setText("");
         txtSoLuong.setText("");
+        txtTenCT.setText("");
     }
 
     private boolean validateSP() {
