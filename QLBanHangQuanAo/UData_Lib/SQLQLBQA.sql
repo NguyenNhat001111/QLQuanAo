@@ -204,11 +204,11 @@ values(2, 2, N'Áo Hoodie Channel', 1)
 
 --ChiTietSanPham
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(1, 'SP01', 2, 1, 2, 5, 2, N'Demo mô tả', 250000, N'Demo tên chi tiết', 9, 1)
+values(1, 'SP1', 2, 1, 2, 5, 2, N'Demo mô tả', 250000, N'Áo Phông Channel Nữ Trắng', 9, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP02', 1, 2, 2, 5, 1, N'Demo mô tả', 200000, N'Demo tên chi tiết', 11, 1)
+values(2, 'SP2', 1, 2, 2, 5, 1, N'Demo mô tả', 200000, N'Áo Hoodie Channel Nam Đen', 11, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP03', 2, 1, 1, 1, 1, N'Demo mô tả', 200000, N'Demo tên chi tiết', 20, 1)
+values(2, 'SP3', 2, 1, 1, 1, 1, N'Demo mô tả', 200000, N'Áo Hoodie Channel Nam Trắng', 20, 1)
 
 --Vaitro
 insert into VaiTro values(0, N'ADMIN')

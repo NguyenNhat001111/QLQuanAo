@@ -11,7 +11,7 @@ public class ChiTietSanPham {
     private int idChatLieu;
     private int idGioiTinh;
     private String moTa;
-    private double giaTien;
+    private float giaTien;
     private String tenCT;
     private int trangThai;
     private int soLuong;
@@ -19,7 +19,7 @@ public class ChiTietSanPham {
     public ChiTietSanPham() {
     }
 
-    public ChiTietSanPham(int idChiTietSP, String maSP, int idSanPham, int idKichCo, int idMauSac, int idDonViTinh, int idChatLieu, int idGioiTinh, String moTa, double giaTien, String tenCT, int trangThai, int soLuong) {
+    public ChiTietSanPham(int idChiTietSP, String maSP, int idSanPham, int idKichCo, int idMauSac, int idDonViTinh, int idChatLieu, int idGioiTinh, String moTa, float giaTien, String tenCT, int trangThai, int soLuong) {
         this.idChiTietSP = idChiTietSP;
         this.maSP = maSP;
         this.idSanPham = idSanPham;
@@ -34,6 +34,7 @@ public class ChiTietSanPham {
         this.trangThai = trangThai;
         this.soLuong = soLuong;
     }
+
 
     public void setMaSP(String maSP) {
         this.maSP = maSP;
@@ -99,10 +100,6 @@ public class ChiTietSanPham {
         this.moTa = moTa;
     }
 
-    public void setGiaTien(double giaTien) {
-        this.giaTien = giaTien;
-    }
-
     public void setTenCT(String tenCT) {
         this.tenCT = tenCT;
     }
@@ -123,10 +120,6 @@ public class ChiTietSanPham {
         return moTa;
     }
 
-    public double getGiaTien() {
-        return giaTien;
-    }
-
     public String getTenCT() {
         return tenCT;
     }
@@ -137,6 +130,14 @@ public class ChiTietSanPham {
 
     public int getSoLuong() {
         return soLuong;
+    }
+
+    public void setGiaTien(float giaTien) {
+        this.giaTien = giaTien;
+    }
+
+    public float getGiaTien() {
+        return giaTien;
     }
 
 }

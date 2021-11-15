@@ -9,7 +9,7 @@ import java.util.List;
 public class ChiTietSanPhamDAO implements IDAOService<ChiTietSanPham, Integer> {
 
     final String INSERT_SQL = "insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong, TrangThai)\n"
-            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     final String UPDATE_SQL = "update ChiTietSanPham set IDSanPham=?,MaSanPham=?,IDKichCo=?,IDMauSac=?,IDDonViTinh=?, IDChatLieu=?, IDGioiTinh=?, MoTa=?, GiaTien=?, TenChiTiet=?, Soluong=?, TrangThai=? where IDCTSP=?";
     final String DELETE_SQL = "delete from ChiTietSanPham where IDCTSP = ?";
     final String SELECT_ALL_SQL = "select * from ChiTietSanPham";
@@ -59,7 +59,7 @@ public class ChiTietSanPhamDAO implements IDAOService<ChiTietSanPham, Integer> {
                 entity.setIdChiTietSP(rs.getInt("IDCTSP"));
                 entity.setIdDonViTinh(rs.getInt("IDDonViTinh"));
                 entity.setIdGioiTinh(rs.getInt("IDGioiTinh"));
-                entity.setGiaTien(rs.getDouble("GiaTien"));
+                entity.setGiaTien(rs.getFloat("GiaTien"));
                 entity.setIdKichCo(rs.getInt("IDKichCo"));
                 entity.setIdMauSac(rs.getInt("IDMauSac"));
                 entity.setMoTa(rs.getString("MoTa"));
