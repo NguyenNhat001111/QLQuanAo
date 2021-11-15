@@ -12,21 +12,23 @@ import MODELS.MauSac;
 import MODELS.NhaSanXuat;
 import MODELS.SanPham;
 import helper.XJdbc;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class PFrmQLSanPham extends javax.swing.JPanel {
 
     ChiTietSanPhamDAO chitietspDao = new ChiTietSanPhamDAO();
     int row = -1;
-    int i = 1;
     ArrayList<ChiTietSanPham> listChiTiet = new ArrayList<>();
     DefaultTableModel model;
+    TableRowSorter<DefaultTableModel> ts;
     ThuocTinhDAO ttDAO;
 
     public PFrmQLSanPham() {
@@ -42,8 +44,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtTimKiemMaSp = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtTimKiem = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblDanhSach = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -93,30 +94,31 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tìm Kiếm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 20))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel1.setText("Mã sản phẩm:");
+        jLabel1.setText("Tìm kiếm:");
 
-        jButton1.setText("Tìm kiếm");
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(55, 55, 55)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(txtTimKiemMaSp, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTimKiemMaSp, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(jLabel1))
                 .addContainerGap())
         );
 
@@ -127,11 +129,11 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Tên Sản Phẩm", "Danh Mục", "Chất Liệu", "Màu Sắc", "Kích Cỡ", "Nhà Sản Xuất", "Giá Tiền", "Số Lượng", "Trạng Thái"
+                "Mã Sản Phẩm", "Tên Sản Phẩm", "Danh Mục", "Chất Liệu", "Màu Sắc", "Kích Cỡ", "Giới Tính", "Nhà Sản Xuất", "Giá Tiền", "Số Lượng"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -142,6 +144,9 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         tblDanhSach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDanhSachMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblDanhSachMousePressed(evt);
             }
         });
         jScrollPane3.setViewportView(tblDanhSach);
@@ -229,11 +234,10 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
 
-        txtTenCT.setEditable(false);
         txtTenCT.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtTenCT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtTenCTMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTenCTMousePressed(evt);
             }
         });
 
@@ -318,6 +322,11 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         cboTenSP.setEditable(true);
         cboTenSP.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboTenSP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cboTenSP.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cboTenSPItemStateChanged(evt);
+            }
+        });
 
         cboGioiTinh.setEditable(true);
         cboGioiTinh.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -516,7 +525,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(504, 504, 504))
+                .addGap(565, 565, 565))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -692,9 +701,27 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         row = tblDanhSach.getSelectedRow();
     }//GEN-LAST:event_tblDanhSachMouseClicked
 
-    private void txtTenCTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTenCTMouseClicked
-        setTenCT();
-    }//GEN-LAST:event_txtTenCTMouseClicked
+    private void tblDanhSachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachMousePressed
+        if (evt.getClickCount() == 2) {
+            txtTimKiem.setText("");
+            setForm();
+        }
+    }//GEN-LAST:event_tblDanhSachMousePressed
+
+    private void cboTenSPItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboTenSPItemStateChanged
+
+    }//GEN-LAST:event_cboTenSPItemStateChanged
+
+    private void txtTenCTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTenCTMousePressed
+        if (evt.getClickCount() == 2) {
+            setTenCT();
+        }
+    }//GEN-LAST:event_txtTenCTMousePressed
+
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        String tk = txtTimKiem.getText();
+        filterTable(tk);
+    }//GEN-LAST:event_txtTimKiemKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -719,7 +746,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cboNhaSX;
     private javax.swing.JComboBox<String> cboTenSP;
     private javax.swing.JComboBox<String> cboTrangThai;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -746,7 +772,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     private javax.swing.JTextArea txtMoTa;
     private javax.swing.JTextField txtSoLuong;
     private javax.swing.JTextField txtTenCT;
-    private javax.swing.JTextField txtTimKiemMaSp;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 
     private void init() {
@@ -765,7 +791,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     private void fillTable() {
         model.setRowCount(0);
         try {
-            String sql = "select TenSanPham, TenDanhMuc, ChatLieuSP, MauSac, KichCo, TenNhaSX, GiaTien,Soluong,  ChiTietSanPham.TrangThai from ChiTietSanPham \n"
+            String sql = "select MaSanPham, TenChiTiet, TenDanhMuc, ChatLieuSP, MauSac, KichCo, GioiTinh, TenNhaSX, GiaTien, Soluong from ChiTietSanPham\n"
                     + "inner join MauSac on MauSac.IDMauSac=ChiTietSanPham.IDMauSac\n"
                     + "inner join DonViTinh on DonViTinh.IDDonViTinh = ChiTietSanPham.IDDonViTinh\n"
                     + "inner join ChatLieu on ChatLieu.IDChatLieu=ChiTietSanPham.IDChatLieu\n"
@@ -774,33 +800,39 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
                     + "inner join SanPham on ChiTietSanPham.IDSanPham=SanPham.IDSanPham\n"
                     + "inner join DanhMucSP on DanhMucSP.IDDanhMuc=SanPham.IDDanhMuc\n"
                     + "inner join NhaSanXuat on NhaSanXuat.IDNhaSanXuat=SanPham.IDNhaSanXuat";
-            PreparedStatement pstm = XJdbc.getStmt(sql);
-            ResultSet rs = pstm.executeQuery();
+            ResultSet rs = XJdbc.query(sql);
             while (rs.next()) {
-                String TenSP = rs.getString(1);
-                String DanhMuc = rs.getString(2);
-                String ChatLieu = rs.getString(3);
-                String MauSac = rs.getString(4);
-                String KichCo = rs.getString(5);
-                String NhaSanXuat = rs.getString(6);
-                int GiaTien = rs.getInt(7);
-                int SoLuong = rs.getInt(8);
-                int TrangThai = rs.getInt(9);
-                model.addRow(new Object[]{TenSP, DanhMuc, ChatLieu, MauSac, KichCo, NhaSanXuat, GiaTien, SoLuong, TrangThai});
+                String maSP = rs.getString("MaSanPham");
+                String tenSP = rs.getString("TenChiTiet");
+                String danhMuc = rs.getString("TenDanhMuc");
+                String chatLieu = rs.getString("ChatLieuSP");
+                String mauSac = rs.getString("MauSac");
+                String kichCo = rs.getString("KichCo");
+                String gioiTinh = rs.getString("GioiTinh");
+                String nhaSanXuat = rs.getString("TenNhaSX");
+                int giaTien = rs.getInt("GiaTien");
+                int soLuong = rs.getInt("Soluong");
+                model.addRow(new Object[]{maSP, tenSP, danhMuc, chatLieu, mauSac, kichCo, gioiTinh, nhaSanXuat, giaTien, soLuong});
             }
             rs.close();
-            pstm.close();
         } catch (Exception e) {
             helper.MsgBox.alert(null, "Lỗi table");
         }
     }
 
-    void setForm(ChiTietSanPham ctsp, SanPham sp) {
-        txtMaSp.setText(ctsp.getMaSP());
-        txtGiaTien.setText(ctsp.getGiaTien() + "");
-        cboDanhMuc.setSelectedItem(sp.getIdDanhMuc());
-        cboNhaSX.setSelectedItem(sp.getIdNhaSanXuat());
-        cboMauSac.setSelectedItem(ctsp.getIdMauSac());
+    void setForm() {
+        txtMaSp.setText(tblDanhSach.getValueAt(row, 0) + "");
+        cboTrangThai.setSelectedIndex(Integer.valueOf(tblDanhSach.getValueAt(row, 9).toString()) > 0 ? 0 : 1);
+        txtTenCT.setText(tblDanhSach.getValueAt(row, 1) + "");
+        txtGiaTien.setText(tblDanhSach.getValueAt(row, 8) + "");
+        txtSoLuong.setText(tblDanhSach.getValueAt(row, 9) + "");
+        cboTenSP.setSelectedIndex(0);
+        cboDanhMuc.setSelectedItem(tblDanhSach.getValueAt(row, 2) + "");
+        cboChatLieu.setSelectedItem(tblDanhSach.getValueAt(row, 3) + "");
+        cboMauSac.setSelectedItem(tblDanhSach.getValueAt(row, 4) + "");
+        cboKichCo.setSelectedItem(tblDanhSach.getValueAt(row, 5) + "");
+        cboGioiTinh.setSelectedItem(tblDanhSach.getValueAt(row, 6) + "");
+        cboNhaSX.setSelectedItem(tblDanhSach.getValueAt(row, 7) + "");
     }
 
     private void fillcomboTenSP() {
@@ -950,7 +982,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void clearForm() {
         txtGiaTien.setText("");
-        txtMaSp.setText("");
+        txtMaSp.setText("Mã sản phẩm tự sinh");
         txtMoTa.setText("");
         txtSoLuong.setText("");
     }
@@ -1032,9 +1064,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void themSP() {
         ChiTietSanPham sp = getForm();
-//        String INSERT_SQL = "insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong, TrangThai)\n"
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//        XJdbc.update(INSERT_SQL, entity.getIdSanPham(), entity.getMaSP(), entity.getIdKichCo(), entity.getIdMauSac(), entity.getIdDonViTinh(), entity.getIdChatLieu(), entity.getIdGioiTinh(), entity.getMoTa(), entity.getGiaTien(), entity.getTenCT(), entity.getSoLuong(), entity.getTrangThai());
         chitietspDao.insert(sp);
         fillTable();
         helper.MsgBox.alert(null, "Thêm sản phẩm thành công");
@@ -1050,4 +1079,15 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     private void setTenCT() {
         txtTenCT.setText(cboTenSP.getSelectedItem().toString() + " " + cboGioiTinh.getSelectedItem().toString() + " " + cboMauSac.getSelectedItem().toString());
     }
+
+    private void filterTable(String tk) {
+        ts = new TableRowSorter<>(model);
+        tblDanhSach.setRowSorter(ts);
+        if (tk.trim().length() == 0) {
+            ts.setRowFilter(null);
+        } else {
+            ts.setRowFilter(RowFilter.regexFilter("(?i)" + tk));
+        }
+    }
+
 }

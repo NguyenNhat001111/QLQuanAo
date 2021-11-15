@@ -107,7 +107,7 @@ public class FrmHome extends javax.swing.JFrame {
                 }
             }
         });
-        MenuItem menuĐoimk = new MenuItem(mauMeNuPhu, iconSubMenu, "\tĐổi mật khẩu", new ActionListener() {
+        MenuItem menuDoimk = new MenuItem(mauMeNuPhu, iconSubMenu, "\tĐổi mật khẩu", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -129,7 +129,7 @@ public class FrmHome extends javax.swing.JFrame {
         MenuItem menuHome = new MenuItem(mauMeNuChinh, iconStaff, "Trang Chủ", null);
         MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSanPham, "Sản Phẩm", null, menuQuan, menuAo);
         MenuItem menuThanhtoan = new MenuItem(mauMeNuChinh, iconThanhToan, "Thanh Toán", null, menuhoadon);
-        MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconTTTaiKhoan, "Tài Khoản", null, menuThongtin, menuĐoimk);
+        MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconTTTaiKhoan, "Tài Khoản", null, menuThongtin, menuDoimk);
         MenuItem menuDangxuat = new MenuItem(mauMeNuChinh, iconLogout, "Đăng Xuất", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
