@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import java.awt.Panel;
 
 public class FrmHome extends javax.swing.JFrame {
-
+ 
     /**
      * Creates new form FrmHome
      */
@@ -22,6 +22,7 @@ public class FrmHome extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.init();
+              
         execute();
     }
 
@@ -202,6 +203,11 @@ public class FrmHome extends javax.swing.JFrame {
         });
 
         addMenu(menuHome, menuQLSanpham, menuThanhtoan, menutaikhoan, menuQuanLyTaiKhoan, menuThongke, menuDangxuat);
+        panelBody.add(new PFromTrangchu());
+        
+        
+        
+        
     }
 
     private void addMenu(MenuItem... menu) {
@@ -333,6 +339,6 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
     private void init() {
-        new JFrmLogin(this, true).setVisible(true);    
+   //   new JFrmLogin(this, true).setVisible(true);    
     }
 }
