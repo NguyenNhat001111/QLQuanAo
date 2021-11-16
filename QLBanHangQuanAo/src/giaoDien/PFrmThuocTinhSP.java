@@ -73,6 +73,8 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         tblGioiTinh = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblDonViTinh = new javax.swing.JTable();
+        txtTimKiem = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -246,12 +248,12 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                     .addComponent(cboGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(btnThemCboGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cboDonViTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(btnThemCboDonVi, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cboChatLieu, cboDanhMuc, cboDonViTinh, cboGioiTinh, cboKichCo, cboMauSac, cboNhaSX, jLabel10, jLabel13, jLabel3, jLabel4, jLabel7, jLabel8, jLabel9});
@@ -433,6 +435,9 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         });
         jScrollPane7.setViewportView(tblDonViTinh);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Tìm kiếm:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -453,18 +458,29 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -475,11 +491,11 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel14)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -489,9 +505,9 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
+                        .addGap(61, 61, 61)
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -640,6 +656,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 String sql = "delete from NhaSanXuat where TenNhaSX = ?";
                 XJdbc.update(sql, tblNSX.getValueAt(row, 0));
                 fillTableNSX();
+                fillComboNSX();
             } catch (Exception e) {
                 helper.MsgBox.alert(null, "Lỗi xóa NSX");
             }
@@ -657,6 +674,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 String sql = "delete from KichCoSP where KichCo = ?";
                 XJdbc.update(sql, tblKichCo.getValueAt(row, 0));
                 fillTableKichCo();
+                fillComboKichCo();
             } catch (Exception e) {
                 helper.MsgBox.alert(null, "Lỗi xóa kích cỡ");
             }
@@ -674,6 +692,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 String sql = "delete from MauSac where MauSac = ?";
                 XJdbc.update(sql, tblMauSac.getValueAt(row, 0));
                 fillTableMauSac();
+                fillComboMauSac();
             } catch (Exception e) {
                 helper.MsgBox.alert(null, "Lỗi xóa màu sắc");
             }
@@ -691,6 +710,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 String sql = "delete from ChatLieu where ChatLieuSP = ?";
                 XJdbc.update(sql, tblChatLieu.getValueAt(row, 0));
                 fillTableChatLieu();
+                fillComboChatLieu();
             } catch (Exception e) {
                 helper.MsgBox.alert(null, "Lỗi xóa chất liệu");
             }
@@ -708,6 +728,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 String sql = "delete from TenDanhMuc where DanhMucSP = ?";
                 XJdbc.update(sql, tblDanhMuc.getValueAt(row, 0));
                 fillTableDanhMuc();
+                fillComboDanhMuc();
             } catch (Exception e) {
                 helper.MsgBox.alert(null, "Lỗi xóa danh mục");
             }
@@ -725,6 +746,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 String sql = "delete from GioiTinh where GioiTinh = ?";
                 XJdbc.update(sql, tblGioiTinh.getValueAt(row, 0));
                 fillTableGioiTinh();
+                fillComboGioiTinh();
             } catch (Exception e) {
                 helper.MsgBox.alert(null, "Lỗi xóa giới tính");
             }
@@ -742,6 +764,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
                 String sql = "delete from DonViTinh where DonViTinh = ?";
                 XJdbc.update(sql, tblDonViTinh.getValueAt(row, 0));
                 fillTableChatLieu();
+                fillComboChatLieu();
             } catch (Exception e) {
                 helper.MsgBox.alert(null, "Lỗi xóa đơn vị");
             }
@@ -764,6 +787,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cboKichCo;
     private javax.swing.JComboBox<String> cboMauSac;
     private javax.swing.JComboBox<String> cboNhaSX;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -789,6 +813,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
     private javax.swing.JTable tblKichCo;
     private javax.swing.JTable tblMauSac;
     private javax.swing.JTable tblNSX;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 
     private void init() {
