@@ -223,6 +223,8 @@ insert into NguoiDung(HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
 values(N'Nguyễn Văn Nam', '0396662083', N'Ba Đình - Hà Nội', '001201000794', 1)
 insert into NguoiDung(HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
 values(N'Nguyễn Minh Nhật', '0396668888', N'Cầu Giấy - Hà Nội', '001201002548', 1)
+insert into NguoiDung(HoTenNhanVien, SDT, DiaChi, CCCD, TrangThai)
+values(N'Nguyễn Phi Hưng', '0392402089', N'Hoài Đức - Hà Nội', '001201002548', 1)
 
 --TaiKhoan
 insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
@@ -233,6 +235,8 @@ insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
 values('teovan@gmail.com', 3, 'admin123', 0, 1)
 insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
 values('nguyenminhnhat@gmail.com', 4, 'nhanvien123', 1, 1)
+insert into TaiKhoan(Email, IDNguoiDung, MatKhau, IDVaiTro, TrangThai)
+values('phihung4598@gmail.com', 5, 'admin', 0, 1)
 
 --KhachHang
 insert into KhachHang(HoTenKH, SDT, DiaChi, CCCD)

@@ -15,6 +15,8 @@ public class Taikhoan extends javax.swing.JPanel {
         initComponents();
         this.nddao = new NguoiDungDAO();
         fillTXT();
+        System.out.println(Auth.user.getIdNguoiDung());
+        System.out.println(Auth.user.getEmail());
     }
 
     @SuppressWarnings("unchecked")
