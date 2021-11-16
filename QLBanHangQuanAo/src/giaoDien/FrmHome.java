@@ -146,7 +146,7 @@ public class FrmHome extends javax.swing.JFrame {
             
             }
         });
-        MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSanPham, " Quản Lý Sản Phẩm", null, menuQuan, menuAo);
+        MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSanPham, "Sản Phẩm", null, menuQuan, menuAo);
         MenuItem menuThanhtoan = new MenuItem(mauMeNuChinh, iconThanhToan, "Thanh Toán", null, menuhoadon);
         MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconTTTaiKhoan, "Tài Khoản", null, menuThongtin, menuDoimk);
 
@@ -339,6 +339,6 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
     private void init() {
-   //   new JFrmLogin(this, true).setVisible(true);    
+   new JFrmLogin(this, true).setVisible(true);    
     }
 }
