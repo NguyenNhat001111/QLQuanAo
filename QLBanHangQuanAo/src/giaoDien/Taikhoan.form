@@ -48,46 +48,46 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-                          <Component id="btnLuu" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="btnThoat" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblcccd" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbldc" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblsdt" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblhoten" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="txtSDT" min="-2" pref="301" max="-2" attributes="0"/>
-                                  <Component id="txthoten" min="-2" pref="301" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txtDiachi" linkSize="1" min="-2" pref="301" max="-2" attributes="0"/>
-                              <Component id="txtCCCD" linkSize="1" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblcccd" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbldc" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblsdt" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblhoten" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Component id="txtSDT" min="-2" pref="301" max="-2" attributes="0"/>
+                          <Component id="txthoten" min="-2" pref="301" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="txtDiachi" linkSize="1" min="-2" pref="301" max="-2" attributes="0"/>
+                      <Component id="txtCCCD" linkSize="1" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="131" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblthongtin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblthongtin" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnLuu" linkSize="4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="btnThoat" linkSize="4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -116,12 +116,12 @@
                       <Component id="txtDiachi" linkSize="2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lbldc" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="65" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnLuu" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnThoat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLuu" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThoat" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -152,9 +152,9 @@
         <Component class="javax.swing.JButton" name="btnThoat">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Hinhanh/No.png"/>
+              <Image iconType="3" name="/Hinhanh/Refresh.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Thoa&#x301;t "/>
+            <Property name="text" type="java.lang.String" value="L&#xe0;m M&#x1edb;i"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThoatActionPerformed"/>
