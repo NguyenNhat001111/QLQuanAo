@@ -18,7 +18,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
@@ -1022,7 +1021,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         MauSac ms = (MauSac) cboMauSac.getSelectedItem();
 
         ChiTietSanPham ct = new ChiTietSanPham();
-        ct.setMaSP("SP" + tblDanhSach.getRowCount());
+        ct.setMaSP("SP" + (tblDanhSach.getRowCount() + 1));
         ct.setIdChatLieu(cl.getIdChatLieu());
         ct.setIdDonViTinh(dv.getIdDonViTinh());
         ct.setIdGioiTinh(gt.getIdGioiTinh());
