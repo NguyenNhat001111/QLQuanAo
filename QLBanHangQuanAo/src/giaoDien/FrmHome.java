@@ -161,6 +161,7 @@ public class FrmHome extends javax.swing.JFrame {
                 if (!helper.MsgBox.confirm(null, "Bạn có muốn đăng xuất?")) {
                     return;
                 }
+                dispose();
                 helper.Auth.clear();
                 new JFrmLogin(null, true).setVisible(true);   
                
@@ -339,6 +340,6 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
     private void init() {
-   new JFrmLogin(this, true).setVisible(true);    
+    new JFrmLogin(this, true).setVisible(true);    
     }
 }
