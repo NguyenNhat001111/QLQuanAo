@@ -189,6 +189,11 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         txtMoTa.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtMoTa.setRows(5);
         txtMoTa.setText("Mô tả mặc định");
+        txtMoTa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtMoTaMousePressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(txtMoTa);
 
         cboDonViTinh.setEditable(true);
@@ -528,10 +533,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         if (validateSP()) {
             return;
         }
-        if (row < 0) {
-            helper.MsgBox.alert(null, "Xin mời chọn sản phẩm trên bảng trước khi sửa");
-            return;
-        }
         suaSP();
     }//GEN-LAST:event_btnSuaActionPerformed
 
@@ -680,6 +681,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void tblDanhSachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachMousePressed
         if (evt.getClickCount() == 2) {
+            row = tblDanhSach.getSelectedRow();
             txtTimKiem.setText("");
             String tk = txtTimKiem.getText();
             filterTable(tk);
@@ -697,6 +699,12 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         String tk = txtTimKiem.getText();
         filterTable(tk);
     }//GEN-LAST:event_txtTimKiemKeyReleased
+
+    private void txtMoTaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMoTaMousePressed
+        if (evt.getClickCount() == 2) {
+            txtMoTa.setText("Mô tả mặc định");
+        }
+    }//GEN-LAST:event_txtMoTaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -890,7 +898,6 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     }
 
     private void fillComboChatLieu() {
-        AutoCompleteDecorator.decorate(cboTrangThai);
         AutoCompleteDecorator.decorate(cboChatLieu);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboChatLieu.getModel();
         modelCombo.removeAllElements();
@@ -957,7 +964,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     private void clearForm() {
         txtGiaTien.setText("");
         txtMaSp.setText("Mã sản phẩm tự sinh");
-        txtMoTa.setText("");
+        txtMoTa.setText("Mô tả mặc định");
         txtSoLuong.setText("");
         txtTenCT.setText("");
     }

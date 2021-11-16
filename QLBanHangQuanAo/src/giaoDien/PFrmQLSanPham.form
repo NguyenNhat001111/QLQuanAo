@@ -470,6 +470,9 @@
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="M&#xf4; t&#x1ea3; m&#x1eb7;c &#x111;&#x1ecb;nh"/>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMoTaMousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

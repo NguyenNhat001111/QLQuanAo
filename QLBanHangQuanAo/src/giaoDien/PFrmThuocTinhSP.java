@@ -529,6 +529,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
 
         XJdbc.update("insert into NhaSanXuat(TenNhaSX) values(?)", nhaSX);
         fillComboNSX();
+        fillTableNSX();
         cboNhaSX.setSelectedIndex(cboNhaSX.getItemCount() - 1);
     }//GEN-LAST:event_btnThemCboNSXActionPerformed
 
@@ -544,6 +545,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
 
         XJdbc.update("insert into KichCoSP(KichCo) values(?)", kichCo);
         fillComboKichCo();
+        fillTableKichCo();
         cboKichCo.setSelectedIndex(cboKichCo.getItemCount() - 1);
     }//GEN-LAST:event_btnThemCboKichCoActionPerformed
 
@@ -559,6 +561,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
 
         XJdbc.update("insert into MauSac(MauSac) values(?)", mauSac);
         fillComboMauSac();
+        fillTableMauSac();
         cboMauSac.setSelectedIndex(cboMauSac.getItemCount() - 1);
     }//GEN-LAST:event_btnThemCboMauSacActionPerformed
 
@@ -574,6 +577,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
 
         XJdbc.update("insert into ChatLieu(ChatLieuSP) values(?)", chatLieu);
         fillComboChatLieu();
+        fillTableChatLieu();
         cboChatLieu.setSelectedIndex(cboChatLieu.getItemCount() - 1);
     }//GEN-LAST:event_btnThemCboChatLieuActionPerformed
 
@@ -589,6 +593,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
 
         XJdbc.update("insert into DanhMucSP(TenDanhMuc) values(?)", danhMuc);
         fillComboDanhMuc();
+        fillTableDanhMuc();
         cboDanhMuc.setSelectedIndex(cboDanhMuc.getItemCount() - 1);
     }//GEN-LAST:event_btnThemCboDanhMucActionPerformed
 
@@ -604,6 +609,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
 
         XJdbc.update("insert into GioiTinh(GioiTinh) values(?)", gioiTinh);
         fillComboGioiTinh();
+        fillTableGioiTinh();
         cboGioiTinh.setSelectedIndex(cboGioiTinh.getItemCount() - 1);
     }//GEN-LAST:event_btnThemCboGioiTinhActionPerformed
 
@@ -619,6 +625,7 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
 
         XJdbc.update("insert into DonViTinh(DonViTinh) values(?)", donVi);
         fillComboDonVi();
+        fillTableDonVi();
         cboDonViTinh.setSelectedIndex(cboDonViTinh.getItemCount() - 1);
     }//GEN-LAST:event_btnThemCboDonViActionPerformed
 
