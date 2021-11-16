@@ -278,10 +278,10 @@ public class FrmHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if(helper.MsgBox.confirm(null, "Bạn có muốn thoát")){
-        helper.Auth.clear();
-        System.exit(0);
-        }
+//        if(helper.MsgBox.confirm(null, "Bạn có muốn thoát")){
+//        helper.Auth.clear();
+//        System.exit(0);
+//        }
     }//GEN-LAST:event_formWindowClosing
 
     public static void main(String args[]) {
