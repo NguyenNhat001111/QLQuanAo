@@ -1071,5 +1071,5 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             ts.setRowFilter(RowFilter.regexFilter("(?i)" + tk));
         }
     }
-
+    
 }

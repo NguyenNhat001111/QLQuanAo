@@ -19,8 +19,11 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class PFrmThuocTinhSP extends javax.swing.JPanel {
@@ -435,6 +438,12 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         });
         jScrollPane7.setViewportView(tblDonViTinh);
 
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Tìm kiếm:");
 
@@ -771,6 +780,18 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_tblDonViTinhMousePressed
 
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        String timKiem = txtTimKiem.getText();
+        filterTable(tblNSX, timKiem);
+        filterTable(tblChatLieu, timKiem);
+        filterTable(tblDanhMuc, timKiem);
+        filterTable(tblMauSac, timKiem);
+        filterTable(tblKichCo, timKiem);
+        filterTable(tblDonViTinh, timKiem);
+        filterTable(tblGioiTinh, timKiem);
+        
+    }//GEN-LAST:event_txtTimKiemKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnThemCboChatLieu;
@@ -1056,6 +1077,17 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
             }
         } catch (Exception e) {
             helper.MsgBox.alert(null, "Lỗi table");
+        }
+    }
+
+    private void filterTable(JTable tbl, String tk) {
+        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
+        TableRowSorter ts = new TableRowSorter<>(model);
+        tbl.setRowSorter(ts);
+        if (tk.trim().length() == 0) {
+            ts.setRowFilter(null);
+        } else {
+            ts.setRowFilter(RowFilter.regexFilter("(?i)" + tk));
         }
     }
 
