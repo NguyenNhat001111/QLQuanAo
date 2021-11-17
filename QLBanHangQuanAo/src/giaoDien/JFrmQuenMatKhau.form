@@ -250,6 +250,9 @@
                   <Image iconType="3" name="/Hinhanh/nshow.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnshowP1MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnshowP">
               <Properties>
@@ -260,6 +263,9 @@
                   <Image iconType="3" name="/Hinhanh/nshow.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnshowPMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

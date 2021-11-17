@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import java.awt.Panel;
 
 public class FrmHome extends javax.swing.JFrame {
  
@@ -163,7 +161,7 @@ public class FrmHome extends javax.swing.JFrame {
                 }
                 dispose();
                 helper.Auth.clear();
-                new JFrmLogin(null, true).setVisible(true);   
+                init();
                
             }
         });
@@ -340,6 +338,11 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
     private void init() {
-    new JFrmLogin(this, true).setVisible(true);    
+    new JFrmLogin(this, true).setVisible(true);   
+    this.check();
+    }
+    public void check(){
+        boolean ck = Auth.isLogin();
+        this.setVisible(ck);
     }
 }

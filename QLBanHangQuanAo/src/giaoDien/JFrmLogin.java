@@ -229,7 +229,6 @@ public class JFrmLogin extends javax.swing.JDialog {
         } else {
             Auth.user = tk;
             this.dispose();
-            //new FrmHome().setVisible(true);
         }
     }//GEN-LAST:event_btnloginActionPerformed
 
