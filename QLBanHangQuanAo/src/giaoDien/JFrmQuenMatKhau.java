@@ -14,13 +14,15 @@ import java.util.Properties;
 import MODELS.Email;
 import helper.EmailUtils;
 import helper.XJdbc;
+import javax.swing.ImageIcon;
 
 
 public class JFrmQuenMatKhau extends javax.swing.JDialog {
 
     TaiKhoanDAO tkdao;
     private String otp, ma;
-    
+    int count = -1;
+    int i = -1;
     public JFrmQuenMatKhau(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -100,9 +102,19 @@ public class JFrmQuenMatKhau extends javax.swing.JDialog {
 
         btnshowP1.setBackground(new java.awt.Color(255, 255, 255));
         btnshowP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/nshow.png"))); // NOI18N
+        btnshowP1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnshowP1MouseClicked(evt);
+            }
+        });
 
         btnshowP.setBackground(new java.awt.Color(255, 255, 255));
         btnshowP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hinhanh/nshow.png"))); // NOI18N
+        btnshowP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnshowPMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -242,6 +254,28 @@ public class JFrmQuenMatKhau extends javax.swing.JDialog {
                   
         }
     }//GEN-LAST:event_btnluuActionPerformed
+
+    private void btnshowPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnshowPMouseClicked
+        count++;
+        if (count % 2 == 0) {
+            txtmatKhauMoi.setEchoChar('\u0000');
+            btnshowP.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        } else {
+            txtmatKhauMoi.setEchoChar('\u2022');
+            btnshowP.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        }
+    }//GEN-LAST:event_btnshowPMouseClicked
+
+    private void btnshowP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnshowP1MouseClicked
+        i++;
+        if (i % 2 == 0) {
+            txtmatKhauMoi1.setEchoChar('\u0000');
+            btnshowP1.setIcon(new ImageIcon("src\\Hinhanh\\showp.png"));
+        } else {
+            txtmatKhauMoi1.setEchoChar('\u2022');
+            btnshowP1.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
+        }
+    }//GEN-LAST:event_btnshowP1MouseClicked
 
     /**
      * @param args the command line arguments
