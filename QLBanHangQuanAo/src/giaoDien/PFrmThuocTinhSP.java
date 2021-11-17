@@ -789,7 +789,6 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         filterTable(tblKichCo, timKiem);
         filterTable(tblDonViTinh, timKiem);
         filterTable(tblGioiTinh, timKiem);
-        
     }//GEN-LAST:event_txtTimKiemKeyReleased
 
 
