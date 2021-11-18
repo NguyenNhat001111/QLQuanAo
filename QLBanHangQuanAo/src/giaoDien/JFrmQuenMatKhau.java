@@ -53,6 +53,11 @@ public class JFrmQuenMatKhau extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
 
@@ -276,6 +281,10 @@ public class JFrmQuenMatKhau extends javax.swing.JDialog {
             btnshowP1.setIcon(new ImageIcon("src\\Hinhanh\\nshow.png"));
         }
     }//GEN-LAST:event_btnshowP1MouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
