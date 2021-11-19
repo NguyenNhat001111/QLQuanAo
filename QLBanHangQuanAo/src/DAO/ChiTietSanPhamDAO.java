@@ -14,6 +14,7 @@ public class ChiTietSanPhamDAO implements IDAOService<ChiTietSanPham, Integer> {
     final String DELETE_SQL = "delete from ChiTietSanPham where IDCTSP = ?";
     final String SELECT_ALL_SQL = "select * from ChiTietSanPham";
     final String SELECT_BY_ID_SQL = "select * from ChiTietSanPham where IDCTSP = ?";
+    final String SELECT_BY_MA_SQL = "select * from ChiTietSanPham where MaSanPham = ?";
 
     @Override
     public void insert(ChiTietSanPham entity) {
@@ -45,6 +46,14 @@ public class ChiTietSanPhamDAO implements IDAOService<ChiTietSanPham, Integer> {
         }
         return list.get(0);
     }
+    
+    public ChiTietSanPham selectByMa(String ma) {
+        List<ChiTietSanPham> list = selectBySql(SELECT_BY_MA_SQL, ma);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
+    }
 
     @Override
     public List<ChiTietSanPham> selectBySql(String sql, Object... agrs) {
@@ -55,7 +64,7 @@ public class ChiTietSanPhamDAO implements IDAOService<ChiTietSanPham, Integer> {
                 ChiTietSanPham entity = new ChiTietSanPham();
                 entity.setIdSanPham(rs.getInt("IDSanPham"));
                 entity.setMaSP(rs.getString("MaSanPham"));
-                entity.setIdChatLieu(rs.getInt("IDDanhMuc"));
+                entity.setIdChatLieu(rs.getInt("IDChatLieu"));
                 entity.setIdChiTietSP(rs.getInt("IDCTSP"));
                 entity.setIdDonViTinh(rs.getInt("IDDonViTinh"));
                 entity.setIdGioiTinh(rs.getInt("IDGioiTinh"));

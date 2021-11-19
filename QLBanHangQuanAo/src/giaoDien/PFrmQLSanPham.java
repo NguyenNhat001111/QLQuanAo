@@ -1,6 +1,7 @@
 package giaoDien;
 
 import DAO.ChiTietSanPhamDAO;
+import DAO.SanPhamDAO;
 import DAO.ThuocTinhDAO;
 import MODELS.ChatLieu;
 import MODELS.ChiTietSanPham;
@@ -24,11 +25,12 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 public class PFrmQLSanPham extends javax.swing.JPanel {
 
     ChiTietSanPhamDAO chitietspDao = new ChiTietSanPhamDAO();
+    SanPhamDAO spDao = new SanPhamDAO();
+    ThuocTinhDAO ttDao = new ThuocTinhDAO();
     int row = -1;
     ArrayList<ChiTietSanPham> listChiTiet = new ArrayList<>();
     DefaultTableModel model;
     TableRowSorter<DefaultTableModel> ts;
-    ThuocTinhDAO ttDAO;
 
     public PFrmQLSanPham() {
         initComponents();
@@ -803,18 +805,34 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     }
 
     void setForm() {
-        txtMaSp.setText(tblDanhSach.getValueAt(row, 0) + "");
+        String maSp = tblDanhSach.getValueAt(row, 0).toString();
+        txtMaSp.setText(maSp);
         cboTrangThai.setSelectedIndex(Integer.valueOf(tblDanhSach.getValueAt(row, 9).toString()) > 0 ? 0 : 1);
         txtTenCT.setText(tblDanhSach.getValueAt(row, 1) + "");
         txtGiaTien.setText(tblDanhSach.getValueAt(row, 8) + "");
         txtSoLuong.setText(tblDanhSach.getValueAt(row, 9) + "");
-        cboTenSP.setSelectedIndex(0);
-        cboDanhMuc.setSelectedItem(tblDanhSach.getValueAt(row, 2) + "");
-        cboChatLieu.setSelectedItem(tblDanhSach.getValueAt(row, 3) + "");
-        cboMauSac.setSelectedItem(tblDanhSach.getValueAt(row, 4) + "");
-        cboKichCo.setSelectedItem(tblDanhSach.getValueAt(row, 5) + "");
-        cboGioiTinh.setSelectedItem(tblDanhSach.getValueAt(row, 6) + "");
-        cboNhaSX.setSelectedItem(tblDanhSach.getValueAt(row, 7) + "");
+        
+        try {
+            ChiTietSanPham ctsp = chitietspDao.selectByMa(maSp);
+            SanPham sp = spDao.selectById(ctsp.getIdSanPham());
+            cboTenSP.setSelectedItem(sp);
+            DanhMuc dm = ttDao.selectByIDDanhMuc(sp.getIdDanhMuc());
+            cboDanhMuc.setSelectedItem(dm);
+            NhaSanXuat nsx = ttDao.selectByIDNSX(sp.getIdNhaSanXuat());
+            cboNhaSX.setSelectedItem(nsx);
+            GioiTinh gt = ttDao.selectByIDGioiTinh(ctsp.getIdGioiTinh());
+            cboGioiTinh.setSelectedItem(gt);
+            KichCo kc = ttDao.selectByIDKichCo(ctsp.getIdKichCo());
+            cboKichCo.setSelectedItem(kc);
+            MauSac ms = ttDao.selectByIDMauSac(ctsp.getIdMauSac());
+            cboMauSac.setSelectedItem(ms);
+            ChatLieu cl = ttDao.selectByIDChatLieu(ctsp.getIdChatLieu());
+            cboChatLieu.setSelectedItem(cl);
+            DonViTinh dvt = ttDao.selectByIDDonViTinh(ctsp.getIdDonViTinh());
+            cboDonViTinh.setSelectedItem(dvt);
+        } catch (Exception e) {
+            helper.MsgBox.alert(this, "Lỗi set form");
+        }
     }
 
     private void fillcomboTenSP() {

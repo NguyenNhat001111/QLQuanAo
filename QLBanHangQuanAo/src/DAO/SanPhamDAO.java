@@ -52,7 +52,7 @@ public class SanPhamDAO implements IDAOService<SanPham, Integer> {
             while (rs.next()) {
                 SanPham entity = new SanPham();
                 entity.setIdSanPham(rs.getInt("IDSanPham"));
-                entity.setIdNhaSanXuat(rs.getInt("IDDanhMuc"));
+                entity.setIdDanhMuc(rs.getInt("IDDanhMuc"));
                 entity.setIdNhaSanXuat(rs.getInt("IDNhaSanXuat"));
                 entity.setTenSanPham(rs.getString("TenSanPham"));
                 entity.setTrangThaiSP(rs.getInt("TrangThai"));
