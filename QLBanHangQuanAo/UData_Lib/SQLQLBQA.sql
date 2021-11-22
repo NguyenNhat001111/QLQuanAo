@@ -55,8 +55,8 @@ GO
 create table SanPham
 (
    IDSanPham int identity(1,1) not null primary key,
-   IDDanhMuc int not null foreign key references DanhMucSP(IDDanhMuc),
-   IDNhaSanXuat int not null foreign key references NhaSanXuat(IDNhaSanXuat),
+   IDDanhMuc int foreign key references DanhMucSP(IDDanhMuc) on update cascade,
+   IDNhaSanXuat int foreign key references NhaSanXuat(IDNhaSanXuat) on update cascade,
    TenSanPham nvarchar(50) ,
    TrangThai int 
 )
@@ -66,12 +66,12 @@ create table ChiTietSanPham
 (
    IDCTSP int identity(1,1) not null primary key,
    MaSanPham varchar(20),
-   IDSanPham int not null foreign key references SanPham(IDSanPham),
-   IDKichCo int not null foreign key references KichCoSP(IDKichCo),
-   IDMauSac int not null foreign key references MauSac(IDMauSac),
-   IDDonViTinh int not null foreign key references DonViTinh(IDDonViTinh),
-   IDChatLieu int not null foreign key references ChatLieu(IDChatLieu),
-   IDGioiTinh int not null foreign key references GioiTinh(IDGioiTinh),
+   IDSanPham int foreign key references SanPham(IDSanPham) on update cascade,
+   IDKichCo int foreign key references KichCoSP(IDKichCo) on update cascade,
+   IDMauSac int foreign key references MauSac(IDMauSac) on update cascade,
+   IDDonViTinh int foreign key references DonViTinh(IDDonViTinh) on update cascade,
+   IDChatLieu int foreign key references ChatLieu(IDChatLieu) on update cascade,
+   IDGioiTinh int foreign key references GioiTinh(IDGioiTinh) on update cascade,
    MoTa nvarchar(200) ,
    GiaTien float ,
    TenChiTiet nvarchar(50),

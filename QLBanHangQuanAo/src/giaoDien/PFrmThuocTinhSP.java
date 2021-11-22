@@ -1,32 +1,27 @@
 package giaoDien;
 
-import DAO.ChiTietSanPhamDAO;
 import DAO.ThuocTinhDAO;
 import MODELS.ChatLieu;
-import MODELS.ChiTietSanPham;
 import MODELS.DanhMuc;
 import MODELS.DonViTinh;
 import MODELS.GioiTinh;
 import MODELS.KichCo;
 import MODELS.MauSac;
 import MODELS.NhaSanXuat;
-import MODELS.SanPham;
 import helper.XJdbc;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class PFrmThuocTinhSP extends javax.swing.JPanel {
+
+    ThuocTinhDAO ttDao = new ThuocTinhDAO();
 
     public PFrmThuocTinhSP() {
         initComponents();
@@ -658,16 +653,44 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         int row;
         if (evt.getClickCount() == 2) {
             row = tblNSX.getSelectedRow();
-            if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa NSX " + tblNSX.getValueAt(row, 0).toString() + " khỏi hệ thống?")) {
+            int id = 0;
+            if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa NSX " + tblNSX.getValueAt(row, 0).toString() + " trong hệ thống?")) {
                 return;
             }
             try {
-                String sql = "delete from NhaSanXuat where TenNhaSX = ?";
-                XJdbc.update(sql, tblNSX.getValueAt(row, 0));
-                fillTableNSX();
-                fillComboNSX();
+                String sql1 = "select * from NhaSanXuat where TenNhaSX = ?";
+                ResultSet rs = XJdbc.query(sql1, tblNSX.getValueAt(row, 0).toString());
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
             } catch (Exception e) {
-                helper.MsgBox.alert(null, "Lỗi xóa NSX");
+                helper.MsgBox.alert(null, "Lỗi tìm NSX");
+            }
+            String fix;
+            List<NhaSanXuat> lst = ttDao.selectNSX();
+            while (true) {
+                fix = helper.MsgBox.prompt(this, "Xin mời nhập tên NSX mới:");
+                boolean flag = false;
+                for (NhaSanXuat nsx : lst) {
+                    if (nsx.getNhaSanXuat().equalsIgnoreCase(fix)) {
+                        flag = true;
+                    }
+                }
+                if (fix.isEmpty()) {
+                    helper.MsgBox.alert(this, "Xin mời nhập tên cho NSX");
+                } else if (flag) {
+                    helper.MsgBox.alert(this, "NSX này đã bị trùng");
+                } else {
+                    try {
+                        String sql = "update NhaSanXuat set TenNhaSX = ? where IDNhaSanXuat = ?";
+                        XJdbc.update(sql, fix, id);
+                        fillTableNSX();
+                        fillComboNSX();
+                    } catch (Exception e) {
+                        helper.MsgBox.alert(null, "Lỗi sửa NSX");
+                    }
+                    break;
+                }
             }
         }
     }//GEN-LAST:event_tblNSXMousePressed
@@ -676,16 +699,44 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         int row;
         if (evt.getClickCount() == 2) {
             row = tblKichCo.getSelectedRow();
-            if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa kích cỡ " + tblKichCo.getValueAt(row, 0).toString() + " khỏi hệ thống?")) {
+            if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa kích cỡ " + tblKichCo.getValueAt(row, 0).toString() + " trong hệ thống?")) {
                 return;
             }
+            int id = 0;
             try {
-                String sql = "delete from KichCoSP where KichCo = ?";
-                XJdbc.update(sql, tblKichCo.getValueAt(row, 0));
-                fillTableKichCo();
-                fillComboKichCo();
+                String sql1 = "select * from KichCoSP where KichCo = ?";
+                ResultSet rs = XJdbc.query(sql1, tblKichCo.getValueAt(row, 0).toString());
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
             } catch (Exception e) {
-                helper.MsgBox.alert(null, "Lỗi xóa kích cỡ");
+                helper.MsgBox.alert(null, "Lỗi tìm kích cỡ");
+            }
+            String fix;
+            List<KichCo> lst = ttDao.selectKichCo();
+            while (true) {
+                fix = helper.MsgBox.prompt(this, "Xin mời nhập kích cỡ mới:");
+                boolean flag = false;
+                for (KichCo kc : lst) {
+                    if (kc.getKichCo().equalsIgnoreCase(fix)) {
+                        flag = true;
+                    }
+                }
+                if (fix.isEmpty()) {
+                    helper.MsgBox.alert(this, "Xin mời nhập kích cỡ");
+                } else if (flag) {
+                    helper.MsgBox.alert(this, "Kích cỡ này đã bị trùng");
+                } else {
+                    try {
+                        String sql = "update KichCoSP set KichCo = ? where IDKichCo = ?";
+                        XJdbc.update(sql, fix, id);
+                        fillTableKichCo();
+                        fillComboKichCo();
+                    } catch (Exception e) {
+                        helper.MsgBox.alert(null, "Lỗi sửa kích cỡ");
+                    }
+                    break;
+                }
             }
         }
     }//GEN-LAST:event_tblKichCoMousePressed
@@ -694,16 +745,44 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         int row;
         if (evt.getClickCount() == 2) {
             row = tblMauSac.getSelectedRow();
-            if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa màu " + tblMauSac.getValueAt(row, 0).toString() + " khỏi hệ thống?")) {
+            if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa màu " + tblMauSac.getValueAt(row, 0).toString() + " trong hệ thống?")) {
                 return;
             }
+            int id = 0;
             try {
-                String sql = "delete from MauSac where MauSac = ?";
-                XJdbc.update(sql, tblMauSac.getValueAt(row, 0));
-                fillTableMauSac();
-                fillComboMauSac();
+                String sql1 = "select * from MauSac where MauSac = ?";
+                ResultSet rs = XJdbc.query(sql1, tblMauSac.getValueAt(row, 0).toString());
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
             } catch (Exception e) {
-                helper.MsgBox.alert(null, "Lỗi xóa màu sắc");
+                helper.MsgBox.alert(null, "Lỗi tìm màu");
+            }
+            String fix;
+            List<MauSac> lst = ttDao.selectMauSac();
+            while (true) {
+                fix = helper.MsgBox.prompt(this, "Xin mời nhập màu sắc mới:");
+                boolean flag = false;
+                for (MauSac ms : lst) {
+                    if (ms.getMauSac().equalsIgnoreCase(fix)) {
+                        flag = true;
+                    }
+                }
+                if (fix.isEmpty()) {
+                    helper.MsgBox.alert(this, "Xin mời nhập màu sắc");
+                } else if (flag) {
+                    helper.MsgBox.alert(this, "Màu sắc này đã bị trùng");
+                } else {
+                    try {
+                        String sql = "update MauSac set MauSac = ? where IDMauSac = ?";
+                        XJdbc.update(sql, fix, id);
+                        fillTableMauSac();
+                        fillComboMauSac();
+                    } catch (Exception e) {
+                        helper.MsgBox.alert(null, "Lỗi sửa màu sắc");
+                    }
+                    break;
+                }
             }
         }
     }//GEN-LAST:event_tblMauSacMousePressed
@@ -712,16 +791,44 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         int row;
         if (evt.getClickCount() == 2) {
             row = tblChatLieu.getSelectedRow();
-            if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa chất liệu " + tblChatLieu.getValueAt(row, 0).toString() + " khỏi hệ thống?")) {
+            if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa chất liệu " + tblChatLieu.getValueAt(row, 0).toString() + " trong hệ thống?")) {
                 return;
             }
+            int id = 0;
             try {
-                String sql = "delete from ChatLieu where ChatLieuSP = ?";
-                XJdbc.update(sql, tblChatLieu.getValueAt(row, 0));
-                fillTableChatLieu();
-                fillComboChatLieu();
+                String sql1 = "select * from ChatLieu where ChatLieuSP = ?";
+                ResultSet rs = XJdbc.query(sql1, tblChatLieu.getValueAt(row, 0).toString());
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
             } catch (Exception e) {
-                helper.MsgBox.alert(null, "Lỗi xóa chất liệu");
+                helper.MsgBox.alert(null, "Lỗi tìm chất liệu");
+            }
+            String fix;
+            List<ChatLieu> lst = ttDao.selectChatLieu();
+            while (true) {
+                fix = helper.MsgBox.prompt(this, "Xin mời nhập chất liệu mới:");
+                boolean flag = false;
+                for (ChatLieu cl : lst) {
+                    if (cl.getChatLieu().equalsIgnoreCase(fix)) {
+                        flag = true;
+                    }
+                }
+                if (fix.isEmpty()) {
+                    helper.MsgBox.alert(this, "Xin mời nhập chất liệu");
+                } else if (flag) {
+                    helper.MsgBox.alert(this, "Chất liệu này đã bị trùng");
+                } else {
+                    try {
+                        String sql = "update ChatLieu set ChatLieuSP = ? where IDChatLieu = ?";
+                        XJdbc.update(sql, fix, id);
+                        fillTableChatLieu();
+                        fillComboChatLieu();
+                    } catch (Exception e) {
+                        helper.MsgBox.alert(null, "Lỗi sửa chất liệu");
+                    }
+                    break;
+                }
             }
         }
     }//GEN-LAST:event_tblChatLieuMousePressed
@@ -730,16 +837,44 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         int row;
         if (evt.getClickCount() == 2) {
             row = tblDanhMuc.getSelectedRow();
-            if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa danh mục " + tblDanhMuc.getValueAt(row, 0).toString() + " khỏi hệ thống?")) {
+            if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa danh mục " + tblDanhMuc.getValueAt(row, 0).toString() + " trong hệ thống?")) {
                 return;
             }
+            int id = 0;
             try {
-                String sql = "delete from TenDanhMuc where DanhMucSP = ?";
-                XJdbc.update(sql, tblDanhMuc.getValueAt(row, 0));
-                fillTableDanhMuc();
-                fillComboDanhMuc();
+                String sql1 = "select * from DanhMucSP where TenDanhMuc = ?";
+                ResultSet rs = XJdbc.query(sql1, tblDanhMuc.getValueAt(row, 0).toString());
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
             } catch (Exception e) {
-                helper.MsgBox.alert(null, "Lỗi xóa danh mục");
+                helper.MsgBox.alert(null, "Lỗi tìm danh mục");
+            }
+            String fix;
+            List<DanhMuc> lst = ttDao.selectDanhMuc();
+            while (true) {
+                fix = helper.MsgBox.prompt(this, "Xin mời nhập danh mục mới:");
+                boolean flag = false;
+                for (DanhMuc dm : lst) {
+                    if (dm.getDanhMuc().equalsIgnoreCase(fix)) {
+                        flag = true;
+                    }
+                }
+                if (fix.isEmpty()) {
+                    helper.MsgBox.alert(this, "Xin mời nhập danh mục");
+                } else if (flag) {
+                    helper.MsgBox.alert(this, "Danh mục này đã bị trùng");
+                } else {
+                    try {
+                        String sql = "update DanhMucSP set TenDanhMuc = ? where IDDanhMuc = ?";
+                        XJdbc.update(sql, fix, id);
+                        fillTableDanhMuc();
+                        fillComboDanhMuc();
+                    } catch (Exception e) {
+                        helper.MsgBox.alert(null, "Lỗi sửa chất liệu");
+                    }
+                    break;
+                }
             }
         }
     }//GEN-LAST:event_tblDanhMucMousePressed
@@ -748,16 +883,44 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         int row;
         if (evt.getClickCount() == 2) {
             row = tblGioiTinh.getSelectedRow();
-            if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa giới tính " + tblGioiTinh.getValueAt(row, 0).toString() + " khỏi hệ thống?")) {
+            if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa giới tính " + tblGioiTinh.getValueAt(row, 0).toString() + " trong hệ thống?")) {
                 return;
             }
+            int id = 0;
             try {
-                String sql = "delete from GioiTinh where GioiTinh = ?";
-                XJdbc.update(sql, tblGioiTinh.getValueAt(row, 0));
-                fillTableGioiTinh();
-                fillComboGioiTinh();
+                String sql1 = "select * from GioiTinh where GioiTinh = ?";
+                ResultSet rs = XJdbc.query(sql1, tblGioiTinh.getValueAt(row, 0).toString());
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
             } catch (Exception e) {
-                helper.MsgBox.alert(null, "Lỗi xóa giới tính");
+                helper.MsgBox.alert(null, "Lỗi tìm giới tính");
+            }
+            String fix;
+            List<GioiTinh> lst = ttDao.selectGioiTinh();
+            while (true) {
+                fix = helper.MsgBox.prompt(this, "Xin mời nhập giới tính mới:");
+                boolean flag = false;
+                for (GioiTinh gt : lst) {
+                    if (gt.getGioiTinh().equalsIgnoreCase(fix)) {
+                        flag = true;
+                    }
+                }
+                if (fix.isEmpty()) {
+                    helper.MsgBox.alert(this, "Xin mời nhập giới tính");
+                } else if (flag) {
+                    helper.MsgBox.alert(this, "Giới tính này đã bị trùng");
+                } else {
+                    try {
+                        String sql = "update GioiTinh set GioiTinh = ? where IDGioiTinh = ?";
+                        XJdbc.update(sql, fix, id);
+                        fillTableGioiTinh();
+                        fillComboGioiTinh();
+                    } catch (Exception e) {
+                        helper.MsgBox.alert(null, "Lỗi sửa giới tính");
+                    }
+                    break;
+                }
             }
         }
     }//GEN-LAST:event_tblGioiTinhMousePressed
@@ -766,16 +929,44 @@ public class PFrmThuocTinhSP extends javax.swing.JPanel {
         int row;
         if (evt.getClickCount() == 2) {
             row = tblDonViTinh.getSelectedRow();
-            if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa đơn vị " + tblDonViTinh.getValueAt(row, 0).toString() + " khỏi hệ thống?")) {
+            if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa đơn vị " + tblDonViTinh.getValueAt(row, 0).toString() + " trong hệ thống?")) {
                 return;
             }
+            int id = 0;
             try {
-                String sql = "delete from DonViTinh where DonViTinh = ?";
-                XJdbc.update(sql, tblDonViTinh.getValueAt(row, 0));
-                fillTableChatLieu();
-                fillComboChatLieu();
+                String sql1 = "select * from DonViTinh where DonViTinh = ?";
+                ResultSet rs = XJdbc.query(sql1, tblDonViTinh.getValueAt(row, 0).toString());
+                while (rs.next()) {
+                    id = rs.getInt(1);
+                }
             } catch (Exception e) {
-                helper.MsgBox.alert(null, "Lỗi xóa đơn vị");
+                helper.MsgBox.alert(null, "Lỗi tìm đơn vị");
+            }
+            String fix;
+            List<DonViTinh> lst = ttDao.selectDonViTinh();
+            while (true) {
+                fix = helper.MsgBox.prompt(this, "Xin mời nhập đơn vị mới:");
+                boolean flag = false;
+                for (DonViTinh dvt : lst) {
+                    if (dvt.getDonViTinh().equalsIgnoreCase(fix)) {
+                        flag = true;
+                    }
+                }
+                if (fix.isEmpty()) {
+                    helper.MsgBox.alert(this, "Xin mời nhập đơn vị");
+                } else if (flag) {
+                    helper.MsgBox.alert(this, "Đơn vị này đã bị trùng");
+                } else {
+                    try {
+                        String sql = "update DonViTinh set DonViTinh = ? where IDDonViTinh = ?";
+                        XJdbc.update(sql, fix, id);
+                        fillTableDonVi();
+                        fillComboDonVi();
+                    } catch (Exception e) {
+                        helper.MsgBox.alert(null, "Lỗi sửa đơn vị");
+                    }
+                    break;
+                }
             }
         }
     }//GEN-LAST:event_tblDonViTinhMousePressed
