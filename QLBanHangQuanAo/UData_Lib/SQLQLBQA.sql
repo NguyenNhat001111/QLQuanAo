@@ -80,6 +80,26 @@ create table ChiTietSanPham
 )
 GO
 
+create table KhuyenMai
+(
+   IDKhuyenMai int identity(1,1) not null primary key,
+   TenKhuyenMai nvarchar(100),
+   NgayBatDau date,
+   NgayKetThuc date,
+   DieuKienKhuyenMai nvarchar(50),
+   GiaTriPhanTramKhuyenMai int,
+   GiaTienKhuyenMai float
+)
+GO
+
+create table ChiTietKhuyenMai
+(
+   IDCTKM int identity(1,1) not null primary key,
+   IDCTSP int foreign key references ChiTietSanPham(IDCTSP) on update cascade,
+   IDKhuyenMai int foreign key references KhuyenMai(IDKhuyenMai) on update cascade
+)
+
+GO
 create table VaiTro
 (
    IDVaiTro int not null primary key,
@@ -128,18 +148,21 @@ create table HoaDon
    NgayLapHoaDon date ,
    TongGiaTien float ,
    HinhThucThanhToan int,
-   TrangThaiHoaDon int
+   TrangThaiHoaDon int,
+   BonusGiamGia float,
+   GhiChu nvarchar(200)
 )
 GO
 
 create table HoaDonChiTiet
 (
-   IDHoaDon int not null foreign key references HoaDon(IDHoaDon),
-   IDCTSP int not null foreign key references ChiTietSanPham(IDCTSP),
+   IDHoaDonChiTiet int identity(1,1) not null primary key, 
+   IDHoaDon int not null foreign key references HoaDon(IDHoaDon) on update cascade,
+   IDCTSP int not null foreign key references ChiTietSanPham(IDCTSP) on update cascade,
    DonGia float ,
    SoLuong int ,
    TrangThai int ,
-   Primary key(IDHoaDon, IDCTSP)
+   SoTienGiamGia float
 )
 GO
 
@@ -244,19 +267,35 @@ values(N'Nguyễn Minh Nhật', '0493676789', N'Hoàn Kiếm - Hà Nội', '0011
 insert into KhachHang(HoTenKH, SDT, DiaChi, CCCD)
 values(N'Phí Công Lợi', '0493458389', N'Hoài Đức - Hà Nội', '001104573455')
 
+--KhuyenMai
+insert into KhuyenMai(TenKhuyenMai, NgayBatDau, NgayKetThuc, DieuKienKhuyenMai, GiaTriPhanTramKhuyenMai, GiaTienKhuyenMai) 
+values(N'Black Friday', '11/25/2021', '11/30/2021', N'Áo thun', 30, 50000)
+insert into KhuyenMai(TenKhuyenMai, NgayBatDau, NgayKetThuc, DieuKienKhuyenMai, GiaTriPhanTramKhuyenMai, GiaTienKhuyenMai) 
+values(N'Black Tuesday', '11/14/2021', '11/16/2021', N'Áo Khoác', 40, null)
+insert into KhuyenMai(TenKhuyenMai, NgayBatDau, NgayKetThuc, DieuKienKhuyenMai, GiaTriPhanTramKhuyenMai, GiaTienKhuyenMai) 
+values(N'Black Sunday', '11/20/2021', '11/25/2021', N'Áo Dài Tay', 30, 100000)
+
+--ChiTietKhuyenMai
+insert into ChiTietKhuyenMai(IDCTSP, IDKhuyenMai) 
+values(1, 2)
+insert into ChiTietKhuyenMai(IDCTSP, IDKhuyenMai) 
+values(2, 3)
+insert into ChiTietKhuyenMai(IDCTSP, IDKhuyenMai) 
+values(3, 1)
+
 --HoaDon
-insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, TrangThaiHoaDon)
-values(2, 1, '9/11/2021', 1000000, 1, 1)
-insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, TrangThaiHoaDon)
-values(2, 2, '8/11/2021', 2500000, 2, 1)
+insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, BonusGiamGia, GhiChu, TrangThaiHoaDon)
+values(2, 1, '9/11/2021', 1000000, 1, null, null, 1)
+insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, BonusGiamGia, GhiChu, TrangThaiHoaDon)
+values(2, 2, '8/11/2021', 2500000, 2, null, null, 1)
 
 --HoaDonChiTiet
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
-values(1, 2, 200000, 5, 1)
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
-values(2, 1, 250000, 6, 1)
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
-values(2, 2, 200000, 5, 1)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, SoTienGiamGia, TrangThai)
+values(1, 2, 200000, 5, null, 1)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, SoTienGiamGia, TrangThai)
+values(2, 1, 250000, 6, null, 1)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, SoTienGiamGia, TrangThai)
+values(2, 2, 200000, 5, null, 1)
 
 select * from MauSac
 select * from DonViTinh
@@ -266,6 +305,7 @@ select * from KichCoSP
 select * from NhaSanXuat
 select * from DanhMucSP
 select * from SanPham
+select * from KhuyenMai
 select * from ChiTietSanPham
 select * from VaiTro
 select * from NguoiDung
