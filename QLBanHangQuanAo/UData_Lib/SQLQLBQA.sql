@@ -74,32 +74,12 @@ create table ChiTietSanPham
    IDGioiTinh int foreign key references GioiTinh(IDGioiTinh) on update cascade,
    MoTa nvarchar(200) ,
    GiaTien float ,
-   TenChiTiet nvarchar(50),
+   TenChiTiet nvarchar(200),
    Soluong int,
    TrangThai int 
 )
 GO
 
-create table KhuyenMai
-(
-   IDKhuyenMai int identity(1,1) not null primary key,
-   TenKhuyenMai nvarchar(100),
-   NgayBatDau date,
-   NgayKetThuc date,
-   DieuKienKhuyenMai nvarchar(50),
-   GiaTriPhanTramKhuyenMai int,
-   GiaTienKhuyenMai float
-)
-GO
-
-create table ChiTietKhuyenMai
-(
-   IDCTKM int identity(1,1) not null primary key,
-   IDCTSP int foreign key references ChiTietSanPham(IDCTSP) on update cascade,
-   IDKhuyenMai int foreign key references KhuyenMai(IDKhuyenMai) on update cascade
-)
-
-GO
 create table VaiTro
 (
    IDVaiTro int not null primary key,
@@ -149,7 +129,6 @@ create table HoaDon
    TongGiaTien float ,
    HinhThucThanhToan int,
    TrangThaiHoaDon int,
-   BonusGiamGia float,
    GhiChu nvarchar(200)
 )
 GO
@@ -161,8 +140,8 @@ create table HoaDonChiTiet
    IDCTSP int not null foreign key references ChiTietSanPham(IDCTSP) on update cascade,
    DonGia float ,
    SoLuong int ,
-   TrangThai int ,
-   SoTienGiamGia float
+   TrangThai int 
+   
 )
 GO
 
@@ -184,6 +163,8 @@ insert into ChatLieu(ChatLieuSP) values(N'Jeans')
 insert into ChatLieu(ChatLieuSP) values(N'KaKi')
 insert into ChatLieu(ChatLieuSP) values(N'Len')
 insert into ChatLieu(ChatLieuSP) values(N'Nỉ')
+insert into ChatLieu(ChatLieuSP) values(N'Polyester')
+insert into ChatLieu(ChatLieuSP) values(N'Dù')
 insert into ChatLieu(ChatLieuSP) values(N'Thô')
 
 --GioiTinh
@@ -197,41 +178,101 @@ insert into KichCoSP(KichCo) values(N'M')
 insert into KichCoSP(KichCo) values(N'L')
 insert into KichCoSP(KichCo) values(N'XL')
 insert into KichCoSP(KichCo) values(N'XXL')
+insert into KichCoSP(KichCo) values(N'29')
+insert into KichCoSP(KichCo) values(N'30')
+insert into KichCoSP(KichCo) values(N'31')
+insert into KichCoSP(KichCo) values(N'32')
+insert into KichCoSP(KichCo) values(N'34')
+insert into KichCoSP(KichCo) values(N'36')
 
 --NhaSanXuat
 insert into NhaSanXuat(TenNhaSX) values(N'Gucci')
 insert into NhaSanXuat(TenNhaSX) values(N'Channel')
+insert into NhaSanXuat(TenNhaSX) values(N'CoolMate')
 insert into NhaSanXuat(TenNhaSX) values(N'Yody')
 insert into NhaSanXuat(TenNhaSX) values(N'Puma')
 insert into NhaSanXuat(TenNhaSX) values(N'Adidas')
 insert into NhaSanXuat(TenNhaSX) values(N'Nike')
+insert into NhaSanXuat(TenNhaSX) values(N'ManDo')
 insert into NhaSanXuat(TenNhaSX) values(N'Dior')
+insert into NhaSanXuat(TenNhaSX) values(N'Feaer')
 
 --DanhMucSanPham
 insert into DanhMucSP(TenDanhMuc) values(N'Áo Phông')
 insert into DanhMucSP(TenDanhMuc) values(N'Áo Hoodie')
-insert into DanhMucSP(TenDanhMuc) values(N'Áo Phông')
-insert into DanhMucSP(TenDanhMuc) values(N'Áo Dài')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Dài Tay')
 insert into DanhMucSP(TenDanhMuc) values(N'Áo Len')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Polo')
+insert into DanhMucSP(TenDanhMuc) values(N'Áo Phao')
 insert into DanhMucSP(TenDanhMuc) values(N'Áo Khoác')
 insert into DanhMucSP(TenDanhMuc) values(N'Áo Sơ Mi')
 insert into DanhMucSP(TenDanhMuc) values(N'Quần Đùi')
-insert into DanhMucSP(TenDanhMuc) values(N'Quần Dài')
+insert into DanhMucSP(TenDanhMuc) values(N'Quần Jean')
 
 
 --SanPham
 insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
 values(1, 1, N'Áo Phông Thời Trang Channel', 1)
 insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
-values(2, 2, N'Áo Hoodie Channel', 1)
+values(2, null, N'Áo Hoodie ESSENTIALS', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(1, 3, N'Áo Phông Cotton', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(5, 3, N'Áo Polo CoolMax', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(3, 8, N'Áo Dài Tay ManDo', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(8, 8, N'Áo Sơ Mi Caro', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(7, 4, N'Áo phao nữ YODY', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(9, 10, N'Quần short nam', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(10, 10, N'Quần Jean nam', 1)
+insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)
+values(10, null, N'Quần Jean nữ', 1)
 
 --ChiTietSanPham
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(1, 'SP1', 2, 1, 2, 5, 2, N'Demo mô tả', 250000, N'Áo Phông Channel Nữ Trắng', 9, 1)
+values(1, 'SP1', 2, 1, 2, 5, 2, N'Áo Phông Channel chất liệu cotton thoáng mát', 250000, N'Áo Phông Channel Nữ Trắng', 9, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP2', 1, 2, 2, 5, 1, N'Demo mô tả', 200000, N'Áo Hoodie Channel Nam Đen', 11, 1)
+values(2, 'SP2', 1, 2, 2, 5, 3, N'Azila Viet Nam giới thiệu tới bạn mẫu áo Hoodie Nam Nữ ESSENTIALS form rộng thoải mái', 170000, N'Áo Hoodie Nam Nữ Azila Viet Nam ESSENTIALS Ulzzang', 11, 1)
 insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
-values(2, 'SP3', 2, 1, 1, 1, 1, N'Demo mô tả', 200000, N'Áo Hoodie Channel Nam Trắng', 20, 1)
+values(2, 'SP3', 2, 1, 1, 5, 3, N'Azila Viet Nam giới thiệu tới bạn mẫu áo Hoodie Nam Nữ ESSENTIALS form rộng thoải mái', 170000, N'Áo Hoodie Nam Nữ Azila Viet Nam ESSENTIALS Ulzzang', 20, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(3, 'SP4', 3, 2, 2, 1, 1, N'Áo phông nam Cotton Compact phiên bản Premium chống nhăn Coolmate', 150000, N'Áo phông nam Cotton Compact', 134, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(4, 'SP5', 3, 1, 2, 1, 1, N'Chất Liệu vải Cotton, Form áo và dáng cổ có viền kẻ sọc', 200000, N'Áo Polo nam Coolmax làm mát tối đa thương hiệu Coolmate', 150, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(4, 'SP6', 3, 5, 2, 1, 1, N'Chất Liệu vải Cotton, Form áo và dáng cổ có viền kẻ sọc', 200000, N'Áo Polo nam Coolmax làm mát tối đa thương hiệu Coolmate', 90, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(5, 'SP7', 4, 1, 2, 5, 3, N'Áo Thun Nỉ Dài Tay Cổ 3 Phân Nam Unisex Form Rộng Trơn Basic Phong Cách Hàn Quốc MANDO', 200000, N'Áo Thun Nỉ Dài Tay Cổ 3 Phân MANDO', 67, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(6, 'SP8', 3, 4, 2, 1, 1, N'Sản xuất tại việt nam, form dáng sơ mi Hàn Quốc', 190000, N'Áo sơ mi caro phong cách Hàn Quốc', 18, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(6, 'SP9', 3, 5, 2, 1, 1, N'Sản xuất tại việt nam, form dáng sơ mi Hàn Quốc', 190000, N'Áo sơ mi caro phong cách Hàn Quốc', 18, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(7, 'SP10', 1, 2, 2, 6, 2, N'Áo Phao YODY chất liệu polyester', 500000, N'Áo phao nữ YODY siêu nhẹ có mũ siêu ấm', 24, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(7, 'SP11', 2, 4, 2, 6, 2, N'Áo Phao YODY chất liệu polyester', 500000, N'Áo phao nữ YODY siêu nhẹ có mũ siêu ấm', 15, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(7, 'SP12', 3, 6, 2, 6, 2, N'Áo Phao YODY chất liệu polyester', 500000, N'Áo phao nữ YODY siêu nhẹ có mũ siêu ấm', 7, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(8, 'SP13', 1, 2, 2, 7, 1, N'Quần short nam ngắn họa tiết Dri Fit 100% chất dù si thoáng mát', 119000, N'Quần short nam ngắn họa tiết Dri Fit', 3, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(8, 'SP14', 2, 2, 2, 7, 1, N'Quần short nam ngắn họa tiết Dri Fit 100% chất dù si thoáng mát', 119000, N'Quần short nam ngắn họa tiết Dri Fit', 5, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(9, 'SP15', 6, 2, 2, 1, 1, N'Quần jean nam FEAER DENIM chất co dãn thoáng khí vải bền bỉ', 429000, N'Quần jean nam FEAER DENIM', 7, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(9, 'SP16', 7, 2, 2, 1, 1, N'Quần jean nam FEAER DENIM chất co dãn thoáng khí vải bền bỉ', 429000, N'Quần jean nam FEAER DENIM', 6, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(9, 'SP17', 8, 6, 2, 1, 1, N'Quần jean nam FEAER DENIM chất co dãn thoáng khí vải bền bỉ', 429000, N'Quần jean nam FEAER DENIM', 9, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(10, 'SP18', 6, 6, 2, 1, 2, N'Quần Jean Nữ Lưng Cao Skinny Tôn Dáng Có Nhiều Màu Aaa Jeans', 289000, N'Quần Jean Nữ Lưng Cao Skinny', 15, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(10, 'SP19', 7, 6, 2, 1, 2, N'Quần Jean Nữ Lưng Cao Skinny Tôn Dáng Có Nhiều Màu Aaa Jeans', 289000, N'Quần Jean Nữ Lưng Cao Skinny', 5, 1)
+insert into ChiTietSanPham(IDSanPham, MaSanPham, IDKichCo, IDMauSac, IDDonViTinh, IDChatLieu, IDGioiTinh, MoTa, GiaTien, TenChiTiet, Soluong,TrangThai)
+values(10, 'SP20', 8, 6, 2, 1, 2, N'Quần Jean Nữ Lưng Cao Skinny Tôn Dáng Có Nhiều Màu Aaa Jeans', 289000, N'Quần Jean Nữ Lưng Cao Skinny', 7, 1)
 
 --Vaitro
 insert into VaiTro values(0, N'ADMIN')
@@ -267,35 +308,19 @@ values(N'Nguyễn Minh Nhật', '0493676789', N'Hoàn Kiếm - Hà Nội', '0011
 insert into KhachHang(HoTenKH, SDT, DiaChi, CCCD)
 values(N'Phí Công Lợi', '0493458389', N'Hoài Đức - Hà Nội', '001104573455')
 
---KhuyenMai
-insert into KhuyenMai(TenKhuyenMai, NgayBatDau, NgayKetThuc, DieuKienKhuyenMai, GiaTriPhanTramKhuyenMai, GiaTienKhuyenMai) 
-values(N'Black Friday', '11/25/2021', '11/30/2021', N'Áo thun', 30, 50000)
-insert into KhuyenMai(TenKhuyenMai, NgayBatDau, NgayKetThuc, DieuKienKhuyenMai, GiaTriPhanTramKhuyenMai, GiaTienKhuyenMai) 
-values(N'Black Tuesday', '11/14/2021', '11/16/2021', N'Áo Khoác', 40, null)
-insert into KhuyenMai(TenKhuyenMai, NgayBatDau, NgayKetThuc, DieuKienKhuyenMai, GiaTriPhanTramKhuyenMai, GiaTienKhuyenMai) 
-values(N'Black Sunday', '11/20/2021', '11/25/2021', N'Áo Dài Tay', 30, 100000)
-
---ChiTietKhuyenMai
-insert into ChiTietKhuyenMai(IDCTSP, IDKhuyenMai) 
-values(1, 2)
-insert into ChiTietKhuyenMai(IDCTSP, IDKhuyenMai) 
-values(2, 3)
-insert into ChiTietKhuyenMai(IDCTSP, IDKhuyenMai) 
-values(3, 1)
-
 --HoaDon
-insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, BonusGiamGia, GhiChu, TrangThaiHoaDon)
-values(2, 1, '9/11/2021', 1000000, 1, null, null, 1)
-insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, BonusGiamGia, GhiChu, TrangThaiHoaDon)
-values(2, 2, '8/11/2021', 2500000, 2, null, null, 1)
+insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, GhiChu, TrangThaiHoaDon)
+values(2, 1, '9/11/2021', 1000000, 1, null, 1)
+insert into HoaDon(IDNguoiDung, IDKhachHang, NgayLapHoaDon, TongGiaTien, HinhThucThanhToan, GhiChu, TrangThaiHoaDon)
+values(2, 2, '8/11/2021', 2500000, 2, null, 1)
 
 --HoaDonChiTiet
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, SoTienGiamGia, TrangThai)
-values(1, 2, 200000, 5, null, 1)
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, SoTienGiamGia, TrangThai)
-values(2, 1, 250000, 6, null, 1)
-insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, SoTienGiamGia, TrangThai)
-values(2, 2, 200000, 5, null, 1)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
+values(1, 2, 200000, 5, 1)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
+values(2, 1, 250000, 6, 1)
+insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)
+values(2, 2, 200000, 5, 1)
 
 select * from MauSac
 select * from DonViTinh
@@ -305,7 +330,7 @@ select * from KichCoSP
 select * from NhaSanXuat
 select * from DanhMucSP
 select * from SanPham
-select * from KhuyenMai
+
 select * from ChiTietSanPham
 select * from VaiTro
 select * from NguoiDung

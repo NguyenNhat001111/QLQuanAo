@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import IServices.IDAOService;
 import MODELS.NguoiDung;
 import helper.XJdbc;
 import java.sql.ResultSet;

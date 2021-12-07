@@ -1,5 +1,6 @@
 package DAO;
 
+import IServices.IDAOService;
 import MODELS.ChiTietSanPham;
 import helper.XJdbc;
 import java.sql.ResultSet;
