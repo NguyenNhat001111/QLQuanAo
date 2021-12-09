@@ -4,7 +4,6 @@ import DAO.NguoiDungDAO;
 import helper.Auth;
 import helper.MsgBox;
 import helper.XJdbc;
-import java.sql.PreparedStatement;
 import MODELS.NguoiDung;
 import java.util.regex.Pattern;
 public class Taikhoan extends javax.swing.JPanel {

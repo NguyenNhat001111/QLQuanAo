@@ -125,4 +125,6 @@ public class XJdbc {
             throw new RuntimeException(ex);         //throw các lỗi khi chạy CT, VD không có return khi try bị lỗi
         }
     }
+
+   
 }

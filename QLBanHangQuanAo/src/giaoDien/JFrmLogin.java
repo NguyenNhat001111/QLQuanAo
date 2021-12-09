@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package giaoDien;
 
 import DAO.TaiKhoanDAO;
@@ -12,15 +7,8 @@ import helper.Auth;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Administrator
- */
 public class JFrmLogin extends javax.swing.JDialog {
 
-    /**
-     * Creates new form JFrmLogin
-     */
     TaiKhoanDAO tkdao;
     int count = -1;
 
@@ -289,6 +277,7 @@ public class JFrmLogin extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(JFrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

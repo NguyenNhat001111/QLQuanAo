@@ -1,15 +1,30 @@
 package giaoDien;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import helper.Auth;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Properties;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class FrmHome extends javax.swing.JFrame {
 
+    /**
+     * Creates new form FrmHome
+     */
     int index = 0;
     Color mauMeNuChinh = new Color(51, 153, 254);
     Color mauMeNuPhu = new Color(51, 204, 153);
@@ -32,7 +47,7 @@ public class FrmHome extends javax.swing.JFrame {
         ImageIcon iconSanPham = new ImageIcon(getClass().getResource("/Hinhanh/sanpham.png"));
         ImageIcon iconThongKe = new ImageIcon(getClass().getResource("/Hinhanh/thongke.png"));
         //Tạo Menu Quản Lý quan ao
-        MenuItem menuQuan = new MenuItem(mauMeNuPhu, iconSubMenu, "\tQuản Lý Sản Phẩm", new ActionListener() {
+        MenuItem menuQuan = new MenuItem(mauMeNuPhu, iconSubMenu, "\tQuản lý sản phẩm", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -67,7 +82,7 @@ public class FrmHome extends javax.swing.JFrame {
             }
         });
 
-        //Tạo Menu Bán hàng
+        //Tạo Menu Thanh toan
         MenuItem menuhoadon = new MenuItem(mauMeNuPhu, iconSubMenu, "\tBán Hàng", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -104,7 +119,6 @@ public class FrmHome extends javax.swing.JFrame {
                 }
             }
         });
-        
         MenuItem menuDoimk = new MenuItem(mauMeNuPhu, iconSubMenu, "\tĐổi Mật Khẩu", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -124,7 +138,7 @@ public class FrmHome extends javax.swing.JFrame {
         });
 
         //Tạo Menu quẩn lý tài khoản cho Admin 
-        MenuItem menuHome = new MenuItem(mauMeNuChinh, iconStaff, "Trang chủ", new ActionListener() {
+        MenuItem menuHome = new MenuItem(mauMeNuChinh, iconStaff, "Trang Chủ", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (index == 1) {
@@ -142,7 +156,6 @@ public class FrmHome extends javax.swing.JFrame {
 
             }
         });
-        
         MenuItem menuQLSanpham = new MenuItem(mauMeNuChinh, iconSanPham, "Sản Phẩm", null, menuQuan, menuAo);
         MenuItem menuThanhtoan = new MenuItem(mauMeNuChinh, iconThanhToan, "Thanh Toán", null, menuhoadon);
         MenuItem menutaikhoan = new MenuItem(mauMeNuChinh, iconTTTaiKhoan, "Tài Khoản", null, menuThongtin, menuDoimk);
@@ -159,7 +172,6 @@ public class FrmHome extends javax.swing.JFrame {
 
             }
         });
-        
         MenuItem menuThongke = new MenuItem(mauMeNuChinh, iconThongKe, "\tThống Kê", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -177,7 +189,6 @@ public class FrmHome extends javax.swing.JFrame {
                 }
             }
         });
-        
         //Tạo Menu quẩn lý tài khoản cho Admin 
         MenuItem menuQuanLyTaiKhoan = new MenuItem(mauMeNuChinh, iconQLTaiKhoan, "Quản Lý Tài Khoản", new ActionListener() {
             @Override
@@ -276,51 +287,58 @@ public class FrmHome extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_formWindowClosing
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws MessagingException, UnsupportedEncodingException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            javax.swing.UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FrmHome().setVisible(true);
             }
         });
+        
+        final String fromEmail = "duanmot439@gmail.com";
+        // Mat khai email cua ban
+        final String password = "duan12345";
+        // dia chi email nguoi nhan
+        final String toEmail = "phuongmdtph17969@fpt.edu.vn";
+        final String subject = "Thống kê doanh thu";
+        final String body = "Hello Admin";
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
+        props.put("mail.smtp.port", "587"); //TLS Port
+        props.put("mail.smtp.auth", "true"); //enable authentication
+        props.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
+        Authenticator auth = new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(fromEmail, password);
+            }
+        };
+        Session session = Session.getInstance(props, auth);
+        MimeMessage msg = new MimeMessage(session);
+        //set message headers
+        msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
+        msg.addHeader("format", "flowed");
+        msg.addHeader("Content-Transfer-Encoding", "8bit");
+        msg.setFrom(new InternetAddress(fromEmail, "NoReply-JD"));
+        msg.setReplyTo(InternetAddress.parse(fromEmail, false));
+        msg.setSubject(subject, "UTF-8");
+        msg.setText(body, "UTF-8");
+        msg.setSentDate(new Date());
+        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
+        Transport.send(msg);
+        System.out.println("Gui mail thanh cong");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
