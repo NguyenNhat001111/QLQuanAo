@@ -169,7 +169,7 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
                 e.printStackTrace();
             }
         }
-
+        this.dispose();
     }//GEN-LAST:event_btnTrangThaiActionPerformed
 
 //    public static void main(String args[]) {

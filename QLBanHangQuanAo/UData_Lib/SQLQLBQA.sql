@@ -492,3 +492,33 @@ select MaSanPham, TenChiTiet, TenDanhMuc, ChatLieuSP, MauSac, KichCo, GioiTinh, 
 	inner join DanhMucSP on DanhMucSP.IDDanhMuc=SanPham.IDDanhMuc
 	inner join NhaSanXuat on NhaSanXuat.IDNhaSanXuat=SanPham.IDNhaSanXuat
 
+-- THỦ TỤC THỐNG KÊ
+IF OBJECT_ID('sp_ThongKe') IS NOT NULL 
+	DROP PROC sp_ThongKe
+GO 
+CREATE PROC sp_ThongKe
+AS BEGIN
+	select
+		MAX(NgayLapHoaDon) Thoigian,
+		Sum(HoaDonChiTiet.IDCTSP) SanPham,
+		Sum(HoaDonChiTiet.SoLuong) SoLuong,
+		Sum(TongGiaTien) Doanhthu 
+	from KhachHang
+		join HoaDon on KhachHang.IDKhachHang=HoaDon.IDKhachHang
+		join HoaDonChiTiet on HoaDon.IDHoaDon=HoaDonChiTiet.IDHoaDon
+		GROUP BY HoaDon.IDHoaDon
+		ORDER BY HoaDon.IDHoaDon ASC
+END
+
+--- gửi email 
+IF OBJECT_ID('sp_guiemail') IS NOT NULL 
+	DROP PROC sp_guiemail
+GO 
+CREATE PROC sp_guiemail
+AS BEGIN
+select 
+	Email email
+	From TaiKhoan
+	WHERE IDVaiTro = 0
+	GROUP BY Email
+END
