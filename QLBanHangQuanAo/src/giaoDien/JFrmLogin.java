@@ -204,19 +204,24 @@ public class JFrmLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-        String User = txtuser.getText();
-        String Pass = new String(txtpass.getPassword());
-        TaiKhoan tk = tkdao.selectById(User);
-        if (User.length() == 0
-                || Pass.length() == 0) {
-            MsgBox.alert(this, "Không được để trống");
-        } else if (tk == null) {
-            MsgBox.alert(this, "Sai Tên Đăng Nhập");
-        } else if (!Pass.equals(tk.getMatKhau())) {
-            MsgBox.alert(this, "Sai Mật Khẩu");
-        } else {
-            Auth.user = tk;
-            this.dispose();
+        try {
+            String User = txtuser.getText();
+            String Pass = new String(txtpass.getPassword());
+            TaiKhoan tk = tkdao.selectById(User);
+            if (User.length() == 0
+                    || Pass.length() == 0) {
+                MsgBox.alert(this, "Không được để trống");
+            } else if (tk == null) {
+                MsgBox.alert(this, "Sai Tên Đăng Nhập");
+            } else if (!Pass.equals(tk.getMatKhau())) {
+                MsgBox.alert(this, "Sai Mật Khẩu");
+            } else {
+                Auth.user = tk;
+                this.dispose();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            MsgBox.alert(this, "Lỗi truy cập database");
         }
     }//GEN-LAST:event_btnloginActionPerformed
 
@@ -252,6 +257,7 @@ public class JFrmLogin extends javax.swing.JDialog {
             this.btnlogin.requestFocus();
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -309,7 +315,7 @@ public class JFrmLogin extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
-    private void doiMatKhau(){
+    private void doiMatKhau() {
         new JFrmQuenMatKhau(new javax.swing.JFrame(), true).setVisible(true);
     }
 }

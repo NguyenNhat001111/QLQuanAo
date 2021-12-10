@@ -36,9 +36,10 @@ public class Taikhoan extends javax.swing.JPanel {
         txtSDT = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(153, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1701, 1066));
 
         paldoimk.setBackground(new java.awt.Color(255, 255, 255));
-        paldoimk.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        paldoimk.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         lblthongtin.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         lblthongtin.setText("THÔNG TIN CÁ NHÂN");
@@ -65,80 +66,89 @@ public class Taikhoan extends javax.swing.JPanel {
             }
         });
 
-        lblhoten.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblhoten.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblhoten.setText("Họ tên ");
 
-        lblsdt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblsdt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblsdt.setText("SDT");
 
-        lblcccd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblcccd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcccd.setText("CCCD");
 
-        lbldc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbldc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbldc.setText("Địa chỉ ");
+
+        txthoten.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        txtCCCD.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        txtDiachi.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        txtSDT.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout paldoimkLayout = new javax.swing.GroupLayout(paldoimk);
         paldoimk.setLayout(paldoimkLayout);
         paldoimkLayout.setHorizontalGroup(
             paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paldoimkLayout.createSequentialGroup()
-                .addGap(144, 144, 144)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paldoimkLayout.createSequentialGroup()
+                .addGap(166, 166, 166)
                 .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblsdt)
                     .addComponent(lblhoten)
                     .addComponent(lblcccd)
                     .addComponent(lbldc))
-                .addGap(44, 44, 44)
+                .addGap(42, 42, 42)
                 .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txthoten, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDiachi, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paldoimkLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtDiachi)
+                        .addComponent(txtCCCD)
+                        .addComponent(txthoten))
+                    .addComponent(txtSDT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(251, 251, 251))
+            .addGroup(paldoimkLayout.createSequentialGroup()
                 .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paldoimkLayout.createSequentialGroup()
-                        .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91)
-                        .addComponent(btnThoat)
-                        .addGap(222, 222, 222))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paldoimkLayout.createSequentialGroup()
-                        .addComponent(lblthongtin)
-                        .addGap(251, 251, 251))))
+                    .addGroup(paldoimkLayout.createSequentialGroup()
+                        .addGap(373, 373, 373)
+                        .addComponent(lblthongtin))
+                    .addGroup(paldoimkLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        paldoimkLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCCCD, txtDiachi, txtSDT, txthoten});
 
         paldoimkLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLuu, btnThoat});
 
         paldoimkLayout.setVerticalGroup(
             paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paldoimkLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paldoimkLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
                 .addComponent(lblthongtin)
-                .addGap(52, 52, 52)
-                .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhoten)
-                    .addComponent(txthoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblsdt))
-                .addGap(39, 39, 39)
-                .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblcccd))
-                .addGap(47, 47, 47)
-                .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDiachi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbldc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLuu))
-                .addGap(91, 91, 91))
+                .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paldoimkLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(txthoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDiachi, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbldc)))
+                    .addGroup(paldoimkLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(lblhoten)
+                        .addGap(73, 73, 73)
+                        .addComponent(lblsdt)
+                        .addGap(80, 80, 80)
+                        .addComponent(lblcccd)))
+                .addGap(79, 79, 79)
+                .addGroup(paldoimkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         paldoimkLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCCCD, txtDiachi, txtSDT, txthoten});
@@ -149,17 +159,17 @@ public class Taikhoan extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(371, 371, 371)
                 .addComponent(paldoimk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(172, 172, 172)
                 .addComponent(paldoimk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,6 +178,7 @@ public class Taikhoan extends javax.swing.JPanel {
     }//GEN-LAST:event_btnThoatActionPerformed
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
+        try{
         String hoTen = txthoten.getText();
         String SDT = txtSDT.getText();
         String CCCD = txtCCCD.getText();
@@ -190,7 +201,11 @@ public class Taikhoan extends javax.swing.JPanel {
         }
         String sql = "update NguoiDung set HoTenNhanVien=?, SDT=?, CCCD=?, DiaChi=? where IDNguoiDung=?";
         XJdbc.update(sql, hoTen, SDT, CCCD, diaChi, Auth.user.getIdNguoiDung());
-        MsgBox.alert(this, "Cập nhật thông tin tài khoản thành công");
+        MsgBox.alert(this, "Cập nhật thông tin tài khoản thành công");}
+        catch(Exception e){
+            e.printStackTrace();
+            MsgBox.alert(this, "Lỗi của Hưng");
+        }
     }//GEN-LAST:event_btnLuuActionPerformed
 
 
