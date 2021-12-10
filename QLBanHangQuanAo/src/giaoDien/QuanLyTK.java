@@ -53,6 +53,9 @@ public class QuanLyTK extends javax.swing.JPanel {
         lblvaitro = new javax.swing.JLabel();
         cbovaitro = new javax.swing.JComboBox<>();
 
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+
+        paneldanhsachNV.setBackground(new java.awt.Color(204, 255, 255));
         paneldanhsachNV.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh Sách Nhân Viên "));
 
         tblDSNV.setModel(new javax.swing.table.DefaultTableModel(
@@ -80,6 +83,7 @@ public class QuanLyTK extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDSNV);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Tìm kiếm");
 
         txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -111,19 +115,26 @@ public class QuanLyTK extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE))
         );
 
+        panelThongtin.setBackground(new java.awt.Color(204, 255, 255));
         panelThongtin.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin cá nhân "));
 
+        btnThemTK.setBackground(new java.awt.Color(102, 204, 255));
+        btnThemTK.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnThemTK.setText("Thêm Tài Khoản ");
+        btnThemTK.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnThemTK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemTKActionPerformed(evt);
             }
         });
 
+        btnLammoi.setBackground(new java.awt.Color(102, 204, 255));
+        btnLammoi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLammoi.setText("Làm Mới");
+        btnLammoi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnLammoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLammoiActionPerformed(evt);
@@ -145,7 +156,10 @@ public class QuanLyTK extends javax.swing.JPanel {
         lbldc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbldc.setText("Địa chỉ ");
 
+        btntrangthai.setBackground(new java.awt.Color(102, 204, 255));
+        btntrangthai.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntrangthai.setText("Thay Đổi Trạng Thái ");
+        btntrangthai.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btntrangthai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btntrangthaiActionPerformed(evt);
@@ -167,33 +181,34 @@ public class QuanLyTK extends javax.swing.JPanel {
         panelThongtinLayout.setHorizontalGroup(
             panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelThongtinLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblsdt)
-                    .addComponent(lblcccd)
-                    .addComponent(lblhoten)
-                    .addComponent(lblemail)
-                    .addComponent(lbldc)
-                    .addComponent(lbltrangthai)
-                    .addComponent(lblvaitro))
-                .addGap(39, 39, 39)
-                .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txthoten, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDiachi, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbotrangthai, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbovaitro, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelThongtinLayout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addComponent(btnThemTK)
-                .addGap(67, 67, 67)
-                .addComponent(btntrangthai, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(btnLammoi, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                    .addGroup(panelThongtinLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblsdt)
+                            .addComponent(lblcccd)
+                            .addComponent(lblhoten)
+                            .addComponent(lblemail)
+                            .addComponent(lbldc)
+                            .addComponent(lbltrangthai)
+                            .addComponent(lblvaitro))
+                        .addGap(39, 39, 39)
+                        .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txthoten, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDiachi, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbotrangthai, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbovaitro, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelThongtinLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(btnThemTK, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(btntrangthai, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnLammoi, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         panelThongtinLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cbotrangthai, cbovaitro, txtCCCD, txtDiachi, txtEmail, txtSDT, txthoten});
@@ -205,36 +220,36 @@ public class QuanLyTK extends javax.swing.JPanel {
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txthoten, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblhoten))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblsdt))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblcccd))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblemail))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDiachi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbldc))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbotrangthai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbltrangthai))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbovaitro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblvaitro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
                 .addGroup(panelThongtinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btntrangthai)
-                    .addComponent(btnThemTK)
+                    .addComponent(btnThemTK, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLammoi, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
+                .addGap(50, 50, 50))
         );
 
         panelThongtinLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbltrangthai, lblvaitro});
@@ -251,8 +266,8 @@ public class QuanLyTK extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(paneldanhsachNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panelThongtin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addComponent(panelThongtin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +277,7 @@ public class QuanLyTK extends javax.swing.JPanel {
                     .addComponent(paneldanhsachNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(panelThongtin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 208, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 

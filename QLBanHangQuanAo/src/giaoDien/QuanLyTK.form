@@ -35,6 +35,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="cc" red="99" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -43,8 +48,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="paneldanhsachNV" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="panelThongtin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                  <Component id="panelThongtin" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -56,7 +61,7 @@
                       <Component id="paneldanhsachNV" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="panelThongtin" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="208" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -67,6 +72,9 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="paneldanhsachNV">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="cc" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Danh Sa&#x301;ch Nh&#xe2;n Vi&#xea;n "/>
@@ -100,7 +108,7 @@
                           <Component id="txtTimKiem" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="763" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -162,6 +170,9 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
               </Properties>
             </Component>
@@ -174,6 +185,9 @@
         </Container>
         <Container class="javax.swing.JPanel" name="panelThongtin">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="cc" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Th&#xf4;ng tin ca&#x301; nh&#xe2;n "/>
@@ -185,36 +199,39 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblsdt" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblcccd" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblhoten" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblemail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbldc" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbltrangthai" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblvaitro" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblsdt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblcccd" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblhoten" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblemail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbldc" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbltrangthai" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblvaitro" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtSDT" linkSize="4" min="-2" pref="379" max="-2" attributes="0"/>
+                                  <Component id="txthoten" linkSize="4" min="-2" pref="379" max="-2" attributes="0"/>
+                                  <Component id="txtCCCD" linkSize="4" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
+                                  <Component id="txtEmail" linkSize="4" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
+                                  <Component id="txtDiachi" linkSize="4" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
+                                  <Component id="cbotrangthai" linkSize="4" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                                  <Component id="cbovaitro" linkSize="4" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="btnThemTK" min="-2" pref="160" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <Component id="btntrangthai" min="-2" pref="230" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="btnLammoi" min="-2" pref="117" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtSDT" linkSize="4" min="-2" pref="379" max="-2" attributes="0"/>
-                          <Component id="txthoten" linkSize="4" min="-2" pref="379" max="-2" attributes="0"/>
-                          <Component id="txtCCCD" linkSize="4" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
-                          <Component id="txtEmail" linkSize="4" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
-                          <Component id="txtDiachi" linkSize="4" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
-                          <Component id="cbotrangthai" linkSize="4" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
-                          <Component id="cbovaitro" linkSize="4" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
-                      <Component id="btnThemTK" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="btntrangthai" min="-2" pref="207" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="btnLammoi" min="-2" pref="95" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -226,43 +243,43 @@
                           <Component id="txthoten" linkSize="3" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="lblhoten" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtSDT" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblsdt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtCCCD" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblcccd" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtEmail" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblemail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtDiachi" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbldc" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cbotrangthai" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbltrangthai" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cbovaitro" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblvaitro" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="106" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btntrangthai" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnThemTK" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnThemTK" linkSize="5" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="btnLammoi" linkSize="5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -270,7 +287,18 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnThemTK">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Th&#xea;m Ta&#x300;i Khoa&#x309;n "/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemTKActionPerformed"/>
@@ -278,7 +306,18 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnLammoi">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="L&#xe0;m M&#x1edb;i"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLammoiActionPerformed"/>
@@ -336,7 +375,18 @@
             </Component>
             <Component class="javax.swing.JButton" name="btntrangthai">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Thay &#x110;&#xf4;&#x309;i Tra&#x323;ng Tha&#x301;i "/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btntrangthaiActionPerformed"/>
