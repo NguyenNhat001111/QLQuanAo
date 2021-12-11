@@ -249,7 +249,7 @@ public class PFrmHoaDon extends javax.swing.JPanel {
 
             },
             new String [] {
-                "STT", "Tên SP", "Số lượng", "Đơn giá", "Thành tiền", "Trạng thái"
+                "MaHDCT", "Tên SP", "Số lượng", "Đơn giá", "Thành tiền", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -478,12 +478,11 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtKhachThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(120, 120, 120)
-                                .addComponent(lblTongTien)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(120, 120, 120)
+                                        .addComponent(lblTongTien))
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel15)
                                     .addComponent(jLabel23))
@@ -1189,13 +1188,13 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                 int tongTien = rs.getInt(3);
                 int trangThai = rs.getInt(4);
                 if (trangThai == 0) {
-                    a = "Đang chờ";
+                    a = "Đang Chờ";
                 } else if (trangThai == 1) {
                     a = "Hoàn Thành";
                 } else if (trangThai == 2) {
-                    a = "Đang vận chuyển";
+                    a = "Giao Hàng";
                 } else if (trangThai == 3) {
-                    a = "Trả lại";
+                    a = "Trả Lại";
                 }
                 modelHoaDon.addRow(new Object[]{idHoaDon, ngayLap, tongTien, a});
             }
@@ -1293,8 +1292,6 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                 fillToSanPhamDatMuaTheoId();
                 return;
             } else {
-
-//                 String soLuongNhap = helper.MsgBox.prompt(this, "Xin mời nhập số lượng "," 1");
                 String soLuongNhap = JOptionPane.showInputDialog(this, "Xin mời nhập số lượng", "1");
                 if (tblThongTinDanhSachSanPham.getSelectedRow() < 0) {
                     helper.MsgBox.alert(null, "Xin mời chọn sản phẩm cần mua");
@@ -1348,18 +1345,18 @@ public class PFrmHoaDon extends javax.swing.JPanel {
         try {
             int i = 0;
             int maHoaDon = Integer.valueOf(modelHoaDonCho.getValueAt(index, 0).toString());
-            String sql1 = "	select ChiTietSanPham.TenChiTiet,HoaDonChiTiet.SoLuong,DonGia,HoaDonChiTiet.TrangThai \n"
-                    + "	from HoaDonChiTiet inner join ChiTietSanPham on ChiTietSanPham.IDCTSP = HoaDonChiTiet.IDCTSP \n"
-                    + "	where IDHoaDon = ?";
+            String sql1 = "		select IDHoaDonChiTiet,ChiTietSanPham.TenChiTiet,HoaDonChiTiet.SoLuong,DonGia,HoaDonChiTiet.TrangThai \n"
+                    + "                    from HoaDonChiTiet inner join ChiTietSanPham on ChiTietSanPham.IDCTSP = HoaDonChiTiet.IDCTSP \n"
+                    + "                    	where IDHoaDon = ?";
             PreparedStatement pstm1 = XJdbc.getStmt(sql1);
             pstm1.setInt(1, maHoaDon);
             ResultSet rs = pstm1.executeQuery();
             while (rs.next()) {
-                i++;
-                String tenSP = rs.getString(1);
-                int soLuong = rs.getInt(2);
-                int donGiaa = rs.getInt(3);
-                int trangThai = rs.getInt(4);
+                int maHDCCT = rs.getInt(1);
+                String tenSP = rs.getString(2);
+                int soLuong = rs.getInt(3);
+                int donGiaa = rs.getInt(4);
+                int trangThai = rs.getInt(5);
                 String a;
                 if (trangThai == 1) {
                     a = "Trả hàng";
@@ -1368,7 +1365,7 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                 }
                 int thanhTien = donGiaa * soLuong;
                 tongTien = tongTien += thanhTien;
-                modelSanPhamDatMua.addRow(new Object[]{i, tenSP, soLuong, donGiaa, thanhTien, a});
+                modelSanPhamDatMua.addRow(new Object[]{maHDCCT, tenSP, soLuong, donGiaa, thanhTien, a});
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1426,13 +1423,13 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                 String ngayLapHD = rs.getString(2);
                 int trangThaiHD = rs.getInt(3);
                 if (trangThaiHD == 0) {
-                    a = "Đang chờ";
+                    a = "Đang Chờ";
                 }
                 if (trangThaiHD == 2) {
-                    a = "Đang vận chuyển";
+                    a = "Giao Hàng";
                 }
                 if (trangThaiHD == 3) {
-                    a = "Trả hàng";
+                    a = "Trả Hàng";
                 }
                 modelHoaDonCho.addRow(new Object[]{idHoaDon, ngayLapHD, a});
             }
@@ -1489,27 +1486,27 @@ public class PFrmHoaDon extends javax.swing.JPanel {
     private void updateSoLuong() {
         try {
             String trangthai = modelHoaDonCho.getValueAt(index, 2).toString();
+            String tenSP = modelSanPhamDatMua.getValueAt(indexSPDM, 1).toString();
+            String maHDCT = modelSanPhamDatMua.getValueAt(indexSPDM, 0).toString();
             int idSP = 0;
+            int soLuongSP = 0;
+            int soLuong3 = 0;
+            int soLuongSau = 0;
+            int soLuong = 0;
+            String sql = "select IDCTSP , HoaDonChiTiet.Soluong from HoaDonChiTiet where IDHoaDonChiTiet = ?";
+            PreparedStatement pstm = XJdbc.getStmt(sql);
+            pstm.setString(1, maHDCT);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                idSP = rs.getInt(1);
+                soLuong = rs.getInt(2);
+            }
+            JOptionPane.showMessageDialog(this, "mã hoá đơn chi tiết :" + maHDCT);
+            JOptionPane.showMessageDialog(this, "id chi tiết sản phẩm :" + idSP);
+            JOptionPane.showMessageDialog(this, "số lượng sản phẩm trong hoá đơn :" + soLuong);
+
             //validate
             if (trangthai == "Trả hàng") {
-                int soLuong = 0;
-
-                String tenSP = modelSanPhamDatMua.getValueAt(indexSPDM, 1).toString();
-                String sql = "select IDCTSP from ChiTietSanPham where TenChiTiet = ?";
-                PreparedStatement pstm = XJdbc.getStmt(sql);
-                pstm.setString(1, tenSP);
-                ResultSet rs = pstm.executeQuery();
-                while (rs.next()) {
-                    idSP = rs.getInt(1);
-                    String sql1 = "select HoaDonChiTiet.Soluong from HoaDonChiTiet where IDHoaDon = ? and IDCTSP = ?";
-                    PreparedStatement pstm1 = XJdbc.getStmt(sql1);
-                    pstm1.setInt(1, Integer.valueOf(modelHoaDonCho.getValueAt(index, 0).toString()));
-                    pstm1.setInt(2, idSP);
-                    ResultSet rs1 = pstm1.executeQuery();
-                    while (rs1.next()) {
-                        soLuong = rs1.getInt(1);
-                    }
-                }
                 double donGia = Double.valueOf(modelSanPhamDatMua.getValueAt(indexSPDM, 3).toString());
                 String trangThai = modelSanPhamDatMua.getValueAt(indexSPDM, 4).toString();
                 int c = 0;
@@ -1527,28 +1524,27 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                 fillToTableDanhSachSP();
             } else {
                 // update soLuongNhap
+                JOptionPane.showMessageDialog(this, "id sản phẩm chi tiết : "+idSP);
                 int soLuongNhap = Integer.valueOf(helper.MsgBox.prompt(this, "Nhập 0 để xoá sản phẩm , nhập số lượng mới để cập nhật :"));
                 String soLuongTrenBang = modelSanPhamDatMua.getValueAt(indexSPDM, 2).toString();
-                int soLuong3 = 0;
-                int soLuongSP = 0;
-                int soLuongSau = 0;
-
-                String tenSP = modelSanPhamDatMua.getValueAt(indexSPDM, 1).toString();
-                String sql = "select IDCTSP,Soluong from ChiTietSanPham where TenChiTiet = ?";
-                PreparedStatement pstm = XJdbc.getStmt(sql);
-                pstm.setString(1, tenSP);
-                ResultSet rs = pstm.executeQuery();
-                while (rs.next()) {
-                    idSP = rs.getInt(1);
-                    soLuongSP = rs.getInt(2);
-                    if (Integer.valueOf(soLuongTrenBang) > soLuongNhap) {
-                        soLuong3 = Integer.valueOf(soLuongTrenBang) - soLuongNhap;
-                        soLuongSau = soLuong3 + soLuongSP;
-                    } else if (Integer.valueOf(soLuongTrenBang) < soLuongNhap) {
-                        soLuong3 = soLuongNhap - Integer.valueOf(soLuongTrenBang);
-                        soLuongSau = soLuongSP - soLuong3;
-                    }
+                String sql1 = "select Soluong from ChiTietSanPham where IDCTSP = ?";
+                PreparedStatement pstm1 = XJdbc.getStmt(sql1);
+                pstm1.setInt(1, idSP);
+                ResultSet rs1 = pstm1.executeQuery();
+                while (rs1.next()) {
+                    soLuongSP = rs1.getInt(1);
                 }
+                if (Integer.valueOf(soLuongTrenBang) > soLuongNhap) {
+                    soLuong3 = Integer.valueOf(soLuongTrenBang) - soLuongNhap;
+                    soLuongSau = soLuong3 + soLuongSP;
+                } else if (Integer.valueOf(soLuongTrenBang) < soLuongNhap) {
+                    soLuong3 = soLuongNhap - Integer.valueOf(soLuongTrenBang);
+                    soLuongSau = soLuongSP - soLuong3;
+                }
+                JOptionPane.showMessageDialog(this, "so luong san pham = " + soLuongSP);
+                JOptionPane.showMessageDialog(this, "so luong 3 = " + soLuong3);
+                JOptionPane.showMessageDialog(this, "so luong sau = " + soLuongSau);
+
                 if (soLuongSau < 0) {
                     JOptionPane.showMessageDialog(this, "Số lượng sản phẩm không đủ");
                     fillToSanPhamDatMuaTheoId();
@@ -1560,17 +1556,24 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                         if (!a) {
                             return;
                         }
-                        String sql2 = "update HoaDonChiTiet set SoLuong = ? where IDHoaDon = ? and IDCTSP = ?";
-                        PreparedStatement pstm2 = XJdbc.getStmt(sql2);
-                        pstm2.setInt(1, soLuongNhap);
-                        pstm2.setInt(2, MaHD);
-                        pstm2.setInt(3, idSP);
-                        int row2 = pstm2.executeUpdate();
-                        modelSanPhamDatMua.setRowCount(0);
-                        fillToTableDanhSachSP();
-                        fillToSanPhamDatMuaTheoId();
-                        fillToTableHoaDon();
-                        fillToTableKhachHang();
+                        try {
+                            String sql2 = "update HoaDonChiTiet set SoLuong = ? where IDHoaDon = ? and IDCTSP = ?";
+                            PreparedStatement pstm2 = XJdbc.getStmt(sql2);
+                            pstm2.setInt(1, soLuongNhap);
+                            pstm2.setInt(2, MaHD);
+                            pstm2.setInt(3, idSP);
+                            int row2 = pstm2.executeUpdate();
+                            if (row2 > 0) {
+                                JOptionPane.showMessageDialog(this, "cap nhat thanh cong");
+                            }
+                            modelSanPhamDatMua.setRowCount(0);
+                            fillToTableDanhSachSP();
+                            fillToSanPhamDatMuaTheoId();
+                            fillToTableHoaDon();
+                            fillToTableKhachHang();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     } else {
                         boolean a = helper.MsgBox.confirm(this, "Bạn có muốn xoá sản phẩm ");
                         if (!a) {
