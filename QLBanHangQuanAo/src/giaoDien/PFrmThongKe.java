@@ -270,6 +270,7 @@ public class PFrmThongKe extends javax.swing.JPanel {
         boolean a = helper.MsgBox.confirm(this, "Bạn muốn xuất dữ liệu  bảng  thống  kê?");
         if (a) {
             XHelper.writeToExcel(tbldanhsach, "Doanhthu");
+            System.out.println(" Đa Xuất Execl ");
             return;
         } else if (!a) {
             JOptionPane.showMessageDialog(this, "Thoát");
@@ -296,10 +297,7 @@ public class PFrmThongKe extends javax.swing.JPanel {
     }//GEN-LAST:event_jDateChooser1AncestorAdded
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String thongke = null;
-        List<Object[]> list = tkdao.getguiemail(jDateChooser1.getDate());
-        for (Object[] row : list) {
-        }
+
         try {
 
             Properties mailServerProperties;

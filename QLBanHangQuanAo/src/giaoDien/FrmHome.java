@@ -319,8 +319,8 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
     private void init() {
-        new JFrmLogin(this, true).setVisible(true);
-        this.check();
+//        new JFrmLogin(this, true).setVisible(true);
+//        this.check();
     }
 
     public void check() {
