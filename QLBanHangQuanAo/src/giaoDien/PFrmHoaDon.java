@@ -1071,11 +1071,6 @@ public class PFrmHoaDon extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Hoá đơn chưa có sản phẩm nào");
             return;
         }
-//        String trangthai = modelHoaDonCho.getValueAt(index, 2).toString();
-//        if(trangthai != "Đang vận chuyển"){
-//            JOptionPane.showMessageDialog(this,"Đơn hàng chưa đạt yêu cầu để dùng chức năng này");
-//            return;
-//        }
         boolean a = helper.MsgBox.confirm(this, "Bạn có muốn trả hàng");
         if (!a) {
             return;
@@ -1501,12 +1496,8 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                 idSP = rs.getInt(1);
                 soLuong = rs.getInt(2);
             }
-            JOptionPane.showMessageDialog(this, "mã hoá đơn chi tiết :" + maHDCT);
-            JOptionPane.showMessageDialog(this, "id chi tiết sản phẩm :" + idSP);
-            JOptionPane.showMessageDialog(this, "số lượng sản phẩm trong hoá đơn :" + soLuong);
-
             //validate
-            if (trangthai == "Trả hàng") {
+            if (trangthai == "Trả Hàng") {
                 double donGia = Double.valueOf(modelSanPhamDatMua.getValueAt(indexSPDM, 3).toString());
                 String trangThai = modelSanPhamDatMua.getValueAt(indexSPDM, 4).toString();
                 int c = 0;
@@ -1524,7 +1515,6 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                 fillToTableDanhSachSP();
             } else {
                 // update soLuongNhap
-                JOptionPane.showMessageDialog(this, "id sản phẩm chi tiết : "+idSP);
                 int soLuongNhap = Integer.valueOf(helper.MsgBox.prompt(this, "Nhập 0 để xoá sản phẩm , nhập số lượng mới để cập nhật :"));
                 String soLuongTrenBang = modelSanPhamDatMua.getValueAt(indexSPDM, 2).toString();
                 String sql1 = "select Soluong from ChiTietSanPham where IDCTSP = ?";
@@ -1541,10 +1531,6 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                     soLuong3 = soLuongNhap - Integer.valueOf(soLuongTrenBang);
                     soLuongSau = soLuongSP - soLuong3;
                 }
-                JOptionPane.showMessageDialog(this, "so luong san pham = " + soLuongSP);
-                JOptionPane.showMessageDialog(this, "so luong 3 = " + soLuong3);
-                JOptionPane.showMessageDialog(this, "so luong sau = " + soLuongSau);
-
                 if (soLuongSau < 0) {
                     JOptionPane.showMessageDialog(this, "Số lượng sản phẩm không đủ");
                     fillToSanPhamDatMuaTheoId();
@@ -1563,9 +1549,6 @@ public class PFrmHoaDon extends javax.swing.JPanel {
                             pstm2.setInt(2, MaHD);
                             pstm2.setInt(3, idSP);
                             int row2 = pstm2.executeUpdate();
-                            if (row2 > 0) {
-                                JOptionPane.showMessageDialog(this, "cap nhat thanh cong");
-                            }
                             modelSanPhamDatMua.setRowCount(0);
                             fillToTableDanhSachSP();
                             fillToSanPhamDatMuaTheoId();
@@ -1607,7 +1590,6 @@ public class PFrmHoaDon extends javax.swing.JPanel {
             fillToTableKhachHang();
 //            }
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
