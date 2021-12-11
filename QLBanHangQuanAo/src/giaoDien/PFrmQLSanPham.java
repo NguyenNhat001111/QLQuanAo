@@ -266,7 +266,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         jLabel3.setText("Danh Mục:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Tên Sản Phẩm:");
+        jLabel5.setText("Nhóm Sản Phẩm:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nhà Sản Xuất:");
@@ -278,6 +278,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel14.setText("Sản Phẩm");
 
+        btnThemCboDonVi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboDonVi.setText("+");
         btnThemCboDonVi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,6 +286,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
 
+        btnThemCboDanhMuc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboDanhMuc.setText("+");
         btnThemCboDanhMuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,6 +294,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
 
+        btnThemCboNSX.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboNSX.setText("+");
         btnThemCboNSX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,6 +302,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
 
+        btnThemCboMauSac.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboMauSac.setText("+");
         btnThemCboMauSac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,6 +310,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
 
+        btnThemCboKichCo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboKichCo.setText("+");
         btnThemCboKichCo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,6 +318,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
 
+        btnThemCboChatLieu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboChatLieu.setText("+");
         btnThemCboChatLieu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,6 +326,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             }
         });
 
+        btnThemCboTenSP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboTenSP.setText("+");
         btnThemCboTenSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,6 +344,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Mô Tả:");
 
+        btnThemCboGioiTinh.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemCboGioiTinh.setText("+");
         btnThemCboGioiTinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -513,7 +521,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(102, Short.MAX_VALUE))
+                        .addContainerGap(96, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -557,15 +565,32 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         if (validateSP()) {
             return;
         }
+        if (txtMaSp.getText().equalsIgnoreCase("Mã sản phẩm tự sinh")) {
+            helper.MsgBox.alert(null, "Không được sửa sản phẩm chưa có sẵn trong cơ sở dữ liệu");
+            return;
+        }
+        if (!helper.MsgBox.confirm(null, "Bạn có muốn sửa sản phẩm?")) {
+            return;
+        }
         suaSP();
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        if (!helper.MsgBox.confirm(null, "Bạn có muốn xóa trắng các phần nhập?")) {
+            return;
+        }
         clearForm();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         if (validateSP()) {
+            return;
+        }
+        if (!txtMaSp.getText().equalsIgnoreCase("Mã sản phẩm tự sinh")) {
+            helper.MsgBox.alert(null, "Không được thêm sản phẩm đã có trong cơ sở dữ liệu");
+            return;
+        }
+        if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm sản phẩm?")) {
             return;
         }
         themSP();
@@ -672,7 +697,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         if (checkValidateCombo(cboTenSP)) {
             return;
         }
-        if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm Sản phẩm " + tenSP
+        if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm Nhóm sản phẩm " + tenSP
                 + " trong Danh mục " + cboDanhMuc.getSelectedItem().toString()
                 + "\nvà có Nhà SX là " + cboNhaSX.getSelectedItem().toString() + " vào hệ thống?")) {
             return;
@@ -1068,7 +1093,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         MauSac ms = (MauSac) cboMauSac.getSelectedItem();
 
         ChiTietSanPham ct = new ChiTietSanPham();
-        ct.setMaSP("SP" + (tblDanhSach.getRowCount() + 1));
+        ct.setMaSP("SP" + (tblDanhSach.getRowCount() + 5));
         ct.setIdChatLieu(cl.getIdChatLieu());
         ct.setIdDonViTinh(dv.getIdDonViTinh());
         ct.setIdGioiTinh(gt.getIdGioiTinh());
