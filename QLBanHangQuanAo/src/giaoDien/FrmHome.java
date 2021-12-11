@@ -7,24 +7,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Properties;
-import javax.mail.Authenticator;
-import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class FrmHome extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmHome
-     */
     int index = 0;
     Color mauMeNuChinh = new Color(51, 153, 254);
     Color mauMeNuPhu = new Color(51, 204, 153);
@@ -319,8 +307,8 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
     private void init() {
-//        new JFrmLogin(this, true).setVisible(true);
-//        this.check();
+        new JFrmLogin(this, true).setVisible(true);
+        this.check();
     }
 
     public void check() {
