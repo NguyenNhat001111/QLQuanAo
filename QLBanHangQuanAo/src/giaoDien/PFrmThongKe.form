@@ -62,7 +62,7 @@
                   <Component id="jPanel1" min="-2" pref="372" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" pref="164" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -76,18 +76,11 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="57" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="626" max="-2" attributes="0"/>
@@ -249,8 +242,8 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
                     <Column editable="true" title="Th&#x1a1;&#x300;i gian " type="java.lang.Object"/>
-                    <Column editable="true" title="Sa&#x309;n Ph&#xe2;&#x309;m " type="java.lang.Object"/>
-                    <Column editable="true" title="S&#xf4;&#x301; L&#x1b0;&#x1a1;&#x323;ng " type="java.lang.Object"/>
+                    <Column editable="true" title="S&#xf4;&#x301; L&#x1b0;&#x1a1;&#x323;ng Ho&#x301;a &#x110;&#x1a1;n" type="java.lang.Object"/>
+                    <Column editable="true" title="S&#xf4;&#x301; L&#x1b0;&#x1a1;&#x323;ng Sa&#x309;n Ph&#xe2;&#x309;m " type="java.lang.Object"/>
                     <Column editable="true" title="Doanh Thu " type="java.lang.Object"/>
                   </Table>
                 </Property>

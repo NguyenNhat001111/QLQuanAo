@@ -500,8 +500,8 @@ CREATE PROC sp_ThongKe
 AS BEGIN
 	select
 		MAX(NgayLapHoaDon) Thoigian,
-		Sum(HoaDonChiTiet.IDCTSP) SanPham,
-		Sum(HoaDonChiTiet.SoLuong) SoLuong,
+	    count(HoaDonChiTiet.IDCTSP) SoLuongHoaDon,
+		Sum(HoaDonChiTiet.SoLuong) TongSoLuongSanPham,
 		Sum(TongGiaTien) Doanhthu 
 	from KhachHang
 		join HoaDon on KhachHang.IDKhachHang=HoaDon.IDKhachHang

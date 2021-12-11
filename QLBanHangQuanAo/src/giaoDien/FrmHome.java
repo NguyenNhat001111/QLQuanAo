@@ -308,37 +308,7 @@ public class FrmHome extends javax.swing.JFrame {
             }
         });
         
-        final String fromEmail = "duanmot439@gmail.com";
-        // Mat khai email cua ban
-        final String password = "duan12345";
-        // dia chi email nguoi nhan
-        final String toEmail = "phuongmdtph17969@fpt.edu.vn";
-        final String subject = "Thống kê doanh thu";
-        final String body = "Hello Admin";
-        Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
-        props.put("mail.smtp.port", "587"); //TLS Port
-        props.put("mail.smtp.auth", "true"); //enable authentication
-        props.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
-        Authenticator auth = new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(fromEmail, password);
-            }
-        };
-        Session session = Session.getInstance(props, auth);
-        MimeMessage msg = new MimeMessage(session);
-        //set message headers
-        msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
-        msg.addHeader("format", "flowed");
-        msg.addHeader("Content-Transfer-Encoding", "8bit");
-        msg.setFrom(new InternetAddress(fromEmail, "NoReply-JD"));
-        msg.setReplyTo(InternetAddress.parse(fromEmail, false));
-        msg.setSubject(subject, "UTF-8");
-        msg.setText(body, "UTF-8");
-        msg.setSentDate(new Date());
-        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-        Transport.send(msg);
-        System.out.println("Gui mail thanh cong");
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -29,12 +29,12 @@ public class ThongKeDAO {
             throw new RuntimeException(e);
         }
     }
-
-    public List<Object[]> getThongKe() {
+ public List<Object[]> getThongKe() {
           String sql = "{CALL sp_ThongKe}";
-        String[] cols = {"Thoigian","SanPham","SoLuong","Doanhthu"};
+        String[] cols = {"Thoigian","SoLuongHoaDon","TongSoLuongSanPham","Doanhthu"};
         return this.getListOfArray(thongke_SQL, cols);
     }
+
 
     public List<Object[]> getguiemail(Date date) {
         String sql = "{call sp_guiemail(?)}";

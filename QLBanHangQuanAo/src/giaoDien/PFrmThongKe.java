@@ -3,9 +3,15 @@ package giaoDien;
 import DAO.HoaDonDAO;
 import DAO.ThongKeDAO;
 import helper.XHelper;
+import helper.XImage;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.internet.InternetAddress;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -13,11 +19,16 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import javax.mail.Authenticator;
+import javax.mail.BodyPart;
 import javax.mail.Message;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class PFrmThongKe extends javax.swing.JPanel {
@@ -55,7 +66,7 @@ public class PFrmThongKe extends javax.swing.JPanel {
                     row[1],
                     row[2],
                     row[3]});
-            
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -158,12 +169,12 @@ public class PFrmThongKe extends javax.swing.JPanel {
 
         jDateChooser1.setDateFormatString("dd-MM-yyyy");
         jDateChooser1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jDateChooser1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -195,7 +206,7 @@ public class PFrmThongKe extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Thời gian ", "Sản Phẩm ", "Số Lượng ", "Doanh Thu "
+                "Thời gian ", "Số Lượng Hóa Đơn", "Số Lượng Sản Phẩm ", "Doanh Thu "
             }
         ));
         jScrollPane1.setViewportView(tbldanhsach);
@@ -209,7 +220,7 @@ public class PFrmThongKe extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170)
+                .addGap(176, 176, 176)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -220,15 +231,11 @@ public class PFrmThongKe extends javax.swing.JPanel {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -259,8 +266,17 @@ public class PFrmThongKe extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        boolean a = helper.MsgBox.confirm(this, "Bạn muốn xuất dữ liệu  bảng  thống  kê?");
+        if (a) {
             XHelper.writeToExcel(tbldanhsach, "Doanhthu");
+            return;
+        } else if (!a) {
+            JOptionPane.showMessageDialog(this, "Thoát");
+            return;
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
@@ -282,41 +298,66 @@ public class PFrmThongKe extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String thongke = null;
         List<Object[]> list = tkdao.getguiemail(jDateChooser1.getDate());
-        for (Object[] row : list) {}
+        for (Object[] row : list) {
+        }
         try {
 
-            final String fromEmail = "duanmot439@gmail.com";
-            // Mat khai email cua ban
-            final String password = "duan12345";
-            // dia chi email nguoi nhan
-            final String toEmail = "phuongmdtph17969@fpt.edu.vn";
-            final String subject = "Thống kê doanh thu";
-            final String body = "list";
-            Properties props = new Properties();
-            props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
-            props.put("mail.smtp.port", "587"); //TLS Port
-            props.put("mail.smtp.auth", "true"); //enable authentication
-            props.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
-            Authenticator auth = new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(fromEmail, password);
+            Properties mailServerProperties;
+            Session getMailSession;
+            MimeMessage mailMessage;
+            // Step1: setup Mail Server
+            mailServerProperties = System.getProperties();
+            mailServerProperties.put("mtp.gmail.com", "smtp.gmail.com"); //SMTP Host
+            mailServerProperties.put("mail.smtp.port", "587"); //TLS Port
+            mailServerProperties.put("mail.smtp.auth", "true"); //enable authentication
+            mailServerProperties.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
+            // Step2: get Mail Session
+            getMailSession = Session.getDefaultInstance(mailServerProperties, null);
+            mailMessage = new MimeMessage(getMailSession);
+            // địa chỉ người nhận
+            mailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress("phuongmdtph17969@fpt.edu.vn"));
+
+            mailMessage.setSubject(" Bảng Thống Kê ");
+            // Tạo phần gửi message 
+            BodyPart messagePart = new MimeBodyPart();
+            messagePart.setText(" Bảng Thống Kê ");
+            //  chọn trong thư viện 
+            boolean a = helper.MsgBox.confirm(this, "Bạn muốn gửi  bảng  thống  kê?");
+            if (a) {
+                JFileChooser fchooser = new JFileChooser();
+                if (fchooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                    File file = fchooser.getSelectedFile();
+                    XImage.save(file);
+                    // Tạo phần gửi file
+                    BodyPart filePart = new MimeBodyPart();
+                    String filename = fchooser.getSelectedFile().getAbsolutePath();
+                    DataSource source = new FileDataSource(filename);
+                    filePart.setDataHandler(new DataHandler(source));
+                    filePart.setFileName(filename);
+                    FileOutputStream out = new FileOutputStream(new File(filename + ".xlsx"));
+                    // Gộp message và file vào để gửi đi
+                    Multipart multipart = new MimeMultipart();
+                    multipart.addBodyPart(messagePart);
+
+                    multipart.addBodyPart(filePart);
+                    mailMessage.setContent(multipart);
+                    // Step3: Send mail
+                    Transport transport = getMailSession.getTransport("smtp");
+                    // địa chỉ người gủi 
+                    transport.connect("smtp.gmail.com", "duanmot439@gmail.com", "duan12345");
+                    transport.sendMessage(mailMessage, mailMessage.getAllRecipients());
+                    transport.close();
+
+                    JOptionPane.showMessageDialog(this, " Thành Công ");
+
+                    System.out.println(" Đa Gui Email");
                 }
-            };
-            Session session = Session.getInstance(props, auth);
-            MimeMessage msg = new MimeMessage(session);
-            //set message headers
-            msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
-            msg.addHeader("format", "flowed");
-            msg.addHeader("Content-Transfer-Encoding", "8bit");
-            msg.setFrom(new InternetAddress(fromEmail, "NoReply-JD"));
-            msg.setReplyTo(InternetAddress.parse(fromEmail, false));
-            msg.setSubject(subject, "UTF-8");
-            msg.setText(body, "UTF-8");
-            msg.setSentDate(new Date());
-            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-            Transport.send(msg);
-          
-          JOptionPane.showConfirmDialog(this," Gui thành công" );
+                return;
+            } else if (!a) {
+                JOptionPane.showMessageDialog(this, "Thoát");
+                return;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
