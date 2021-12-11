@@ -7,16 +7,18 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
     int soLuong;
     int trangThai;
     double donGia;
+    int maHD;
+    int idSP;
 
     public PFrmHoaDonChiTiet_trangThai_soLuong(String tenSP, int MaHD, int idSP, int soLuong, double donGia, int trangThai) {
         initComponents();
         this.soLuong = soLuong;
         this.trangThai = trangThai;
         this.donGia = donGia;
+        this.maHD = MaHD;
+        this.idSP = idSP;
         lbltenSP.setText(tenSP);
         setLocationRelativeTo(null);
-        lblMaHD.setText(MaHD + "");
-        lblIDsp.setText(idSP + "");
         txtSoLuong.setText(soLuong + "");
         cboTrangThai.setSelectedIndex(trangThai);
     }
@@ -29,10 +31,6 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lbltenSP = new javax.swing.JLabel();
         cboTrangThai = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        lblMaHD = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblIDsp = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtSoLuong = new javax.swing.JTextField();
 
@@ -51,14 +49,6 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
 
         cboTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thanh Toán", "Trả hàng" }));
 
-        jLabel1.setText("Mã hoá đơn:");
-
-        lblMaHD.setText("Mã HĐ");
-
-        jLabel4.setText("Mã sản phẩm chi tiết:");
-
-        lblIDsp.setText("Mã SPCT");
-
         jLabel3.setText("Số lượng :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -66,60 +56,47 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSoLuong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboTrangThai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(lbltenSP))
+                        .addGap(131, 131, 131)
+                        .addComponent(btnTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(43, 43, 43)
-                                .addComponent(lblIDsp))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(92, 92, 92)
-                                .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(85, 85, 85)
-                                .addComponent(lblMaHD))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(43, 43, 43)
-                                .addComponent(cboTrangThai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(btnTrangThai)
+                        .addGap(161, 161, 161)
+                        .addComponent(lbltenSP)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cboTrangThai, txtSoLuong});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbltenSP)
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblMaHD))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblIDsp))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(btnTrangThai)
+                    .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(btnTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cboTrangThai, txtSoLuong});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,8 +105,6 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
         if (validateNumber()) {
             return;
         }
-        int maHD = Integer.valueOf(lblMaHD.getText());
-        int idsp = Integer.valueOf(lblIDsp.getText());
         int soLuongMoi = Integer.valueOf(txtSoLuong.getText());
         int tt = cboTrangThai.getSelectedIndex();
         int soLuongThua = soLuong - soLuongMoi;
@@ -137,14 +112,14 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
         if (tt == 0) {
             try {
                 String sql = "update HoaDonChiTiet set SoLuong = ?, TrangThai = ? where IDHoaDon = ? and IDCTSP = ?";
-                int row = XJdbc.update(sql, soLuongMoi, tt, maHD, idsp);
+                int row = XJdbc.update(sql, soLuongMoi, tt, maHD, idSP);
 
                 String sql2 = "insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)\n"
                         + "values(?, ?, ?, ?, ?)";
-                int row2 = XJdbc.update(sql2, maHD, idsp, donGia, soLuongThua, 1);
+                int row2 = XJdbc.update(sql2, maHD, idSP, donGia, soLuongThua, 1);
                 
                 String sql3 = "update ChiTietSanPham set Soluong = Soluong + ? where IDCTSP = ?";
-                int row3 = XJdbc.update(sql3, soLuongThua, idsp);
+                int row3 = XJdbc.update(sql3, soLuongThua, idSP);
                 if (row2 > 0 && row > 0 && row3 > 0) {
                     helper.MsgBox.alert(null, "Thành công");
                 }
@@ -154,14 +129,14 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
         } else if (tt == 1){
             try {
                 String sql = "update HoaDonChiTiet set SoLuong = ?, TrangThai = ? where IDHoaDon = ? and IDCTSP = ?";
-                int row = XJdbc.update(sql, soLuongMoi, tt, maHD, idsp);
+                int row = XJdbc.update(sql, soLuongMoi, tt, maHD, idSP);
 
                 String sql2 = "insert into HoaDonChiTiet(IDHoaDon, IDCTSP, DonGia, SoLuong, TrangThai)\n"
                         + "values(?, ?, ?, ?, ?)";
-                int row2 = XJdbc.update(sql2, maHD, idsp, donGia, soLuongThua, 0);
+                int row2 = XJdbc.update(sql2, maHD, idSP, donGia, soLuongThua, 0);
                 
                 String sql3 = "update ChiTietSanPham set Soluong = Soluong + ? where IDCTSP = ?";
-                int row3 = XJdbc.update(sql3, soLuongMoi, idsp);
+                int row3 = XJdbc.update(sql3, soLuongMoi, idSP);
                 if (row > 0 && row2 > 0 && row3 > 0) {
                     helper.MsgBox.alert(null, "Thành công");
                 }
@@ -207,12 +182,8 @@ public class PFrmHoaDonChiTiet_trangThai_soLuong extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTrangThai;
     private javax.swing.JComboBox<String> cboTrangThai;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lblIDsp;
-    private javax.swing.JLabel lblMaHD;
     private javax.swing.JLabel lbltenSP;
     private javax.swing.JTextField txtSoLuong;
     // End of variables declaration//GEN-END:variables

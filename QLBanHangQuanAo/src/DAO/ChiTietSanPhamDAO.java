@@ -20,13 +20,11 @@ public class ChiTietSanPhamDAO implements IDAOService<ChiTietSanPham, Integer> {
     @Override
     public void insert(ChiTietSanPham entity) {
         XJdbc.update(INSERT_SQL,entity.getIdSanPham(),entity.getMaSP(),entity.getIdKichCo(),entity.getIdMauSac(),entity.getIdDonViTinh(),entity.getIdChatLieu(),entity.getIdGioiTinh(),entity.getMoTa(),entity.getGiaTien(),entity.getTenCT(),entity.getSoLuong(),entity.getTrangThai());
-        
     }
 
     @Override
     public void update(ChiTietSanPham entity) {
        XJdbc.update(UPDATE_SQL,entity.getIdSanPham(),entity.getMaSP(),entity.getIdKichCo(),entity.getIdMauSac(),entity.getIdDonViTinh(),entity.getIdChatLieu(),entity.getIdGioiTinh(),entity.getMoTa(),entity.getGiaTien(),entity.getTenCT(),entity.getSoLuong(),entity.getTrangThai(),entity.getIdChiTietSP());
-
     }
 
     @Override

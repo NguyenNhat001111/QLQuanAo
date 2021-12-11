@@ -23,7 +23,7 @@ import javax.swing.table.TableRowSorter;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class PFrmQLSanPham extends javax.swing.JPanel {
-
+    
     ChiTietSanPhamDAO chitietspDao = new ChiTietSanPhamDAO();
     SanPhamDAO spDao = new SanPhamDAO();
     ThuocTinhDAO ttDao = new ThuocTinhDAO();
@@ -31,14 +31,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
     ArrayList<ChiTietSanPham> listChiTiet = new ArrayList<>();
     DefaultTableModel model;
     TableRowSorter<DefaultTableModel> ts;
-
+    
     public PFrmQLSanPham() {
         initComponents();
-
+        
         model = (DefaultTableModel) tblDanhSach.getModel();
         init();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -598,14 +598,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void btnThemCboDonViActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboDonViActionPerformed
         String donVi = cboDonViTinh.getSelectedItem().toString();
-
+        
         if (checkValidateCombo(cboDonViTinh)) {
             return;
         }
         if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm " + donVi + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into DonViTinh(DonViTinh) values(?)", donVi);
         fillComboDonVi();
         cboDonViTinh.setSelectedIndex(cboDonViTinh.getItemCount() - 1);
@@ -613,14 +613,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void btnThemCboDanhMucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboDanhMucActionPerformed
         String danhMuc = cboDanhMuc.getSelectedItem().toString();
-
+        
         if (checkValidateCombo(cboDanhMuc)) {
             return;
         }
         if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm " + danhMuc + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into DanhMucSP(TenDanhMuc) values(?)", danhMuc);
         fillComboDanhMuc();
         cboDanhMuc.setSelectedIndex(cboDanhMuc.getItemCount() - 1);
@@ -628,14 +628,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void btnThemCboNSXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboNSXActionPerformed
         String nhaSX = cboNhaSX.getSelectedItem().toString();
-
+        
         if (checkValidateCombo(cboNhaSX)) {
             return;
         }
         if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm " + nhaSX + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into NhaSanXuat(TenNhaSX) values(?)", nhaSX);
         fillComboNSX();
         cboNhaSX.setSelectedIndex(cboNhaSX.getItemCount() - 1);
@@ -643,14 +643,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void btnThemCboMauSacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboMauSacActionPerformed
         String mauSac = cboMauSac.getSelectedItem().toString();
-
+        
         if (checkValidateCombo(cboMauSac)) {
             return;
         }
         if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm " + mauSac + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into MauSac(MauSac) values(?)", mauSac);
         fillComboMauSac();
         cboMauSac.setSelectedIndex(cboMauSac.getItemCount() - 1);
@@ -658,14 +658,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void btnThemCboKichCoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboKichCoActionPerformed
         String kichCo = cboKichCo.getSelectedItem().toString();
-
+        
         if (checkValidateCombo(cboKichCo)) {
             return;
         }
         if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm " + kichCo + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into KichCoSP(KichCo) values(?)", kichCo);
         fillComboKichCo();
         cboKichCo.setSelectedIndex(cboKichCo.getItemCount() - 1);
@@ -673,14 +673,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void btnThemCboChatLieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboChatLieuActionPerformed
         String chatLieu = cboChatLieu.getSelectedItem().toString();
-
+        
         if (checkValidateCombo(cboChatLieu)) {
             return;
         }
         if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm " + chatLieu + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into ChatLieu(ChatLieuSP) values(?)", chatLieu);
         fillComboChatLieu();
         cboChatLieu.setSelectedIndex(cboChatLieu.getItemCount() - 1);
@@ -693,7 +693,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         int idNSX = nsx.getIdNhaSanXuat();
         String tenSP = cboTenSP.getSelectedItem().toString();
         int trangThai = cboTrangThai.getSelectedIndex() + 1;
-
+        
         if (checkValidateCombo(cboTenSP)) {
             return;
         }
@@ -702,7 +702,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
                 + "\nvà có Nhà SX là " + cboNhaSX.getSelectedItem().toString() + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into SanPham(IDDanhMuc, IDNhaSanXuat, TenSanPham, TrangThai)\n"
                 + "values(?, ?, ?, ?)", idDM, idNSX, tenSP, trangThai);
         fillcomboTenSP();
@@ -711,14 +711,14 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
 
     private void btnThemCboGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemCboGioiTinhActionPerformed
         String gioiTinh = cboGioiTinh.getSelectedItem().toString();
-
+        
         if (checkValidateCombo(cboGioiTinh)) {
             return;
         }
         if (!helper.MsgBox.confirm(null, "Bạn có muốn thêm " + gioiTinh + " vào hệ thống?")) {
             return;
         }
-
+        
         XJdbc.update("insert into GioiTinh(GioiTinh) values(?)", gioiTinh);
         fillComboGioiTinh();
         cboGioiTinh.setSelectedIndex(cboGioiTinh.getItemCount() - 1);
@@ -818,7 +818,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         fillComboGioiTinh();
         setTenCT();
     }
-
+    
     private void fillTable() {
         model.setRowCount(0);
         try {
@@ -850,7 +850,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             helper.MsgBox.alert(null, "Lỗi table");
         }
     }
-
+    
     void setForm() {
         String maSp = tblDanhSach.getValueAt(row, 0).toString();
         txtMaSp.setText(maSp);
@@ -881,7 +881,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
             helper.MsgBox.alert(this, "Lỗi set form");
         }
     }
-
+    
     private void fillcomboTenSP() {
         AutoCompleteDecorator.decorate(cboTenSP);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboTenSP.getModel();
@@ -897,7 +897,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboTenSP.setSelectedIndex(0);
     }
-
+    
     private void fillComboDanhMuc() {
         AutoCompleteDecorator.decorate(cboDanhMuc);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboDanhMuc.getModel();
@@ -913,7 +913,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboDanhMuc.setSelectedIndex(0);
     }
-
+    
     private void fillComboNSX() {
         AutoCompleteDecorator.decorate(cboNhaSX);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboNhaSX.getModel();
@@ -929,7 +929,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboNhaSX.setSelectedIndex(0);
     }
-
+    
     private void fillComboKichCo() {
         AutoCompleteDecorator.decorate(cboKichCo);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboKichCo.getModel();
@@ -945,7 +945,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboKichCo.setSelectedIndex(0);
     }
-
+    
     private void fillComboMauSac() {
         AutoCompleteDecorator.decorate(cboMauSac);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboMauSac.getModel();
@@ -961,7 +961,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboMauSac.setSelectedIndex(0);
     }
-
+    
     private void fillComboChatLieu() {
         AutoCompleteDecorator.decorate(cboChatLieu);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboChatLieu.getModel();
@@ -977,7 +977,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboChatLieu.setSelectedIndex(0);
     }
-
+    
     private void fillComboDonVi() {
         AutoCompleteDecorator.decorate(cboDonViTinh);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboDonViTinh.getModel();
@@ -993,7 +993,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboDonViTinh.setSelectedIndex(0);
     }
-
+    
     private void fillComboGioiTinh() {
         AutoCompleteDecorator.decorate(cboGioiTinh);
         DefaultComboBoxModel modelCombo = (DefaultComboBoxModel) cboGioiTinh.getModel();
@@ -1009,7 +1009,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         cboGioiTinh.setSelectedIndex(0);
     }
-
+    
     private boolean checkValidateCombo(JComboBox cbo) {
         String temp = cbo.getSelectedItem().toString();
         int size = cbo.getItemCount();
@@ -1025,7 +1025,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         return false;
     }
-
+    
     private void clearForm() {
         txtGiaTien.setText("");
         txtMaSp.setText("Mã sản phẩm tự sinh");
@@ -1033,7 +1033,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         txtSoLuong.setText("");
         txtTenCT.setText("");
     }
-
+    
     private boolean validateSP() {
         if (txtTenCT.getText().equalsIgnoreCase("")) {
             helper.MsgBox.alert(null, "Xin mời nhập tên chi tiết cho sản phẩm");
@@ -1083,7 +1083,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         }
         return false;
     }
-
+    
     public ChiTietSanPham getForm() {
         SanPham sp = (SanPham) cboTenSP.getSelectedItem();
         ChatLieu cl = (ChatLieu) cboChatLieu.getSelectedItem();
@@ -1091,7 +1091,7 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         GioiTinh gt = (GioiTinh) cboGioiTinh.getSelectedItem();
         KichCo kc = (KichCo) cboKichCo.getSelectedItem();
         MauSac ms = (MauSac) cboMauSac.getSelectedItem();
-
+        
         ChiTietSanPham ct = new ChiTietSanPham();
         ct.setMaSP("SP" + (tblDanhSach.getRowCount() + 5));
         ct.setIdChatLieu(cl.getIdChatLieu());
@@ -1108,25 +1108,68 @@ public class PFrmQLSanPham extends javax.swing.JPanel {
         ct.setGiaTien(Float.valueOf(txtGiaTien.getText()));
         return ct;
     }
-
+    
+    public ChiTietSanPham getFormSua() {
+        SanPham sp = (SanPham) cboTenSP.getSelectedItem();
+        ChatLieu cl = (ChatLieu) cboChatLieu.getSelectedItem();
+        DonViTinh dv = (DonViTinh) cboDonViTinh.getSelectedItem();
+        GioiTinh gt = (GioiTinh) cboGioiTinh.getSelectedItem();
+        KichCo kc = (KichCo) cboKichCo.getSelectedItem();
+        MauSac ms = (MauSac) cboMauSac.getSelectedItem();
+        
+        ChiTietSanPham ct = new ChiTietSanPham();
+        ct.setMaSP(txtMaSp.getText());
+        ct.setIdChatLieu(cl.getIdChatLieu());
+        ct.setIdDonViTinh(dv.getIdDonViTinh());
+        ct.setIdGioiTinh(gt.getIdGioiTinh());
+        ct.setIdKichCo(kc.getIdKichCo());
+        ct.setIdMauSac(ms.getIdMauSac());
+        ct.setIdSanPham(sp.getIdSanPham());
+        ct.setMoTa(txtMoTa.getText());
+        ct.setSoLuong(Integer.valueOf(txtSoLuong.getText()));
+        ct.setTenCT(txtTenCT.getText());
+        ct.setTrangThai(cboTrangThai.getSelectedIndex() + 1);
+        ct.setIdChiTietSP(row < 0 ? 0 : row);
+        ct.setGiaTien(Float.valueOf(txtGiaTien.getText()));
+        return ct;
+    }
+    
     private void themSP() {
-        ChiTietSanPham sp = getForm();
-        chitietspDao.insert(sp);
-        fillTable();
-        helper.MsgBox.alert(null, "Thêm sản phẩm thành công");
+        try {
+            ChiTietSanPham sp = getForm();
+            chitietspDao.insert(sp);
+            fillTable();
+            helper.MsgBox.alert(null, "Thêm sản phẩm thành công");
+        } catch (Exception e) {
+            helper.MsgBox.alert(null, "Lỗi thêm, xin liên hệ với nhà phát triển");
+            e.printStackTrace();
+        }
     }
-
+    
     private void suaSP() {
-        ChiTietSanPham sp = getForm();
-        chitietspDao.update(sp);
-        fillTable();
-        helper.MsgBox.alert(null, "Sửa sản phẩm thành công");
+        try {
+            ChiTietSanPham sp = getFormSua();
+            int updatedRow = XJdbc.update("update ChiTietSanPham set IDSanPham=?, IDKichCo=?, IDMauSac=?,\n"
+                    + "IDDonViTinh=?, IDChatLieu=?, IDGioiTinh=?, MoTa=?, GiaTien=?,\n"
+                    + "TenChiTiet=?, Soluong=?, TrangThai=? where MaSanPham=?", sp.getIdSanPham(), sp.getIdKichCo(),
+                    sp.getIdMauSac(), sp.getIdDonViTinh(), sp.getIdChatLieu(), sp.getIdGioiTinh(), sp.getMoTa(),
+                    sp.getGiaTien(), sp.getTenCT(), sp.getSoLuong(), sp.getTrangThai(), sp.getMaSP());
+            if (updatedRow > 0) {
+                fillTable();
+                helper.MsgBox.alert(null, "Sửa sản phẩm thành công");
+            } else {
+                helper.MsgBox.alert(null, "Sửa sản phẩm không thành công");
+            }
+        } catch (Exception e) {
+            helper.MsgBox.alert(null, "Lỗi sửa, xin liên hệ với nhà phát triển");
+            e.printStackTrace();
+        }
     }
-
+    
     private void setTenCT() {
         txtTenCT.setText(cboTenSP.getSelectedItem().toString() + " " + cboGioiTinh.getSelectedItem().toString() + " " + cboMauSac.getSelectedItem().toString());
     }
-
+    
     private void filterTable(String tk) {
         ts = new TableRowSorter<>(model);
         tblDanhSach.setRowSorter(ts);
